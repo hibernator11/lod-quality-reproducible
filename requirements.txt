@@ -1,0 +1,9 @@
+PyShEx==0.8.1
+shexer==2.0.1
+rdflib==6.2.0
+ipython==8.15.0
+numpy==1.26.2
+ipywidgets==8.0.4
+matplotlib==3.8.0
+SPARQLWrapper==2.0.0
+ipyspin==1.0.1
