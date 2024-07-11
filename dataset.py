@@ -104,10 +104,11 @@ class Dataset():
         }}""".format(self.getEndpoint(), dimension)
         
         qres = self.graph.query(query)
-        result = ''
+        dimensionResult = []
        
         start = time.time()
 
+        sparqlResult = ''
         for row in qres:
             textQuery = str(row.query)
             label = str(row.description)
@@ -117,16 +118,17 @@ class Dataset():
                 ret = self.sparqlEndpoint.queryAndConvert()
                
                 if ret:
-                    result = 'ok'
+                    sparqlResult = 'ok'
                 else:
-                    result = "error"
+                    sparqlResult = "error"
         
             except Exception as e:
                 print(e)
 
-        end = time.time()        
-        result = result + " - " + str(end - start) + " - " + label
-        return result
+        end = time.time()  
+        
+        dimensionResult.append([sparqlResult,str(round(end - start,2)), label])
+        return dimensionResult
  
     def runMetrics(self):
         self.sparqlEndpoint.setReturnFormat(JSON)
