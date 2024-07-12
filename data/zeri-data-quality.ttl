@@ -37,7 +37,8 @@
     dqv:hasQualityMeasurement :myZeriMeasurementInterlinking ;
     dqv:hasQualityMeasurement :myZeriMeasurementSecurity ; 
     dqv:hasQualityMeasurement :myZeriMeasurementPerformance ;
-    dqv:hasQualityMeasurement :myZeriMeasurementSyntactic
+    dqv:hasQualityMeasurement :myZeriMeasurementSyntactic ;
+    dqv:hasQualityMeasurement :myZeriMeasurementConciseness
     .
     
 :org_ZERI a foaf:Organization;
@@ -141,6 +142,22 @@
     schema:description "It checks the degree to which an RDF document conforms to the specification of the serialisation format" 
     .            
 
+:myZeriMeasurementConciseness 
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myZeriDataset ;
+    dqv:isMeasurementOf :concisenessMetric ;
+    dqv:value "1"^^xsd:decimal 
+    .
+
+:concisenessMetric
+    a dqv:Metric ;
+    skos:definition "It refers to the minimisation of redundancy of entities at the schema"@en ;
+    dqv:inDimension ldqd:conciseness ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?o ?type (COUNT(?s) AS ?total) WHERE {{?s a ?type . ?s owl:sameAs ?o }} GROUP BY ?o ?type HAVING(COUNT(?s)>1) LIMIT {0}" ;
+    schema:description "It refers to the minimisation of redundancy of entities at the schema"
+
+    .        
 
 ###############################
 

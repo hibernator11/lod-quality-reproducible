@@ -14,6 +14,7 @@ class Dataset():
         self.sparqlEndpoint.setReturnFormat(JSON)
         self.performance = "Performance"
         self.syntactic = "Syntactic validity"
+        self.conciseness = "Conciseness"
         self.performancelimit = 100
         self.syntacticlimit = 100
 
@@ -109,7 +110,11 @@ class Dataset():
                     sparqlResult = "error"
                     for r in ret["results"]["bindings"]:
                         #authors.append(r['name']['value'] + ' - ' + r['author']['value'])
-                        sparqlResult = 'ok'
+                        # some criteria works inside out
+                        if criterion == self.conciseness:
+                            sparqlResult = 'error'
+                        else: 
+                            sparqlResult = 'ok'
                     
                     end = time.time()  
                     jsonResult.append({"query": assessmentQuery,"label": label, 
