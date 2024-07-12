@@ -9,6 +9,7 @@
 @prefix wdt: <http://www.wikidata.org/prop/direct/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix : <http://www.example.org/#> .
 
 :myZeriDataset a void:Dataset;
@@ -75,6 +76,22 @@
     dqv:isMeasurementOf :licensingMetric ;
     dqv:value "1"^^xsd:decimal 
     .
+    
+:myZeriMeasurementInterlinking 
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myZeriDataset ;
+    dqv:isMeasurementOf :interlinkingMetric ;
+    dqv:value "1"^^xsd:decimal 
+    .
+
+:interlinkingMetric
+    a dqv:Metric ;
+    skos:definition "It checks the extent to which resources in a repository are linked to external datasets"@en ;
+    dqv:inDimension ldqd:interlinking ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT * WHERE {{?s owl:sameAs ?o}} LIMIT {0}" ;
+    schema:description "It checks the extent to which resources in a repository are linked to external datasets" 
+    .    
 
 ###############################
 
@@ -115,7 +132,7 @@ ldqd:licensing
 ldqd:interlinking
 	a dqv:Dimension ; 
 	dqv:inCategory ldqd:accessibilityDimensions ;
-	skos:prefLabel "Consistency"@en ;
+	skos:prefLabel "Interlinking"@en ;
 	skos:definition "Interlinking refers to the degree to which entities that represent the same concept are linked to each other, be it within or between two or more data sources."@en
 	.
 
@@ -277,19 +294,7 @@ ldqd:interpretability skos:related ldqd:versatility .
     dqv:value "0.99"^^xsd:decimal 
     .
 
-:myZeriMeasurementInterlinking 
-    a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
-    dqv:isMeasurementOf :InterlinkingMetric ;
-    dqv:value "0.99"^^xsd:decimal 
-    .
 
-:InterlinkingMetric
-    a dqv:Metric ;
-    skos:definition "It checks the extent to which resources in a repository are linked to external datasets."@en ;
-    dqv:inDimension ldqd:interlinking ;
-    dqv:expectedDataType xsd:decimal
-    .
     
 :SytancticMetric
     a dqv:Metric ;

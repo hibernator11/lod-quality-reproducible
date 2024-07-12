@@ -136,31 +136,6 @@ class Dataset():
 
         return jsonResult
  
-    def runMetrics(self):
-        self.sparqlEndpoint.setReturnFormat(JSON)
-        
-        for m in self.getMetrics():
-            print('viene')
-            textQuery = m[0]
-            self.sparqlEndpoint.setQuery(textQuery.format(self.limit))
-            print('xx',textQuery.format(self.limit))
-        
-            result = ''
-            try:
-                ret = self.sparqlEndpoint.queryAndConvert()
-                
-                if ret:
-                    result = 'ok'
-                else:
-                    result = "not"
-        
-                #for r in ret["results"]["bindings"]:
-                #    authors.append(r['name']['value'] + ' - ' + r['author']['value'])
-               
-            except Exception as e:
-                print(e)
-
-        return result
  
 if __name__ == '__main__' :
     file = "data/zeri-data-quality.ttl"
@@ -169,5 +144,4 @@ if __name__ == '__main__' :
     print(endpoint)
     print(d.getMetrics())
     print(d.getDimensions())
-    print(d.runMetrics())
-    print(d.runDimension('Availability'))
+    print(d.runDimension('Interlinking'))
