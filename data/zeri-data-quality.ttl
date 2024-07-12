@@ -10,6 +10,7 @@
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix : <http://www.example.org/#> .
 
 :myZeriDataset a void:Dataset;
@@ -33,10 +34,12 @@
     void:exampleResource <https://w3id.org/zericatalog/person/10174/valentin-de-boulogne>;
     dqv:hasQualityMeasurement :myZeriMeasurementAvailability ;
     dqv:hasQualityMeasurement :myZeriMeasurementLicensing ;
-    dqv:hasQualityMeasurement :myZeriMeasurementConsistency ;
     dqv:hasQualityMeasurement :myZeriMeasurementInterlinking ;
+    dqv:hasQualityMeasurement :myZeriMeasurementSecurity ; 
+    ###
     dqv:hasQualityMeasurement :myZeriMeasurementSyntactic ;
     dqv:hasQualityMeasurement :myZeriMeasurementLanguages ;
+    dqv:hasQualityMeasurement :myZeriMeasurementConsistency ;
     dqv:hasQualityMeasurement :myZeriMeasurementURIs 
     .
     
@@ -92,6 +95,22 @@
     schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT * WHERE {{?s owl:sameAs ?o}} LIMIT {0}" ;
     schema:description "It checks the extent to which resources in a repository are linked to external datasets" 
     .    
+    
+:myZeriMeasurementSecurity 
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myZeriDataset ;
+    dqv:isMeasurementOf :securityMetric ;
+    dqv:value "1"^^xsd:decimal 
+    .
+
+:securityMetric
+    a dqv:Metric ;
+    skos:definition "It checks the extent to which data is protected against alteration and misuse"@en ;
+    dqv:inDimension ldqd:security ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX prov: <http://www.w3.org/ns/prov#> SELECT * WHERE {{{{?s prov:wasGeneratedBy ?o}} UNION {{?s a prov:Agent}}}} LIMIT {0}" ;
+    schema:description "It checks the extent to which data is protected against alteration and misuse" 
+    .        
 
 ###############################
 
