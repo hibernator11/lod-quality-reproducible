@@ -27,38 +27,7 @@ class Dataset():
 
         return endpoints[0]
     
-    def getMetrics(self):
-        query = """
-        prefix dcterms: <http://purl.org/dc/terms/> 
-        prefix skos: <http://www.w3.org/2004/02/skos/core#> 
-        prefix schema: <https://schema.org/> 
-        prefix wdt: <http://www.wikidata.org/prop/direct/> 
-        prefix dqv: <http://www.w3.org/ns/dqv#> 
-        
-        SELECT DISTINCT ?query ?description ?dimensionLabel
-        WHERE {{
-            ?s void:sparqlEndpoint <{0}> .
-            ?s dqv:hasQualityMeasurement ?qualityMeasurement .
-            ?qualityMeasurement dqv:isMeasurementOf ?metric .
-            ?metric schema:description ?description .
-            ?metric schema:query ?query .
-            ?metric dqv:inDimension ?dimension .
-            ?dimension skos:prefLabel ?dimensionLabel
-        }}""".format(self.getEndpoint())
-
-        qres = self.graph.query(query)
-
-        metrics = []
-        for row in qres:
-            
-            query = str(row.query)
-            description = str(row.description)
-            dimension = str(row.dimensionLabel)
-            metrics.append([query, description, dimension])
-
-        return metrics
-    
-    def getDimensions(self):
+    def getCriteria(self):
         
         query = """
         prefix dcterms: <http://purl.org/dc/terms/> 
@@ -78,14 +47,14 @@ class Dataset():
 
         qres = self.graph.query(query)
 
-        dimensions = []
+        criteria = []
         for row in qres:
-            dimension = str(row.dimensionLabel)
-            dimensions.append(dimension)
+            criterion = str(row.dimensionLabel)
+            criteria.append(criterion)
 
-        return dimensions
+        return criteria
     
-    def runDimension(self, dimension):
+    def runCriterion(self, criterion):
         jsonResult = []
         
         query = """
@@ -104,7 +73,7 @@ class Dataset():
             ?metric schema:query ?query .
             ?metric dqv:inDimension ?dimension .
             ?dimension skos:prefLabel "{1}"@en
-        }}""".format(self.getEndpoint(), dimension)
+        }}""".format(self.getEndpoint(), criterion)
         
         qres = self.graph.query(query)
        
@@ -142,6 +111,5 @@ if __name__ == '__main__' :
     d = Dataset(file)
     endpoint = d.getEndpoint()
     print(endpoint)
-    print(d.getMetrics())
-    print(d.getDimensions())
-    print(d.runDimension('Interlinking'))
+    print(d.getCriteria())
+    print(d.runCriterion('Interlinking'))
