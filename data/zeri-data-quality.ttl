@@ -36,11 +36,7 @@
     dqv:hasQualityMeasurement :myZeriMeasurementLicensing ;
     dqv:hasQualityMeasurement :myZeriMeasurementInterlinking ;
     dqv:hasQualityMeasurement :myZeriMeasurementSecurity ; 
-    ###
-    dqv:hasQualityMeasurement :myZeriMeasurementSyntactic ;
-    dqv:hasQualityMeasurement :myZeriMeasurementLanguages ;
-    dqv:hasQualityMeasurement :myZeriMeasurementConsistency ;
-    dqv:hasQualityMeasurement :myZeriMeasurementURIs 
+    dqv:hasQualityMeasurement :myZeriMeasurementPerformance 
     .
     
 :org_ZERI a foaf:Organization;
@@ -111,6 +107,22 @@
     schema:query "PREFIX prov: <http://www.w3.org/ns/prov#> SELECT * WHERE {{{{?s prov:wasGeneratedBy ?o}} UNION {{?s a prov:Agent}}}} LIMIT {0}" ;
     schema:description "It checks the extent to which data is protected against alteration and misuse" 
     .        
+    
+:myZeriMeasurementPerformance 
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myZeriDataset ;
+    dqv:isMeasurementOf :performanceMetric ;
+    dqv:value "1"^^xsd:decimal 
+    .
+
+:performanceMetric
+    a dqv:Metric ;
+    skos:definition "It checks whether the time to answer ten requests divided by ten is not longer than the time it takes to answer one request"@en ;
+    dqv:inDimension ldqd:performance ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "SELECT * WHERE {{?s ?p ?o}} LIMIT {0}" ;
+    schema:description "It checks whether the time to answer ten requests divided by ten is not longer than the time it takes to answer one request" 
+    .            
 
 ###############################
 
@@ -290,69 +302,4 @@ ldqd:conciseness skos:related ldqd:completeness ,
 
 ldqd:interpretability skos:related ldqd:versatility .
 
-
-
-
-#######################
-
-
-
-
-
-:ShExConsistencyMetric
-    a dqv:Metric ;
-    skos:definition "It checks the ratio of conformant resources according to a Shape Expression schema."@en ;
-    dqv:inDimension ldqd:consistency ;
-    dqv:expectedDataType xsd:decimal
-    .
-
-:myZeriMeasurementConsistency 
-    a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
-    dqv:isMeasurementOf :ShExConsistencyMetric ;
-    dqv:value "0.99"^^xsd:decimal 
-    .
-
-
-    
-:SytancticMetric
-    a dqv:Metric ;
-    skos:definition "It assesses the syntactic validity of RDF documents."@en ;
-    dqv:inDimension ldqd:syntacticValidity ;
-    dqv:expectedDataType xsd:decimal
-    .
-
-:myZeriMeasurementSyntactic 
-    a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
-    dqv:isMeasurementOf :SytancticMetric ;
-    dqv:value "1"^^xsd:decimal 
-    .
-    
-:LanguagesMetric
-    a dqv:Metric ;
-    skos:definition "It checks if the metadata include labels in multiple languages."@en ;
-    dqv:inDimension ldqd:understandability ;
-    dqv:expectedDataType xsd:decimal
-    .
-
-:myZeriMeasurementLanguages 
-    a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
-    dqv:isMeasurementOf :LanguagesMetric ;
-    dqv:value "0"^^xsd:decimal 
-    .
-    
-:URIsMetric
-    a dqv:Metric ;
-    skos:definition "It checks the use of self-describing URIs instead of identifiers"@en ;
-    dqv:inDimension ldqd:understandability ;
-    dqv:expectedDataType xsd:decimal
-    .
-
-:myZeriMeasurementURIs 
-    a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
-    dqv:isMeasurementOf :URIsMetric ;
-    dqv:value "1"^^xsd:decimal 
-    .    
+ 

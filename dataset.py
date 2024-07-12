@@ -7,10 +7,13 @@ class Dataset():
     def __init__(self, file):
         self.graph = rdflib.Graph()
         self.limit = 10
+        
         #self.graph.parse("data/zeri-data-quality.ttl")
         self.graph.parse(file)
         self.sparqlEndpoint = SPARQLWrapper(self.getEndpoint())
         self.sparqlEndpoint.setReturnFormat(JSON)
+        self.performance = "Performance"
+        self.performancelimit = 100
 
     def getEndpoint(self):
         query = """
@@ -58,13 +61,14 @@ class Dataset():
         jsonResult = []
         
         query = """
-        prefix dcterms: <http://purl.org/dc/terms/> 
-        prefix skos: <http://www.w3.org/2004/02/skos/core#> 
-        prefix schema: <https://schema.org/> 
-        prefix wdt: <http://www.wikidata.org/prop/direct/> 
-        prefix dqv: <http://www.w3.org/ns/dqv#> 
+        PREFIX dcterms: <http://purl.org/dc/terms/> 
+        PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
+        PREFIX schema: <https://schema.org/> 
+        PREFIX wdt: <http://www.wikidata.org/prop/direct/> 
+        PREFIX dqv: <http://www.w3.org/ns/dqv#> 
+        PREFIX ldqd: <https://www.w3.org/2016/05/ldqd#>
         
-        SELECT DISTINCT ?query ?description ?description
+        SELECT DISTINCT ?query ?description
         WHERE {{
             ?s void:sparqlEndpoint <{0}> .
             ?s dqv:hasQualityMeasurement ?qualityMeasurement .
@@ -80,30 +84,66 @@ class Dataset():
         sparqlResult = ''
         for row in qres:
             
-            assessmentQuery = str(row.query).format(self.limit)
             label = str(row.description)
-            self.sparqlEndpoint.setQuery(assessmentQuery)
             
-            try:
-                start = time.time()
-                ret = self.sparqlEndpoint.queryAndConvert()
-                #print(ret)
+            if criterion == self.performance:
+                assessmentQuery = str(row.query).format(self.performancelimit)
+                performance = self.assessPerformance(assessmentQuery)
                 
-                sparqlResult = "error"
-                for r in ret["results"]["bindings"]:
-                    #authors.append(r['name']['value'] + ' - ' + r['author']['value'])
-                    sparqlResult = 'ok'
-                
-                end = time.time()  
                 jsonResult.append({"query": assessmentQuery,"label": label, 
-                                   "time": str(round(end - start,2)),
-                                   "sparqlResult":sparqlResult,
-                                   "sparqlResultRaw":str(ret)})
-        
-            except Exception as e:
-                print(e)
+                                   "time": performance["time"],
+                                   "sparqlResult": performance["result"],
+                                   "sparqlResultRaw":"-"})
+            else:
+                assessmentQuery = str(row.query).format(self.limit)
+                self.sparqlEndpoint.setQuery(assessmentQuery)
+                
+                try:
+                    start = time.time()
+                    ret = self.sparqlEndpoint.queryAndConvert()
+                    #print(ret)
+                    
+                    sparqlResult = "error"
+                    for r in ret["results"]["bindings"]:
+                        #authors.append(r['name']['value'] + ' - ' + r['author']['value'])
+                        sparqlResult = 'ok'
+                    
+                    end = time.time()  
+                    jsonResult.append({"query": assessmentQuery,"label": label, 
+                                       "time": str(round(end - start,2)),
+                                       "sparqlResult":sparqlResult,
+                                       "sparqlResultRaw":str(ret)})
+            
+                except Exception as e:
+                    print(e)
 
         return jsonResult
+    
+    def assessPerformance(self, assessmentQuery):
+        jsonResult = ''
+        
+        try:
+            self.sparqlEndpoint.setQuery(assessmentQuery)
+            
+            total = 0
+            one = 0
+            for x in range(0, 10):
+            
+                start = time.time()
+                ret = self.sparqlEndpoint.queryAndConvert()
+                
+                end = time.time()
+                one = (end - start)
+                total = total + one
+            
+            #print(total/10 <= one)
+            jsonResult = {"time": str(round(total/10, 2)) + " (total/10) - " + str(round(one,2)), 
+                               "result": str(total/10 <= one)}
+        except Exception as e:
+            print(e)
+        
+        return jsonResult
+        
  
  
 if __name__ == '__main__' :
@@ -112,4 +152,4 @@ if __name__ == '__main__' :
     endpoint = d.getEndpoint()
     print(endpoint)
     print(d.getCriteria())
-    print(d.runCriterion('Interlinking'))
+    d.runCriterion('Performance')
