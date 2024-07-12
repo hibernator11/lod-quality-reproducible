@@ -13,7 +13,9 @@ class Dataset():
         self.sparqlEndpoint = SPARQLWrapper(self.getEndpoint())
         self.sparqlEndpoint.setReturnFormat(JSON)
         self.performance = "Performance"
+        self.syntactic = "Syntactic validity"
         self.performancelimit = 100
+        self.syntacticlimit = 100
 
     def getEndpoint(self):
         query = """
@@ -94,6 +96,7 @@ class Dataset():
                                    "time": performance["time"],
                                    "sparqlResult": performance["result"],
                                    "sparqlResultRaw":"-"})
+            
             else:
                 assessmentQuery = str(row.query).format(self.limit)
                 self.sparqlEndpoint.setQuery(assessmentQuery)

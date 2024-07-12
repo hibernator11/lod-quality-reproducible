@@ -36,7 +36,8 @@
     dqv:hasQualityMeasurement :myZeriMeasurementLicensing ;
     dqv:hasQualityMeasurement :myZeriMeasurementInterlinking ;
     dqv:hasQualityMeasurement :myZeriMeasurementSecurity ; 
-    dqv:hasQualityMeasurement :myZeriMeasurementPerformance 
+    dqv:hasQualityMeasurement :myZeriMeasurementPerformance ;
+    dqv:hasQualityMeasurement :myZeriMeasurementSyntactic
     .
     
 :org_ZERI a foaf:Organization;
@@ -123,6 +124,23 @@
     schema:query "SELECT * WHERE {{?s ?p ?o}} LIMIT {0}" ;
     schema:description "It checks whether the time to answer ten requests divided by ten is not longer than the time it takes to answer one request" 
     .            
+
+:myZeriMeasurementSyntactic 
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myZeriDataset ;
+    dqv:isMeasurementOf :syntacticMetric ;
+    dqv:value "1"^^xsd:decimal 
+    .
+
+:syntacticMetric
+    a dqv:Metric ;
+    skos:definition "It checks the degree to which an RDF document conforms to the specification of the serialisation format"@en ;
+    dqv:inDimension ldqd:syntacticValidity ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/> SELECT ?subject WHERE {{?subject rdf:type cidoc:E21_Person}} LIMIT {0}" ;
+    schema:description "It checks the degree to which an RDF document conforms to the specification of the serialisation format" 
+    .            
+
 
 ###############################
 
