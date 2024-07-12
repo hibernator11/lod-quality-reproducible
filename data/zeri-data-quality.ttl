@@ -31,6 +31,7 @@
     void:exampleResource <https://w3id.org/zericatalog/person/1017/barisini-tommaso>;
     void:exampleResource <https://w3id.org/zericatalog/person/10174/valentin-de-boulogne>;
     dqv:hasQualityMeasurement :myZeriMeasurementAvailability ;
+    dqv:hasQualityMeasurement :myZeriMeasurementLicensing ;
     dqv:hasQualityMeasurement :myZeriMeasurementConsistency ;
     dqv:hasQualityMeasurement :myZeriMeasurementInterlinking ;
     dqv:hasQualityMeasurement :myZeriMeasurementSyntactic ;
@@ -43,7 +44,7 @@
     foaf:homepage <https://fondazionezeri.unibo.it/it> ;
     .
 
-:ShExAvailabilityMetric
+:availabilityMetric
     a dqv:Metric ;
     skos:definition "It checks that the SPARQL endpoint is available"@en ;
     dqv:inDimension ldqd:availability ;
@@ -55,10 +56,25 @@
 :myZeriMeasurementAvailability 
     a dqv:QualityMeasurement ;
     dqv:computedOn :myZeriDataset ;
-    dqv:isMeasurementOf :ShExAvailabilityMetric ;
+    dqv:isMeasurementOf :availabilityMetric ;
     dqv:value "1"^^xsd:decimal 
     .
 
+:licensingMetric
+    a dqv:Metric ;
+    skos:definition "It checks the inclusion of machine-readable metadata concerning the licence"@en ;
+    dqv:inDimension ldqd:licensing ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX dcterms: <http://purl.org/dc/terms/> PREFIX schema: <https://schema.org/> SELECT * WHERE {{{{?s dcterms:license ?o}} UNION {{?s schema:licence ?o}}}} LIMIT {0}" ;
+    schema:description "It checks the inclusion of machine-readable metadata concerning the licence" 
+    .
+
+:myZeriMeasurementLicensing 
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myZeriDataset ;
+    dqv:isMeasurementOf :licensingMetric ;
+    dqv:value "1"^^xsd:decimal 
+    .
 
 ###############################
 

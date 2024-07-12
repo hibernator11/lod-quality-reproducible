@@ -1,6 +1,7 @@
 import rdflib
 from SPARQLWrapper import SPARQLWrapper, JSON, XML
 import time
+import json
 
 class Dataset():
     def __init__(self, file):
@@ -58,6 +59,7 @@ class Dataset():
         return metrics
     
     def getDimensions(self):
+        
         query = """
         prefix dcterms: <http://purl.org/dc/terms/> 
         prefix skos: <http://www.w3.org/2004/02/skos/core#> 
@@ -84,6 +86,7 @@ class Dataset():
         return dimensions
     
     def runDimension(self, dimension):
+        jsonResult = []
         
         query = """
         prefix dcterms: <http://purl.org/dc/terms/> 
@@ -104,31 +107,34 @@ class Dataset():
         }}""".format(self.getEndpoint(), dimension)
         
         qres = self.graph.query(query)
-        dimensionResult = []
        
-        start = time.time()
-
         sparqlResult = ''
         for row in qres:
-            textQuery = str(row.query)
+            
+            assessmentQuery = str(row.query).format(self.limit)
             label = str(row.description)
-            self.sparqlEndpoint.setQuery(textQuery.format(self.limit))
+            self.sparqlEndpoint.setQuery(assessmentQuery)
             
             try:
+                start = time.time()
                 ret = self.sparqlEndpoint.queryAndConvert()
-               
-                if ret:
+                #print(ret)
+                
+                sparqlResult = "error"
+                for r in ret["results"]["bindings"]:
+                    #authors.append(r['name']['value'] + ' - ' + r['author']['value'])
                     sparqlResult = 'ok'
-                else:
-                    sparqlResult = "error"
+                
+                end = time.time()  
+                jsonResult.append({"query": assessmentQuery,"label": label, 
+                                   "time": str(round(end - start,2)),
+                                   "sparqlResult":sparqlResult,
+                                   "sparqlResultRaw":str(ret)})
         
             except Exception as e:
                 print(e)
 
-        end = time.time()  
-        
-        dimensionResult.append([sparqlResult,str(round(end - start,2)), label])
-        return dimensionResult
+        return jsonResult
  
     def runMetrics(self):
         self.sparqlEndpoint.setReturnFormat(JSON)
