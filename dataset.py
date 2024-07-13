@@ -16,7 +16,9 @@ class Dataset():
         self.syntactic = "Syntactic validity"
         self.conciseness = "Conciseness"
         self.understandability_labels = "Understandability-Labels"
-        self.negatives = [self.conciseness, self.understandability_labels]
+        self.RC_URIs_length = "Representational-Conciseness-URIs-Length"
+        self.RC_Containers = "Representational-Conciseness-Containers"
+        self.negatives = [self.conciseness, self.understandability_labels, self.RC_URIs_length, self.RC_Containers]
         self.performancelimit = 100
         self.syntacticlimit = 100
 

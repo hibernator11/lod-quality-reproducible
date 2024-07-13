@@ -1,6 +1,7 @@
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix ldqd: <https://www.w3.org/2016/05/ldqd#> .
@@ -11,6 +12,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix : <http://www.example.org/#> .
 
 :myBneDataset a void:Dataset;
@@ -41,7 +43,10 @@
     dqv:hasQualityMeasurement :myBneMeasurementUnderstandabilityLabels ;
     dqv:hasQualityMeasurement :myBneMeasurementUnderstandabilityVocabularies ;
     dqv:hasQualityMeasurement :myBneMeasurementUnderstandabilityURIPatterns ;
-    dqv:hasQualityMeasurement :myBneMeasurementUnderstandabilityExamples
+    dqv:hasQualityMeasurement :myBneMeasurementUnderstandabilityExamples ;
+    dqv:hasQualityMeasurement :myBneMeasurementTimeliness ;
+    dqv:hasQualityMeasurement :myBneMeasurementRepresentationalConcisenessURIsLength ;
+    dqv:hasQualityMeasurement :myBneMeasurementRepresentationalConcisenessContainers
     .
    
 :myBne_autoridades a void:Dataset;
@@ -274,6 +279,56 @@
     schema:description "It checks the provision of examples of SPARQL queries"
     .   
 
+:myBneMeasurementTimeliness
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBneDataset ;
+    dqv:isMeasurementOf :timelinessMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:timelinessMetric
+    a dqv:Metric ;
+    skos:prefLabel "Timeliness" ;
+    skos:definition "It checks the provision of metadata describing the date of publication"@en ;
+    dqv:inDimension ldqd:understandability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX dcterms: <http://purl.org/dc/terms/> PREFIX dcat: <http://www.w3.org/ns/dcat#> PREFIX schema: <https://schema.org/> SELECT * WHERE {{{{?s a dcat:Dataset . ?s dcterms:modified ?o}} UNION {{?s a schema:Dataset . ?s dcterms:modified ?o}}}} LIMIT {0}" ;
+    schema:description "It checks the provision of metadata describing the date of publication"
+    .   
+
+:myBneMeasurementRepresentationalConcisenessURIsLength
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBneDataset ;
+    dqv:isMeasurementOf :representationalConcisenessURIsLengthMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:representationalConcisenessURIsLengthMetric
+    a dqv:Metric ;
+    skos:prefLabel "Representational-Conciseness-URIs-Length" ;
+    skos:definition "It checks the length of the URIs"@en ;
+    dqv:inDimension ldqd:representationalConciseness ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "SELECT * WHERE {{ ?s ?p ?o . FILTER (!strstarts(str(?s), 'http://localhost')). FILTER (!strstarts(str(?s), 'http://www.openlinksw.com/')). FILTER (strlen(str(?s))>60)}} LIMIT {0}" ;
+    schema:description "It checks the length of the URIs"
+    .   
+
+:myBneMeasurementRepresentationalConcisenessContainers
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBneDataset ;
+    dqv:isMeasurementOf :representationalConcisenessContainersMetric ;
+    dqv:value "1"^^xsd:decimal 
+    .
+
+:representationalConcisenessContainersMetric
+    a dqv:Metric ;
+    skos:prefLabel "Representational-Conciseness-Containers" ;
+    skos:definition "It checks the use of RDF containers"@en ;
+    dqv:inDimension ldqd:representationalConciseness ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT * WHERE {{{{?s a rdf:Bag}} UNION {{?s a rdf:Seq}}}} LIMIT {0}" ;
+    schema:description "It checks the use of RDF containers"
+    .   
 
 ###############################
 
