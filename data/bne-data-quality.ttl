@@ -46,7 +46,8 @@
     dqv:hasQualityMeasurement :myBneMeasurementUnderstandabilityExamples ;
     dqv:hasQualityMeasurement :myBneMeasurementTimeliness ;
     dqv:hasQualityMeasurement :myBneMeasurementRepresentationalConcisenessURIsLength ;
-    dqv:hasQualityMeasurement :myBneMeasurementRepresentationalConcisenessContainers
+    dqv:hasQualityMeasurement :myBneMeasurementRepresentationalConcisenessContainers ;
+    dqv:hasQualityMeasurement :myBneMeasurementInteroperability
     .
    
 :myBne_autoridades a void:Dataset;
@@ -329,6 +330,25 @@
     schema:query "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT * WHERE {{{{?s a rdf:Bag}} UNION {{?s a rdf:Seq}}}} LIMIT {0}" ;
     schema:description "It checks the use of RDF containers"
     .   
+
+:myBneMeasurementInteroperability
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBneDataset ;
+    dqv:isMeasurementOf :interoperabilityMetric ;
+    dqv:value "1"^^xsd:decimal 
+    .
+
+:interoperabilityMetric
+    a dqv:Metric ;
+    skos:prefLabel "Interoperability" ;
+    skos:definition "It checks the use of existing vocabularies to describe the metadata"@en ;
+    dqv:inDimension ldqd:interoperability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX bne: <https://datos.bne.es/def/> SELECT ?p WHERE{{{{ SELECT distinct ?p WHERE {{{{ ?s a bne:C1001.  ?s ?p ?o }}}} LIMIT 100 }} FILTER (strstarts(str(?p), 'http://www.europeana.eu/schemas/edm/') || strstarts(str(?p), 'http://purl.org/dc/terms/') || strstarts(str(?p), 'http://xmlns.com/foaf/0.1/') || strstarts(str(?p), 'https://datos.bne.es/def/')) }} LIMIT {0} " ;
+    schema:description "It checks the use of existing vocabularies to describe the metadata"
+    .       
+    
+    
 
 ###############################
 

@@ -170,7 +170,27 @@
     dqv:expectedDataType xsd:decimal ;
     schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT * WHERE {{?s rdfs:label ?o . FILTER (?o = 'Unknown' || ?o = 'Anonymous' || ?o = 'Unknown value')}} LIMIT {0}" ;
     schema:description "It refers to the degree to which the information is accepted to be correct, true, real and credible"
-    .            
+    .         
+    
+#############################
+
+:myBneMeasurementInteroperability
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBneDataset ;
+    dqv:isMeasurementOf :interoperabilityMetric ;
+    dqv:value "1"^^xsd:decimal 
+    .
+
+:interoperabilityMetric
+    a dqv:Metric ;
+    skos:prefLabel "Interoperability" ;
+    skos:definition "It checks the use of existing vocabularies to describe the metadata"@en ;
+    dqv:inDimension ldqd:interoperability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT ?p WHERE{{{{ SELECT distinct ?p WHERE {{{{ ?s a foaf:Person.  ?s ?p ?o }}}} LIMIT 100 }} FILTER (strstarts(str(?p), 'http://www.europeana.eu/schemas/edm/') || strstarts(str(?p), 'http://purl.org/dc/terms/') || strstarts(str(?p), 'http://xmlns.com/foaf/0.1/')) }} LIMIT {0} " ;
+    schema:description "It checks the use of existing vocabularies to describe the metadata"
+    .   
+   
 
 ###############################
 
