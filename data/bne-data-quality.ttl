@@ -38,7 +38,10 @@
     dqv:hasQualityMeasurement :myBneMeasurementSyntactic ;
     dqv:hasQualityMeasurement :myBneMeasurementConciseness ;
     dqv:hasQualityMeasurement :myBneMeasurementTrustworthiness ;
-    dqv:hasQualityMeasurement :myBneMeasurementUnderstandabilityLabels
+    dqv:hasQualityMeasurement :myBneMeasurementUnderstandabilityLabels ;
+    dqv:hasQualityMeasurement :myBneMeasurementUnderstandabilityVocabularies ;
+    dqv:hasQualityMeasurement :myBneMeasurementUnderstandabilityURIPatterns ;
+    dqv:hasQualityMeasurement :myBneMeasurementUnderstandabilityExamples
     .
    
 :myBne_autoridades a void:Dataset;
@@ -218,7 +221,59 @@
     dqv:expectedDataType xsd:decimal ;
     schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT * WHERE {{ ?s ?p ?o .  FILTER (!strstarts(str(?s), 'http://www.openlinksw.com/')) . FILTER NOT EXISTS {{?s rdfs:label ?label}}}} LIMIT {0}" ;
     schema:description "It detects the use of human-readable labelling of entities"
-    .                
+    .          
+    
+:myBneMeasurementUnderstandabilityVocabularies
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBneDataset ;
+    dqv:isMeasurementOf :understandabilityVocabulariesMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:understandabilityVocabulariesMetric
+    a dqv:Metric ;
+    skos:prefLabel "Understandability-Vocabularies" ;
+    skos:definition "It detects the provision of information of the vocabularies used in the repository"@en ;
+    dqv:inDimension ldqd:understandability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX void: <http://rdfs.org/ns/void#> SELECT * WHERE {{ ?s void:vocabulary ?o }} LIMIT {0}" ;
+    schema:description "It detects the provision of information of the vocabularies used in the repository"
+    .                    
+
+:myBneMeasurementUnderstandabilityURIPatterns
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBneDataset ;
+    dqv:isMeasurementOf :understandabilityURIPatternsMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:understandabilityURIPatternsMetric
+    a dqv:Metric ;
+    skos:prefLabel "Understandability-URI-Patterns" ;
+    skos:definition "It checks the provision of information concerning the URL patterns used"@en ;
+    dqv:inDimension ldqd:understandability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX void: <http://rdfs.org/ns/void#> SELECT * WHERE {{{{?s void:uriRegexPattern ?o}} UNION {{?s a void:uriSpace}}}} LIMIT {0}" ;
+    schema:description "It checks the provision of information concerning the URL patterns used"
+    .                    
+
+:myBneMeasurementUnderstandabilityExamples
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBneDataset ;
+    dqv:isMeasurementOf :understandabilityExamplesMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:understandabilityExamplesMetric
+    a dqv:Metric ;
+    skos:prefLabel "Understandability-Examples" ;
+    skos:definition "It checks the provision of examples of SPARQL queries"@en ;
+    dqv:inDimension ldqd:understandability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX schema: <https://schema.org/> SELECT * WHERE {{?s schema:query ?o}} LIMIT {0}" ;
+    schema:description "It checks the provision of examples of SPARQL queries"
+    .   
+
 
 ###############################
 
