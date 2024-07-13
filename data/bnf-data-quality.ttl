@@ -1,6 +1,7 @@
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix ldqd: <https://www.w3.org/2016/05/ldqd#> .
@@ -11,6 +12,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix : <http://www.example.org/#> .
 
 :myBnfDataset a void:Dataset;
@@ -36,7 +38,21 @@
     dqv:hasQualityMeasurement :myBnfMeasurementPerformance ;
     dqv:hasQualityMeasurement :myBnfMeasurementSyntactic ;
     dqv:hasQualityMeasurement :myBnfMeasurementConciseness ;
-    dqv:hasQualityMeasurement :myBnfMeasurementTrustworthiness
+    dqv:hasQualityMeasurement :myBnfMeasurementTrustworthiness ;
+    dqv:hasQualityMeasurement :myBnfMeasurementUnderstandabilityLabels ;
+    dqv:hasQualityMeasurement :myBnfMeasurementUnderstandabilityVocabularies ;
+    dqv:hasQualityMeasurement :myBnfMeasurementUnderstandabilityURIPatterns ;
+    dqv:hasQualityMeasurement :myBnfMeasurementUnderstandabilityExamples ;
+    dqv:hasQualityMeasurement :myBnfMeasurementTimeliness ;
+    dqv:hasQualityMeasurement :myBnfMeasurementRepresentationalConcisenessURIsLength ;
+    dqv:hasQualityMeasurement :myBnfMeasurementRepresentationalConcisenessContainers ;
+    dqv:hasQualityMeasurement :myBnfMeasurementInteroperability ;
+    dqv:hasQualityMeasurement :myBnfMeasurementInterpretabilityViaf ;
+    dqv:hasQualityMeasurement :myBnfMeasurementInterpretabilityIsni ;
+    dqv:hasQualityMeasurement :myBnfMeasurementInterpretabilityLabels ;
+    dqv:hasQualityMeasurement :myBnfMeasurementVersatilitySerialisation ;
+    dqv:hasQualityMeasurement :myBnfMeasurementVersatilityMultilingual ;
+    dqv:hasQualityMeasurement :myBnfMeasurementRelevancy
     .
     
 :org_Bnf a foaf:Organization;
@@ -172,11 +188,128 @@
     schema:description "It refers to the degree to which the information is accepted to be correct, true, real and credible"
     .         
     
-#############################
-
-:myBneMeasurementInteroperability
+:myBnfMeasurementUnderstandabilityLabels
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBneDataset ;
+    dqv:computedOn :myBnfDataset ;
+    dqv:isMeasurementOf :understandabilityLabelsMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:understandabilityLabelsMetric
+    a dqv:Metric ;
+    skos:prefLabel "Understandability-Labels" ;
+    skos:definition "It detects the use of human-readable labelling of entities"@en ;
+    dqv:inDimension ldqd:understandability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT * WHERE {{ ?s ?p ?o .  FILTER (!strstarts(str(?s), 'http://www.openlinksw.com/')) . FILTER NOT EXISTS {{?s rdfs:label ?label}}}} LIMIT {0}" ;
+    schema:description "It detects the use of human-readable labelling of entities"
+    .          
+    
+:myBnfMeasurementUnderstandabilityVocabularies
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBnfDataset ;
+    dqv:isMeasurementOf :understandabilityVocabulariesMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:understandabilityVocabulariesMetric
+    a dqv:Metric ;
+    skos:prefLabel "Understandability-Vocabularies" ;
+    skos:definition "It detects the provision of information of the vocabularies used in the repository"@en ;
+    dqv:inDimension ldqd:understandability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX void: <http://rdfs.org/ns/void#> SELECT * WHERE {{ ?s void:vocabulary ?o }} LIMIT {0}" ;
+    schema:description "It detects the provision of information of the vocabularies used in the repository"
+    .                    
+
+:myBnfMeasurementUnderstandabilityURIPatterns
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBnfDataset ;
+    dqv:isMeasurementOf :understandabilityURIPatternsMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:understandabilityURIPatternsMetric
+    a dqv:Metric ;
+    skos:prefLabel "Understandability-URI-Patterns" ;
+    skos:definition "It checks the provision of information concerning the URL patterns used"@en ;
+    dqv:inDimension ldqd:understandability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX void: <http://rdfs.org/ns/void#> SELECT * WHERE {{{{?s void:uriRegexPattern ?o}} UNION {{?s a void:uriSpace}}}} LIMIT {0}" ;
+    schema:description "It checks the provision of information concerning the URL patterns used"
+    .                    
+
+:myBnfMeasurementUnderstandabilityExamples
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBnfDataset ;
+    dqv:isMeasurementOf :understandabilityExamplesMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:understandabilityExamplesMetric
+    a dqv:Metric ;
+    skos:prefLabel "Understandability-Examples" ;
+    skos:definition "It checks the provision of examples of SPARQL queries"@en ;
+    dqv:inDimension ldqd:understandability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX schema: <https://schema.org/> SELECT * WHERE {{?s schema:query ?o}} LIMIT {0}" ;
+    schema:description "It checks the provision of examples of SPARQL queries"
+    .   
+
+:myBnfMeasurementTimeliness
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBnfDataset ;
+    dqv:isMeasurementOf :timelinessMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:timelinessMetric
+    a dqv:Metric ;
+    skos:prefLabel "Timeliness" ;
+    skos:definition "It checks the provision of metadata describing the date of publication"@en ;
+    dqv:inDimension ldqd:understandability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX dcterms: <http://purl.org/dc/terms/> PREFIX dcat: <http://www.w3.org/ns/dcat#> PREFIX schema: <https://schema.org/> SELECT * WHERE {{{{?s a dcat:Dataset . ?s dcterms:modified ?o}} UNION {{?s a schema:Dataset . ?s dcterms:modified ?o}}}} LIMIT {0}" ;
+    schema:description "It checks the provision of metadata describing the date of publication"
+    .   
+
+:myBnfMeasurementRepresentationalConcisenessURIsLength
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBnfDataset ;
+    dqv:isMeasurementOf :representationalConcisenessURIsLengthMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:representationalConcisenessURIsLengthMetric
+    a dqv:Metric ;
+    skos:prefLabel "Representational-Conciseness-URIs-Length" ;
+    skos:definition "It checks the length of the URIs"@en ;
+    dqv:inDimension ldqd:representationalConciseness ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "SELECT * WHERE {{ ?s ?p ?o . FILTER (!strstarts(str(?s), 'http://localhost')). FILTER (!strstarts(str(?s), 'http://www.openlinksw.com/')). FILTER (strlen(str(?s))>60)}} LIMIT {0}" ;
+    schema:description "It checks the length of the URIs"
+    .   
+
+:myBnfMeasurementRepresentationalConcisenessContainers
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBnfDataset ;
+    dqv:isMeasurementOf :representationalConcisenessContainersMetric ;
+    dqv:value "1"^^xsd:decimal 
+    .
+
+:representationalConcisenessContainersMetric
+    a dqv:Metric ;
+    skos:prefLabel "Representational-Conciseness-Containers" ;
+    skos:definition "It checks the use of RDF containers"@en ;
+    dqv:inDimension ldqd:representationalConciseness ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT * WHERE {{{{?s a rdf:Bag}} UNION {{?s a rdf:Seq}}}} LIMIT {0}" ;
+    schema:description "It checks the use of RDF containers"
+    .   
+
+:myBnfMeasurementInteroperability
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBnfDataset ;
     dqv:isMeasurementOf :interoperabilityMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -187,12 +320,116 @@
     skos:definition "It checks the use of existing vocabularies to describe the metadata"@en ;
     dqv:inDimension ldqd:interoperability ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT ?p WHERE{{{{ SELECT distinct ?p WHERE {{{{ ?s a foaf:Person.  ?s ?p ?o }}}} LIMIT 100 }} FILTER (strstarts(str(?p), 'http://www.europeana.eu/schemas/edm/') || strstarts(str(?p), 'http://purl.org/dc/terms/') || strstarts(str(?p), 'http://xmlns.com/foaf/0.1/')) }} LIMIT {0} " ;
+    schema:query "PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT ?p WHERE{{{{ SELECT distinct ?p WHERE {{{{ ?s a foaf:Person.  ?s ?p ?o }}}} LIMIT 100 }} FILTER (strstarts(str(?p), 'http://www.europeana.eu/schemas/edm/') || strstarts(str(?p), 'http://purl.org/dc/terms/') || strstarts(str(?p), 'http://xmlns.com/foaf/0.1/') || strstarts(str(?p), 'https://datos.bne.es/def/')) }} LIMIT {0} " ;
     schema:description "It checks the use of existing vocabularies to describe the metadata"
-    .   
-   
+    .       
+    
+:myBnfMeasurementInterpretabilityViaf
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBnfDataset ;
+    dqv:isMeasurementOf :interpretabilityViafMetric ;
+    dqv:value "1"^^xsd:decimal 
+    .
 
-###############################
+:interpretabilityViafMetric
+    a dqv:Metric ;
+    skos:prefLabel "Interpretability-VIAF" ;
+    skos:definition "It checks the use of correct uris for the viaf resources"@en ;
+    dqv:inDimension ldqd:interpretability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT ?o WHERE {{{{ SELECT ?o WHERE {{ ?s a foaf:Person . ?s owl:sameAs ?o . FILTER (strstarts(str(?o), 'http://viaf.org/viaf/')) }} LIMIT 100 }} FILTER(!regex(str(?o),'^http://viaf.org/viaf/[0-9]+')) }} LIMIT {0}" ;
+    schema:description "It checks the use of correct uris for the viaf resources"
+    .      
+    
+ :myBnfMeasurementInterpretabilityIsni
+     a dqv:QualityMeasurement ;
+     dqv:computedOn :myBnfDataset ;
+     dqv:isMeasurementOf :interpretabilityIsniMetric ;
+     dqv:value "1"^^xsd:decimal 
+     .
+
+ :interpretabilityIsniMetric
+     a dqv:Metric ;
+     skos:prefLabel "Interpretability-Isni" ;
+     skos:definition "It checks the use of correct uris for the Isni resources"@en ;
+     dqv:inDimension ldqd:interpretability ;
+     dqv:expectedDataType xsd:decimal ;
+     schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT ?o WHERE {{{{ SELECT ?o WHERE {{ ?s a foaf:Person . ?s owl:sameAs ?o . FILTER (strstarts(str(?o), 'https://isni.org/isni/')) }} LIMIT 100 }} FILTER(!regex(str(?o),'^https://isni.org/isni/[0-9]{{16}}')) }} LIMIT {0}" ;
+     schema:description "It checks the use of correct uris for the Isni resources"
+     .        
+     
+:myBnfMeasurementInterpretabilityLabels
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBnfDataset ;
+    dqv:isMeasurementOf :interpretabilityLabelsMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:interpretabilityLabelsMetric
+    a dqv:Metric ;
+    skos:prefLabel "Interpretability-Labels" ;
+    skos:definition "It checks the use of languages for labels"@en ;
+    dqv:inDimension ldqd:interpretability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT ?s ?label WHERE {{ ?s a foaf:Person . ?s rdfs:label ?label . FILTER (LANG(?label) = 'es')}} LIMIT {0}" ;
+    schema:description "It checks the use of languages for labels"
+    .         
+    
+:myBnfMeasurementVersatilitySerialisation
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBnfDataset ;
+    dqv:isMeasurementOf :versatilitySerialisationMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:versatilitySerialisationMetric
+    a dqv:Metric ;
+    skos:prefLabel "Versatility-Serialisation" ;
+    skos:definition "It checks the provision of metadata describing the serialisation formats available"@en ;
+    dqv:inDimension ldqd:interpretability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX void: <http://rdfs.org/ns/void#> SELECT * WHERE {{ ?s void:feature <http://www.w3.org/ns/formats/RDF_XML> . ?s void:feature <http://www.w3.org/ns/formats/JSON-LD>}} LIMIT {0}" ;
+    schema:description "It checks the provision of metadata describing the serialisation formats available"
+    .   
+
+:myBnfMeasurementVersatilityMultilingual
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBnfDataset ;
+    dqv:isMeasurementOf :versatilityMultilingualMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:versatilityMultilingualMetric
+    a dqv:Metric ;
+    skos:prefLabel "Versatility-Multilingual" ;
+    skos:definition "It checks the provision of multilingual labels"@en ;
+    dqv:inDimension ldqd:interpretability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT ?s ?label WHERE {{ ?s a foaf:Person . ?s rdfs:label ?label . FILTER (LANG(?label) = 'es' && LANG(?label) = 'en' && LANG(?label) = 'fr')}} LIMIT {0}" ;
+    schema:description "It checks the provision of multilingual labels"
+    .   
+    
+:myBnfMeasurementRelevancy
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBnfDataset ;
+    dqv:isMeasurementOf :relevancyMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:relevancyMetric
+    a dqv:Metric ;
+    skos:prefLabel "Relevancy" ;
+    skos:definition "It checks whether the repository supports a ranking of statements in order to express the relative relevance of statements"@en ;
+    dqv:inDimension ldqd:relevancy ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX wikibase: <http://wikiba.se/ontology#> SELECT * WHERE {{ ?s wikibase:rank ?o }} LIMIT {0}" ;
+    schema:description "It checks whether the repository supports a ranking of statements in order to express the relative relevance of statements"
+    .       
+    
+    
+#############################
+
+
 
 # Representation of quality categories and dimensions from Amrapali Zaveri, Anisa Rula, Andrea Maurino, Ricardo Pietrobon, Jens Lehmann, Sören Auer: Quality assessment for Linked Data: A Survey. Semantic Web 7(1): 63-93 (2016) https://dx.doi.org/10.3233/SW-150175
 

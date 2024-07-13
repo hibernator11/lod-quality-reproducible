@@ -47,7 +47,13 @@
     dqv:hasQualityMeasurement :myBneMeasurementTimeliness ;
     dqv:hasQualityMeasurement :myBneMeasurementRepresentationalConcisenessURIsLength ;
     dqv:hasQualityMeasurement :myBneMeasurementRepresentationalConcisenessContainers ;
-    dqv:hasQualityMeasurement :myBneMeasurementInteroperability
+    dqv:hasQualityMeasurement :myBneMeasurementInteroperability ;
+    dqv:hasQualityMeasurement :myBneMeasurementInterpretabilityViaf ;
+    dqv:hasQualityMeasurement :myBneMeasurementInterpretabilityIsni ;
+    dqv:hasQualityMeasurement :myBneMeasurementInterpretabilityLabels ;
+    dqv:hasQualityMeasurement :myBneMeasurementVersatilitySerialisation ;
+    dqv:hasQualityMeasurement :myBneMeasurementVersatilityMultilingual ;
+    dqv:hasQualityMeasurement :myBneMeasurementRelevancy
     .
    
 :myBne_autoridades a void:Dataset;
@@ -348,7 +354,107 @@
     schema:description "It checks the use of existing vocabularies to describe the metadata"
     .       
     
+:myBneMeasurementInterpretabilityViaf
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBneDataset ;
+    dqv:isMeasurementOf :interpretabilityViafMetric ;
+    dqv:value "1"^^xsd:decimal 
+    .
+
+:interpretabilityViafMetric
+    a dqv:Metric ;
+    skos:prefLabel "Interpretability-VIAF" ;
+    skos:definition "It checks the use of correct uris for the viaf resources"@en ;
+    dqv:inDimension ldqd:interpretability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX bne: <https://datos.bne.es/def/> SELECT ?o WHERE {{{{ SELECT ?o WHERE {{ ?s a bne:C1001 . ?s owl:sameAs ?o . FILTER (strstarts(str(?o), 'http://viaf.org/viaf/')) }} LIMIT 100 }} FILTER(!regex(str(?o),'^http://viaf.org/viaf/[0-9]+')) }} LIMIT {0}" ;
+    schema:description "It checks the use of correct uris for the viaf resources"
+    .      
     
+ :myBneMeasurementInterpretabilityIsni
+     a dqv:QualityMeasurement ;
+     dqv:computedOn :myBneDataset ;
+     dqv:isMeasurementOf :interpretabilityIsniMetric ;
+     dqv:value "1"^^xsd:decimal 
+     .
+
+ :interpretabilityIsniMetric
+     a dqv:Metric ;
+     skos:prefLabel "Interpretability-Isni" ;
+     skos:definition "It checks the use of correct uris for the Isni resources"@en ;
+     dqv:inDimension ldqd:interpretability ;
+     dqv:expectedDataType xsd:decimal ;
+     schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX bne: <https://datos.bne.es/def/> SELECT ?o WHERE {{{{ SELECT ?o WHERE {{ ?s a bne:C1001 . ?s owl:sameAs ?o . FILTER (strstarts(str(?o), 'https://isni.org/isni/')) }} LIMIT 100 }} FILTER(!regex(str(?o),'^https://isni.org/isni/[0-9]{{16}}')) }} LIMIT {0}" ;
+     schema:description "It checks the use of correct uris for the Isni resources"
+     .        
+     
+:myBneMeasurementInterpretabilityLabels
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBneDataset ;
+    dqv:isMeasurementOf :interpretabilityLabelsMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:interpretabilityLabelsMetric
+    a dqv:Metric ;
+    skos:prefLabel "Interpretability-Labels" ;
+    skos:definition "It checks the use of languages for labels"@en ;
+    dqv:inDimension ldqd:interpretability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX bne: <https://datos.bne.es/def/> SELECT ?s ?label WHERE {{ ?s a bne:C1001 . ?s rdfs:label ?label . FILTER (LANG(?label) = 'es')}} LIMIT {0}" ;
+    schema:description "It checks the use of languages for labels"
+    .         
+    
+:myBneMeasurementVersatilitySerialisation
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBneDataset ;
+    dqv:isMeasurementOf :versatilitySerialisationMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:versatilitySerialisationMetric
+    a dqv:Metric ;
+    skos:prefLabel "Versatility-Serialisation" ;
+    skos:definition "It checks the provision of metadata describing the serialisation formats available"@en ;
+    dqv:inDimension ldqd:interpretability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX void: <http://rdfs.org/ns/void#> SELECT * WHERE {{ ?s void:feature <http://www.w3.org/ns/formats/RDF_XML> . ?s void:feature <http://www.w3.org/ns/formats/JSON-LD>}} LIMIT {0}" ;
+    schema:description "It checks the provision of metadata describing the serialisation formats available"
+    .   
+
+:myBneMeasurementVersatilityMultilingual
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBneDataset ;
+    dqv:isMeasurementOf :versatilityMultilingualMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:versatilityMultilingualMetric
+    a dqv:Metric ;
+    skos:prefLabel "Versatility-Multilingual" ;
+    skos:definition "It checks the provision of multilingual labels"@en ;
+    dqv:inDimension ldqd:interpretability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX bne: <https://datos.bne.es/def/> SELECT ?s ?label WHERE {{ ?s a bne:C1001 . ?s rdfs:label ?label . FILTER (LANG(?label) = 'es' && LANG(?label) = 'en' && LANG(?label) = 'fr')}} LIMIT {0}" ;
+    schema:description "It checks the provision of multilingual labels"
+    .   
+    
+:myBneMeasurementRelevancy
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBneDataset ;
+    dqv:isMeasurementOf :relevancyMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:relevancyMetric
+    a dqv:Metric ;
+    skos:prefLabel "Relevancy" ;
+    skos:definition "It checks whether the repository supports a ranking of statements in order to express the relative relevance of statements"@en ;
+    dqv:inDimension ldqd:relevancy ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX wikibase: <http://wikiba.se/ontology#> SELECT * WHERE {{ ?s wikibase:rank ?o }} LIMIT {0}" ;
+    schema:description "It checks whether the repository supports a ranking of statements in order to express the relative relevance of statements"
+    .       
 
 ###############################
 

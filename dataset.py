@@ -18,7 +18,9 @@ class Dataset():
         self.understandability_labels = "Understandability-Labels"
         self.RC_URIs_length = "Representational-Conciseness-URIs-Length"
         self.RC_Containers = "Representational-Conciseness-Containers"
-        self.negatives = [self.conciseness, self.understandability_labels, self.RC_URIs_length, self.RC_Containers]
+        self.interpretability_viaf = "Interpretability-VIAF"
+        self.interpretability_isni = "Interpretability-Isni"
+        self.negatives = [self.conciseness, self.understandability_labels, self.RC_URIs_length, self.RC_Containers, self.interpretability_viaf, self.interpretability_isni]
         self.performancelimit = 100
         self.syntacticlimit = 100
 
@@ -168,4 +170,4 @@ if __name__ == '__main__' :
     print(endpoint)
     print(d.getCriteria())
     #d.runCriterion('Performance')
-    d.runCriterion('Conciseness')
+    d.runCriterion('Interpretability-Isni')
