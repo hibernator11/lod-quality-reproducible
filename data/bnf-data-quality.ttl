@@ -62,6 +62,7 @@
 
 :availabilityMetric
     a dqv:Metric ;
+    skos:prefLabel "Availability" ;
     skos:definition "It checks that the SPARQL endpoint is available"@en ;
     dqv:inDimension ldqd:availability ;
     dqv:expectedDataType xsd:decimal ;
@@ -78,6 +79,7 @@
 
 :licensingMetric
     a dqv:Metric ;
+    skos:prefLabel "Licensing" ;
     skos:definition "It checks the inclusion of machine-readable metadata concerning the licence"@en ;
     dqv:inDimension ldqd:licensing ;
     dqv:expectedDataType xsd:decimal ;
@@ -101,6 +103,7 @@
 
 :interlinkingMetric
     a dqv:Metric ;
+    skos:prefLabel "Interlinking" ;
     skos:definition "It checks the extent to which resources in a repository are linked to external datasets"@en ;
     dqv:inDimension ldqd:interlinking ;
     dqv:expectedDataType xsd:decimal ;
@@ -117,6 +120,7 @@
 
 :securityMetric
     a dqv:Metric ;
+    skos:prefLabel "Security" ;
     skos:definition "It checks the extent to which data is protected against alteration and misuse"@en ;
     dqv:inDimension ldqd:security ;
     dqv:expectedDataType xsd:decimal ;
@@ -133,6 +137,7 @@
 
 :performanceMetric
     a dqv:Metric ;
+    skos:prefLabel "Performance" ;
     skos:definition "It checks whether the time to answer ten requests divided by ten is not longer than the time it takes to answer one request"@en ;
     dqv:inDimension ldqd:performance ;
     dqv:expectedDataType xsd:decimal ;
@@ -149,6 +154,7 @@
 
 :syntacticMetric
     a dqv:Metric ;
+    skos:prefLabel "Syntactic Validity" ;
     skos:definition "It checks the degree to which an RDF document conforms to the specification of the serialisation format"@en ;
     dqv:inDimension ldqd:syntacticValidity ;
     dqv:expectedDataType xsd:decimal ;
@@ -165,6 +171,7 @@
 
 :concisenessMetric
     a dqv:Metric ;
+    skos:prefLabel "Conciseness" ;
     skos:definition "It refers to the minimisation of redundancy of entities at the schema"@en ;
     dqv:inDimension ldqd:conciseness ;
     dqv:expectedDataType xsd:decimal ;
@@ -182,6 +189,7 @@
 :trustworthinessMetric
     a dqv:Metric ;
     skos:definition "It refers to the degree to which the information is accepted to be correct, true, real and credible"@en ;
+    skos:prefLabel "Trustworthiness" ;
     dqv:inDimension ldqd:trustworthiness ;
     dqv:expectedDataType xsd:decimal ;
     schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT * WHERE {{?s rdfs:label ?o . FILTER (?o = 'Unknown' || ?o = 'Anonymous' || ?o = 'Unknown value')}} LIMIT {0}" ;

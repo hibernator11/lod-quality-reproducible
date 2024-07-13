@@ -164,7 +164,8 @@ class Dataset():
  
 if __name__ == '__main__' :
     file = "data/zeri-data-quality.ttl"
-    file = "data/bne-data-quality.ttl"
+    #file = "data/bne-data-quality.ttl"
+    file = "data/saam-data-quality.ttl"
     d = Dataset(file)
     endpoint = d.getEndpoint()
     print(endpoint)

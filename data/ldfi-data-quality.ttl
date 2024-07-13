@@ -1,6 +1,7 @@
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix ldqd: <https://www.w3.org/2016/05/ldqd#> .
@@ -11,54 +12,50 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix : <http://www.example.org/#> .
 
-:myZeriDataset a void:Dataset;
-    dcterms:title "Zeri Photo Archive";
-    dcterms:description "The Zeri Photo Archive AS Linked Open Data mostly regard artworks of Modern Art (15th-16th centuries): about 19.000 works of art and more than 30.000 photographs depicting such works are accurately described by means of like 11 million of RDF statements.";
-    dcterms:creator :org_ZERI;
-    dcterms:source <https://doi.org/10.1145/3051487>;
-    dcterms:source <http://dx.doi.org/10.1109/JCDL.2014.6970182>;
-    dcterms:issued "2016-04-01"^^xsd:date;
-    dcterms:license <http://creativecommons.org/licenses/by/4.0/>;
+:myLdfiDataset a void:Dataset;
+    dcterms:title "LetterSampo: correspSearch";
+    dcterms:description "Knowledge Graph includes separated in different subgraphs representing actors, letters, places, and other aspects and documentation of epistolary data. The data covers approx. 130 000 letters by 17 500 senders and receivers.";
+    dcterms:creator :org_Ldfi;
+    dcterms:issued "2021-04-01"^^xsd:date;
+    dcterms:license <https://creativecommons.org/licenses/by-nc/4.0/deed.en>;
     void:feature <http://www.w3.org/ns/formats/RDF_XML>;
-    void:sparqlEndpoint <http://data.fondazionezeri.unibo.it/sparql>;
-    wdt:P5305 <http://data.fondazionezeri.unibo.it/sparql>;
-    void:dataDump <https://doi.org/10.6092/unibo/amsacta/5497>;
+    void:sparqlEndpoint <http://ldf.fi/corresp/sparql>;
+    wdt:P5305 <http://ldf.fi/corresp/sparql>;
+    void:dataDump <https://pef.bnf.fr/link/539d6d59-c2e3-4e17-b24c-d8a83ca11944#>;
     void:vocabulary <http://www.cidoc-crm.org/cidoc-crm/>;
-    void:triples 11992769; 
-    void:entities 1797889;
-    void:classes 105;
-    void:properties 125;
-    void:exampleResource <https://w3id.org/zericatalog/person/1017/barisini-tommaso>;
-    void:exampleResource <https://w3id.org/zericatalog/person/10174/valentin-de-boulogne>;
-    dqv:hasQualityMeasurement :myZeriMeasurementAvailability ;
-    dqv:hasQualityMeasurement :myZeriMeasurementLicensing ;
-    dqv:hasQualityMeasurement :myZeriMeasurementInterlinking ;
-    dqv:hasQualityMeasurement :myZeriMeasurementSecurity ; 
-    dqv:hasQualityMeasurement :myZeriMeasurementPerformance ;
-    dqv:hasQualityMeasurement :myZeriMeasurementSyntactic ;
-    dqv:hasQualityMeasurement :myZeriMeasurementConciseness ;
-    dqv:hasQualityMeasurement :myZeriMeasurementTrustworthiness ;
-    dqv:hasQualityMeasurement :myZeriMeasurementUnderstandabilityLabels ;
-    dqv:hasQualityMeasurement :myZeriMeasurementUnderstandabilityVocabularies ;
-    dqv:hasQualityMeasurement :myZeriMeasurementUnderstandabilityURIPatterns ;
-    dqv:hasQualityMeasurement :myZeriMeasurementUnderstandabilityExamples ;
-    dqv:hasQualityMeasurement :myZeriMeasurementTimeliness ;
-    dqv:hasQualityMeasurement :myZeriMeasurementRepresentationalConcisenessURIsLength ;
-    dqv:hasQualityMeasurement :myZeriMeasurementRepresentationalConcisenessContainers ;
-    dqv:hasQualityMeasurement :myZeriMeasurementInteroperability ;
-    dqv:hasQualityMeasurement :myZeriMeasurementInterpretabilityViaf ;
-    dqv:hasQualityMeasurement :myZeriMeasurementInterpretabilityIsni ;
-    dqv:hasQualityMeasurement :myZeriMeasurementInterpretabilityLabels ;
-    dqv:hasQualityMeasurement :myZeriMeasurementVersatilitySerialisation ;
-    dqv:hasQualityMeasurement :myZeriMeasurementVersatilityMultilingual ;
-    dqv:hasQualityMeasurement :myZeriMeasurementRelevancy
+    void:exampleResource <http://ldf.fi/corresp/actors/p1000206911801916508>;
+    void:exampleResource <http://ldf.fi/corresp/actors/p1000784812835657352>;
+    void:exampleResource <http://ldf.fi/corresp/actors/p1001412071197852459>;
+    dqv:hasQualityMeasurement :myLdfiMeasurementAvailability ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementLicensing ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementInterlinking ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementSecurity ; 
+    dqv:hasQualityMeasurement :myLdfiMeasurementPerformance ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementSyntactic ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementConciseness ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementTrustworthiness ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementUnderstandabilityLabels ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementUnderstandabilityVocabularies ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementUnderstandabilityURIPatterns ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementUnderstandabilityExamples ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementTimeliness ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementRepresentationalConcisenessURIsLength ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementRepresentationalConcisenessContainers ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementInteroperability ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementInterpretabilityViaf ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementInterpretabilityIsni ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementInterpretabilityLabels ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementVersatilitySerialisation ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementVersatilityMultilingual ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementRelevancy
     .
     
-:org_ZERI a foaf:Organization;
-    rdfs:label "Federico Zeri Foundation" ;
-    foaf:homepage <https://fondazionezeri.unibo.it/it> ;
+:org_Ldfi a foaf:Organization;
+    rdfs:label "Linked Data Finland" ;
+    foaf:homepage <http://ldf.fi/corresp/> ;
     .
 
 :availabilityMetric
@@ -71,9 +68,9 @@
     schema:description "It checks that the SPARQL endpoint is available" 
     .
 
-:myZeriMeasurementAvailability 
+:myLdfiMeasurementAvailability 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :availabilityMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -88,16 +85,16 @@
     schema:description "It checks the inclusion of machine-readable metadata concerning the licence" 
     .
 
-:myZeriMeasurementLicensing 
+:myLdfiMeasurementLicensing 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :licensingMetric ;
     dqv:value "1"^^xsd:decimal 
     .
     
-:myZeriMeasurementInterlinking 
+:myLdfiMeasurementInterlinking 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :interlinkingMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -112,9 +109,9 @@
     schema:description "It checks the extent to which resources in a repository are linked to external datasets" 
     .    
     
-:myZeriMeasurementSecurity 
+:myLdfiMeasurementSecurity 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :securityMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -129,9 +126,9 @@
     schema:description "It checks the extent to which data is protected against alteration and misuse" 
     .        
     
-:myZeriMeasurementPerformance 
+:myLdfiMeasurementPerformance 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :performanceMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -146,9 +143,9 @@
     schema:description "It checks whether the time to answer ten requests divided by ten is not longer than the time it takes to answer one request" 
     .            
 
-:myZeriMeasurementSyntactic 
+:myLdfiMeasurementSyntactic 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :syntacticMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -163,15 +160,16 @@
     schema:description "It checks the degree to which an RDF document conforms to the specification of the serialisation format" 
     .            
 
-:myZeriMeasurementConciseness 
+:myLdfiMeasurementConciseness 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :concisenessMetric ;
     dqv:value "0"^^xsd:decimal 
     .
 
 :concisenessMetric
     a dqv:Metric ;
+    skos:prefLabel "Conciseness" ;
     skos:definition "It refers to the minimisation of redundancy of entities at the schema"@en ;
     dqv:inDimension ldqd:conciseness ;
     dqv:expectedDataType xsd:decimal ;
@@ -179,9 +177,9 @@
     schema:description "It refers to the minimisation of redundancy of entities at the schema"
     .        
     
-:myZeriMeasurementTrustworthiness
+:myLdfiMeasurementTrustworthiness
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :trustworthinessMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -189,15 +187,16 @@
 :trustworthinessMetric
     a dqv:Metric ;
     skos:definition "It refers to the degree to which the information is accepted to be correct, true, real and credible"@en ;
+    skos:prefLabel "Trustworthiness" ;
     dqv:inDimension ldqd:trustworthiness ;
     dqv:expectedDataType xsd:decimal ;
     schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT * WHERE {{?s rdfs:label ?o . FILTER (?o = 'Unknown' || ?o = 'Anonymous' || ?o = 'Unknown value')}} LIMIT {0}" ;
     schema:description "It refers to the degree to which the information is accepted to be correct, true, real and credible"
-    .      
+    .         
     
-:myZeriMeasurementUnderstandabilityLabels
+:myLdfiMeasurementUnderstandabilityLabels
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :understandabilityLabelsMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -212,9 +211,9 @@
     schema:description "It detects the use of human-readable labelling of entities"
     .          
     
-:myZeriMeasurementUnderstandabilityVocabularies
+:myLdfiMeasurementUnderstandabilityVocabularies
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :understandabilityVocabulariesMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -229,9 +228,9 @@
     schema:description "It detects the provision of information of the vocabularies used in the repository"
     .                    
 
-:myZeriMeasurementUnderstandabilityURIPatterns
+:myLdfiMeasurementUnderstandabilityURIPatterns
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :understandabilityURIPatternsMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -246,9 +245,9 @@
     schema:description "It checks the provision of information concerning the URL patterns used"
     .                    
 
-:myZeriMeasurementUnderstandabilityExamples
+:myLdfiMeasurementUnderstandabilityExamples
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :understandabilityExamplesMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -263,9 +262,9 @@
     schema:description "It checks the provision of examples of SPARQL queries"
     .   
 
-:myZeriMeasurementTimeliness
+:myLdfiMeasurementTimeliness
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :timelinessMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -280,9 +279,9 @@
     schema:description "It checks the provision of metadata describing the date of publication"
     .   
 
-:myZeriMeasurementRepresentationalConcisenessURIsLength
+:myLdfiMeasurementRepresentationalConcisenessURIsLength
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :representationalConcisenessURIsLengthMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -297,9 +296,9 @@
     schema:description "It checks the length of the URIs"
     .   
 
-:myZeriMeasurementRepresentationalConcisenessContainers
+:myLdfiMeasurementRepresentationalConcisenessContainers
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :representationalConcisenessContainersMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -314,9 +313,9 @@
     schema:description "It checks the use of RDF containers"
     .   
 
-:myZeriMeasurementInteroperability
+:myLdfiMeasurementInteroperability
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :interoperabilityMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -331,9 +330,9 @@
     schema:description "It checks the use of existing vocabularies to describe the metadata"
     .       
     
-:myZeriMeasurementInterpretabilityViaf
+:myLdfiMeasurementInterpretabilityViaf
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :interpretabilityViafMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -348,9 +347,9 @@
     schema:description "It checks the use of correct uris for the viaf resources"
     .      
     
- :myZeriMeasurementInterpretabilityIsni
+ :myLdfiMeasurementInterpretabilityIsni
      a dqv:QualityMeasurement ;
-     dqv:computedOn :myZeriDataset ;
+     dqv:computedOn :myLdfiDataset ;
      dqv:isMeasurementOf :interpretabilityIsniMetric ;
      dqv:value "1"^^xsd:decimal 
      .
@@ -365,9 +364,9 @@
      schema:description "It checks the use of correct uris for the Isni resources"
      .        
      
-:myZeriMeasurementInterpretabilityLabels
+:myLdfiMeasurementInterpretabilityLabels
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :interpretabilityLabelsMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -382,9 +381,9 @@
     schema:description "It checks the use of languages for labels"
     .         
     
-:myZeriMeasurementVersatilitySerialisation
+:myLdfiMeasurementVersatilitySerialisation
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :versatilitySerialisationMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -399,9 +398,9 @@
     schema:description "It checks the provision of metadata describing the serialisation formats available"
     .   
 
-:myZeriMeasurementVersatilityMultilingual
+:myLdfiMeasurementVersatilityMultilingual
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :versatilityMultilingualMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -416,9 +415,9 @@
     schema:description "It checks the provision of multilingual labels"
     .   
     
-:myZeriMeasurementRelevancy
+:myLdfiMeasurementRelevancy
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :relevancyMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -431,9 +430,12 @@
     dqv:expectedDataType xsd:decimal ;
     schema:query "PREFIX wikibase: <http://wikiba.se/ontology#> SELECT * WHERE {{ ?s wikibase:rank ?o }} LIMIT {0}" ;
     schema:description "It checks whether the repository supports a ranking of statements in order to express the relative relevance of statements"
-    .                 
+    .       
+    
+    
+#############################
 
-###############################
+
 
 # Representation of quality categories and dimensions from Amrapali Zaveri, Anisa Rula, Andrea Maurino, Ricardo Pietrobon, Jens Lehmann, Sören Auer: Quality assessment for Linked Data: A Survey. Semantic Web 7(1): 63-93 (2016) https://dx.doi.org/10.3233/SW-150175
 
