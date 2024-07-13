@@ -13,38 +13,35 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix : <http://www.example.org/#> .
 
-:myZeriDataset a void:Dataset;
-    dcterms:title "Zeri Photo Archive";
-    dcterms:description "The Zeri Photo Archive AS Linked Open Data mostly regard artworks of Modern Art (15th-16th centuries): about 19.000 works of art and more than 30.000 photographs depicting such works are accurately described by means of like 11 million of RDF statements.";
-    dcterms:creator :org_ZERI;
-    dcterms:source <https://doi.org/10.1145/3051487>;
-    dcterms:source <http://dx.doi.org/10.1109/JCDL.2014.6970182>;
+:myBnfDataset a void:Dataset;
+    dcterms:title "National Library of France";
+    dcterms:description "National Library of France";
+    dcterms:creator :org_Bnf;
     dcterms:issued "2016-04-01"^^xsd:date;
     dcterms:license <http://creativecommons.org/licenses/by/4.0/>;
     void:feature <http://www.w3.org/ns/formats/RDF_XML>;
-    void:sparqlEndpoint <http://data.fondazionezeri.unibo.it/sparql>;
-    wdt:P5305 <http://data.fondazionezeri.unibo.it/sparql>;
-    void:dataDump <https://doi.org/10.6092/unibo/amsacta/5497>;
-    void:vocabulary <http://www.cidoc-crm.org/cidoc-crm/>;
-    void:triples 11992769; 
-    void:entities 1797889;
-    void:classes 105;
-    void:properties 125;
-    void:exampleResource <https://w3id.org/zericatalog/person/1017/barisini-tommaso>;
-    void:exampleResource <https://w3id.org/zericatalog/person/10174/valentin-de-boulogne>;
-    dqv:hasQualityMeasurement :myZeriMeasurementAvailability ;
-    dqv:hasQualityMeasurement :myZeriMeasurementLicensing ;
-    dqv:hasQualityMeasurement :myZeriMeasurementInterlinking ;
-    dqv:hasQualityMeasurement :myZeriMeasurementSecurity ; 
-    dqv:hasQualityMeasurement :myZeriMeasurementPerformance ;
-    dqv:hasQualityMeasurement :myZeriMeasurementSyntactic ;
-    dqv:hasQualityMeasurement :myZeriMeasurementConciseness ;
-    dqv:hasQualityMeasurement :myZeriMeasurementTrustworthiness
+    void:sparqlEndpoint <https://data.bnf.fr/sparql>;
+    wdt:P5305 <https://data.bnf.fr/sparql>;
+    void:dataDump <https://pef.bnf.fr/link/539d6d59-c2e3-4e17-b24c-d8a83ca11944#>;
+    void:vocabulary <http://rdvocab.info/uri/schema/FRBRentitiesRDA>;
+    void:vocabulary <http://xmlns.com/foaf/0.1/>;
+    void:vocabulary <http://www.geonames.org/ontology#>;
+    void:vocabulary <https://data.bnf.fr/ontology>;
+    void:exampleResource <https://data.bnf.fr/11894985/albert_camus/>;
+    void:exampleResource <https://data.bnf.fr/11928669/voltaire/>;
+    dqv:hasQualityMeasurement :myBnfMeasurementAvailability ;
+    dqv:hasQualityMeasurement :myBnfMeasurementLicensing ;
+    dqv:hasQualityMeasurement :myBnfMeasurementInterlinking ;
+    dqv:hasQualityMeasurement :myBnfMeasurementSecurity ; 
+    dqv:hasQualityMeasurement :myBnfMeasurementPerformance ;
+    dqv:hasQualityMeasurement :myBnfMeasurementSyntactic ;
+    dqv:hasQualityMeasurement :myBnfMeasurementConciseness ;
+    dqv:hasQualityMeasurement :myBnfMeasurementTrustworthiness
     .
     
-:org_ZERI a foaf:Organization;
-    rdfs:label "Federico Zeri Foundation" ;
-    foaf:homepage <https://fondazionezeri.unibo.it/it> ;
+:org_Bnf a foaf:Organization;
+    rdfs:label "National Library of France" ;
+    foaf:homepage <https://data.bnf.fr/> ;
     .
 
 :availabilityMetric
@@ -56,9 +53,9 @@
     schema:description "It checks that the SPARQL endpoint is available" 
     .
 
-:myZeriMeasurementAvailability 
+:myBnfMeasurementAvailability 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myBnfDataset ;
     dqv:isMeasurementOf :availabilityMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -72,16 +69,16 @@
     schema:description "It checks the inclusion of machine-readable metadata concerning the licence" 
     .
 
-:myZeriMeasurementLicensing 
+:myBnfMeasurementLicensing 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myBnfDataset ;
     dqv:isMeasurementOf :licensingMetric ;
     dqv:value "1"^^xsd:decimal 
     .
     
-:myZeriMeasurementInterlinking 
+:myBnfMeasurementInterlinking 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myBnfDataset ;
     dqv:isMeasurementOf :interlinkingMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -95,9 +92,9 @@
     schema:description "It checks the extent to which resources in a repository are linked to external datasets" 
     .    
     
-:myZeriMeasurementSecurity 
+:myBnfMeasurementSecurity 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myBnfDataset ;
     dqv:isMeasurementOf :securityMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -111,9 +108,9 @@
     schema:description "It checks the extent to which data is protected against alteration and misuse" 
     .        
     
-:myZeriMeasurementPerformance 
+:myBnfMeasurementPerformance 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myBnfDataset ;
     dqv:isMeasurementOf :performanceMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -127,9 +124,9 @@
     schema:description "It checks whether the time to answer ten requests divided by ten is not longer than the time it takes to answer one request" 
     .            
 
-:myZeriMeasurementSyntactic 
+:myBnfMeasurementSyntactic 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myBnfDataset ;
     dqv:isMeasurementOf :syntacticMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -143,9 +140,9 @@
     schema:description "It checks the degree to which an RDF document conforms to the specification of the serialisation format" 
     .            
 
-:myZeriMeasurementConciseness 
+:myBnfMeasurementConciseness 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myBnfDataset ;
     dqv:isMeasurementOf :concisenessMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -159,9 +156,9 @@
     schema:description "It refers to the minimisation of redundancy of entities at the schema"
     .        
     
-:myZeriMeasurementTrustworthiness
+:myBnfMeasurementTrustworthiness
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myBnfDataset ;
     dqv:isMeasurementOf :trustworthinessMetric ;
     dqv:value "0"^^xsd:decimal 
     .

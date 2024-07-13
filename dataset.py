@@ -15,6 +15,8 @@ class Dataset():
         self.performance = "Performance"
         self.syntactic = "Syntactic validity"
         self.conciseness = "Conciseness"
+        self.understandability_labels = "Understandability-Labels"
+        self.negatives = [self.conciseness, self.understandability_labels]
         self.performancelimit = 100
         self.syntacticlimit = 100
 
@@ -42,20 +44,19 @@ class Dataset():
         prefix wdt: <http://www.wikidata.org/prop/direct/> 
         prefix dqv: <http://www.w3.org/ns/dqv#> 
         
-        SELECT DISTINCT ?dimensionLabel
+        SELECT DISTINCT ?criterionLabel
         WHERE {{
             ?s void:sparqlEndpoint <{0}> .
             ?s dqv:hasQualityMeasurement ?qualityMeasurement .
             ?qualityMeasurement dqv:isMeasurementOf ?metric .
-            ?metric dqv:inDimension ?dimension .
-            ?dimension skos:prefLabel ?dimensionLabel
+            ?metric skos:prefLabel ?criterionLabel 
         }}""".format(self.getEndpoint())
 
         qres = self.graph.query(query)
 
         criteria = []
         for row in qres:
-            criterion = str(row.dimensionLabel)
+            criterion = str(row.criterionLabel)
             criteria.append(criterion)
 
         return criteria
@@ -78,8 +79,7 @@ class Dataset():
             ?qualityMeasurement dqv:isMeasurementOf ?metric .
             ?metric schema:description ?description .
             ?metric schema:query ?query .
-            ?metric dqv:inDimension ?dimension .
-            ?dimension skos:prefLabel "{1}"@en
+            ?metric skos:prefLabel "{1}" 
         }}""".format(self.getEndpoint(), criterion)
         
         qres = self.graph.query(query)
@@ -102,28 +102,32 @@ class Dataset():
                 assessmentQuery = str(row.query).format(self.limit)
                 self.sparqlEndpoint.setQuery(assessmentQuery)
                 
-                try:
-                    start = time.time()
-                    ret = self.sparqlEndpoint.queryAndConvert()
-                    #print(ret)
-                    
-                    sparqlResult = "error"
-                    for r in ret["results"]["bindings"]:
-                        #authors.append(r['name']['value'] + ' - ' + r['author']['value'])
-                        # some criteria works inside out
-                        if criterion == self.conciseness:
-                            sparqlResult = 'error'
-                        else: 
-                            sparqlResult = 'ok'
-                    
-                    end = time.time()  
-                    jsonResult.append({"query": assessmentQuery,"label": label, 
-                                       "time": str(round(end - start,2)),
-                                       "sparqlResult":sparqlResult,
-                                       "sparqlResultRaw":str(ret)})
+                #try:
+                start = time.time()
+                ret = self.sparqlEndpoint.queryAndConvert()
+                print(ret)
+                
+                sparqlResult = "error"
+                if criterion in self.negatives :
+                    sparqlResult = 'ok'
+                
+                for r in ret["results"]["bindings"]:
+                    #authors.append(r['name']['value'] + ' - ' + r['author']['value'])
+                    # some criteria works inside out
+                    if criterion in self.negatives :
+                        sparqlResult = 'error'
+                        break
+                    else: 
+                        sparqlResult = 'ok'
+                
+                end = time.time()  
+                jsonResult.append({"query": assessmentQuery,"label": label, 
+                                   "time": str(round(end - start,2)),
+                                   "sparqlResult":sparqlResult,
+                                   "sparqlResultRaw":str(ret)})
             
-                except Exception as e:
-                    print(e)
+                #except Exception as e:
+                #    print(e)
 
         return jsonResult
     
@@ -156,8 +160,10 @@ class Dataset():
  
 if __name__ == '__main__' :
     file = "data/zeri-data-quality.ttl"
+    file = "data/bne-data-quality.ttl"
     d = Dataset(file)
     endpoint = d.getEndpoint()
     print(endpoint)
     print(d.getCriteria())
-    d.runCriterion('Performance')
+    #d.runCriterion('Performance')
+    d.runCriterion('Conciseness')

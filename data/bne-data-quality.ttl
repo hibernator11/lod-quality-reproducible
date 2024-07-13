@@ -13,42 +13,63 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix : <http://www.example.org/#> .
 
-:myZeriDataset a void:Dataset;
-    dcterms:title "Zeri Photo Archive";
-    dcterms:description "The Zeri Photo Archive AS Linked Open Data mostly regard artworks of Modern Art (15th-16th centuries): about 19.000 works of art and more than 30.000 photographs depicting such works are accurately described by means of like 11 million of RDF statements.";
-    dcterms:creator :org_ZERI;
-    dcterms:source <https://doi.org/10.1145/3051487>;
-    dcterms:source <http://dx.doi.org/10.1109/JCDL.2014.6970182>;
-    dcterms:issued "2016-04-01"^^xsd:date;
+:myBneDataset a void:Dataset;
+    dcterms:title "National Library of Spain";
+    dcterms:description "Datos.bne.es es una plataforma de la Biblioteca Nacional de España que propone al usuario una nueva experiencia de navegación por los datos del catálogo de la BNE, de una forma completamente distinta a la tradicional";
+    dcterms:creator :org_Bne;
+    dcterms:issued "2013-01-01"^^xsd:date;
     dcterms:license <http://creativecommons.org/licenses/by/4.0/>;
+    dcterms:source <https://doi.org/10.3233/SW-120094>;
     void:feature <http://www.w3.org/ns/formats/RDF_XML>;
-    void:sparqlEndpoint <http://data.fondazionezeri.unibo.it/sparql>;
-    wdt:P5305 <http://data.fondazionezeri.unibo.it/sparql>;
-    void:dataDump <https://doi.org/10.6092/unibo/amsacta/5497>;
-    void:vocabulary <http://www.cidoc-crm.org/cidoc-crm/>;
-    void:triples 11992769; 
-    void:entities 1797889;
-    void:classes 105;
-    void:properties 125;
-    void:exampleResource <https://w3id.org/zericatalog/person/1017/barisini-tommaso>;
-    void:exampleResource <https://w3id.org/zericatalog/person/10174/valentin-de-boulogne>;
-    dqv:hasQualityMeasurement :myZeriMeasurementAvailability ;
-    dqv:hasQualityMeasurement :myZeriMeasurementLicensing ;
-    dqv:hasQualityMeasurement :myZeriMeasurementInterlinking ;
-    dqv:hasQualityMeasurement :myZeriMeasurementSecurity ; 
-    dqv:hasQualityMeasurement :myZeriMeasurementPerformance ;
-    dqv:hasQualityMeasurement :myZeriMeasurementSyntactic ;
-    dqv:hasQualityMeasurement :myZeriMeasurementConciseness ;
-    dqv:hasQualityMeasurement :myZeriMeasurementTrustworthiness
+    void:sparqlEndpoint <https://datos.bne.es/sparql>;
+    wdt:P5305 <https://datos.bne.es/sparql>;
+    void:subset :myBne_autoridades;
+    void:subset :myBne_materias;
+    void:subset :myBne_bibliograficos;
+    void:vocabulary <https://datos.bne.es/def/>;
+    void:exampleResource <https://datos.bne.es/resource/XX1718747>;
+    void:exampleResource <https://datos.bne.es/resource/XX1066651>;
+    void:exampleResource <https://datos.bne.es/resource/XX971832>;
+    dqv:hasQualityMeasurement :myBneMeasurementAvailability ;
+    dqv:hasQualityMeasurement :myBneMeasurementLicensing ;
+    dqv:hasQualityMeasurement :myBneMeasurementInterlinking ;
+    dqv:hasQualityMeasurement :myBneMeasurementSecurity ; 
+    dqv:hasQualityMeasurement :myBneMeasurementPerformance ;
+    dqv:hasQualityMeasurement :myBneMeasurementSyntactic ;
+    dqv:hasQualityMeasurement :myBneMeasurementConciseness ;
+    dqv:hasQualityMeasurement :myBneMeasurementTrustworthiness ;
+    dqv:hasQualityMeasurement :myBneMeasurementUnderstandabilityLabels
+    .
+   
+:myBne_autoridades a void:Dataset;
+    dcterms:title "Registros de autoridad";
+    dcterms:date "2021-01-21"^^xsd:date;
+    dcterms:description "Registros de autoridad (362MB)";
+    void:dataDump <http://datos.bne.es/datadump/autoridades.nt.bz2>
+    .
+
+:myBne_materias a void:Dataset;
+    dcterms:title "Encabezamientos de Materias";
+    dcterms:date "2021-01-21"^^xsd:date;
+    dcterms:description "Encabezamientos de Materias en SKOS (36,3MB)";
+    void:dataDump <http://datos.bne.es/datadump/materias.nt.bz2>
+    .    
+
+:myBne_bibliograpficos a void:Dataset;
+    dcterms:title "Registros Bibliográficos";
+    dcterms:date "2021-01-21"^^xsd:date;
+    dcterms:description "Registros bibliográficos (1.3GB)";
+    void:dataDump <http://datos.bne.es/datadump/bibliograficos.nt.bz2>
     .
     
-:org_ZERI a foaf:Organization;
-    rdfs:label "Federico Zeri Foundation" ;
-    foaf:homepage <https://fondazionezeri.unibo.it/it> ;
+:org_Bne a foaf:Organization;
+    rdfs:label "National Library of Spain" ;
+    foaf:homepage <https://datos.bne.es/> ;
     .
 
 :availabilityMetric
     a dqv:Metric ;
+    skos:prefLabel "Availability" ;
     skos:definition "It checks that the SPARQL endpoint is available"@en ;
     dqv:inDimension ldqd:availability ;
     dqv:expectedDataType xsd:decimal ;
@@ -56,15 +77,16 @@
     schema:description "It checks that the SPARQL endpoint is available" 
     .
 
-:myZeriMeasurementAvailability 
+:myBneMeasurementAvailability 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myBneDataset ;
     dqv:isMeasurementOf :availabilityMetric ;
     dqv:value "1"^^xsd:decimal 
     .
 
 :licensingMetric
     a dqv:Metric ;
+    skos:prefLabel "Licensing" ;
     skos:definition "It checks the inclusion of machine-readable metadata concerning the licence"@en ;
     dqv:inDimension ldqd:licensing ;
     dqv:expectedDataType xsd:decimal ;
@@ -72,22 +94,23 @@
     schema:description "It checks the inclusion of machine-readable metadata concerning the licence" 
     .
 
-:myZeriMeasurementLicensing 
+:myBneMeasurementLicensing 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myBneDataset ;
     dqv:isMeasurementOf :licensingMetric ;
     dqv:value "1"^^xsd:decimal 
     .
     
-:myZeriMeasurementInterlinking 
+:myBneMeasurementInterlinking 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myBneDataset ;
     dqv:isMeasurementOf :interlinkingMetric ;
     dqv:value "1"^^xsd:decimal 
     .
 
 :interlinkingMetric
     a dqv:Metric ;
+    skos:prefLabel "Interlinking" ;
     skos:definition "It checks the extent to which resources in a repository are linked to external datasets"@en ;
     dqv:inDimension ldqd:interlinking ;
     dqv:expectedDataType xsd:decimal ;
@@ -95,15 +118,16 @@
     schema:description "It checks the extent to which resources in a repository are linked to external datasets" 
     .    
     
-:myZeriMeasurementSecurity 
+:myBneMeasurementSecurity 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myBneDataset ;
     dqv:isMeasurementOf :securityMetric ;
     dqv:value "1"^^xsd:decimal 
     .
 
 :securityMetric
     a dqv:Metric ;
+    skos:prefLabel "Security" ;
     skos:definition "It checks the extent to which data is protected against alteration and misuse"@en ;
     dqv:inDimension ldqd:security ;
     dqv:expectedDataType xsd:decimal ;
@@ -111,15 +135,16 @@
     schema:description "It checks the extent to which data is protected against alteration and misuse" 
     .        
     
-:myZeriMeasurementPerformance 
+:myBneMeasurementPerformance 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myBneDataset ;
     dqv:isMeasurementOf :performanceMetric ;
     dqv:value "1"^^xsd:decimal 
     .
 
 :performanceMetric
     a dqv:Metric ;
+    skos:prefLabel "Performance" ;
     skos:definition "It checks whether the time to answer ten requests divided by ten is not longer than the time it takes to answer one request"@en ;
     dqv:inDimension ldqd:performance ;
     dqv:expectedDataType xsd:decimal ;
@@ -127,15 +152,16 @@
     schema:description "It checks whether the time to answer ten requests divided by ten is not longer than the time it takes to answer one request" 
     .            
 
-:myZeriMeasurementSyntactic 
+:myBneMeasurementSyntactic 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myBneDataset ;
     dqv:isMeasurementOf :syntacticMetric ;
     dqv:value "1"^^xsd:decimal 
     .
 
 :syntacticMetric
     a dqv:Metric ;
+    skos:prefLabel "Syntactic validity" ;
     skos:definition "It checks the degree to which an RDF document conforms to the specification of the serialisation format"@en ;
     dqv:inDimension ldqd:syntacticValidity ;
     dqv:expectedDataType xsd:decimal ;
@@ -143,15 +169,16 @@
     schema:description "It checks the degree to which an RDF document conforms to the specification of the serialisation format" 
     .            
 
-:myZeriMeasurementConciseness 
+:myBneMeasurementConciseness 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myBneDataset ;
     dqv:isMeasurementOf :concisenessMetric ;
     dqv:value "0"^^xsd:decimal 
     .
 
 :concisenessMetric
     a dqv:Metric ;
+    skos:prefLabel "Conciseness" ;
     skos:definition "It refers to the minimisation of redundancy of entities at the schema"@en ;
     dqv:inDimension ldqd:conciseness ;
     dqv:expectedDataType xsd:decimal ;
@@ -159,21 +186,39 @@
     schema:description "It refers to the minimisation of redundancy of entities at the schema"
     .        
     
-:myZeriMeasurementTrustworthiness
+:myBneMeasurementTrustworthiness
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myZeriDataset ;
+    dqv:computedOn :myBneDataset ;
     dqv:isMeasurementOf :trustworthinessMetric ;
     dqv:value "0"^^xsd:decimal 
     .
 
 :trustworthinessMetric
     a dqv:Metric ;
+    skos:prefLabel "Trustworthiness" ;
     skos:definition "It refers to the degree to which the information is accepted to be correct, true, real and credible"@en ;
     dqv:inDimension ldqd:trustworthiness ;
     dqv:expectedDataType xsd:decimal ;
     schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT * WHERE {{?s rdfs:label ?o . FILTER (?o = 'Unknown' || ?o = 'Anonymous' || ?o = 'Unknown value')}} LIMIT {0}" ;
     schema:description "It refers to the degree to which the information is accepted to be correct, true, real and credible"
     .            
+    
+:myBneMeasurementUnderstandabilityLabels
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBneDataset ;
+    dqv:isMeasurementOf :understandabilityLabelsMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:understandabilityLabelsMetric
+    a dqv:Metric ;
+    skos:prefLabel "Understandability-Labels" ;
+    skos:definition "It detects the use of human-readable labelling of entities"@en ;
+    dqv:inDimension ldqd:understandability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT * WHERE {{ ?s ?p ?o .  FILTER (!strstarts(str(?s), 'http://www.openlinksw.com/')) . FILTER NOT EXISTS {{?s rdfs:label ?label}}}} LIMIT {0}" ;
+    schema:description "It detects the use of human-readable labelling of entities"
+    .                
 
 ###############################
 
