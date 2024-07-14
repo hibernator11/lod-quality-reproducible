@@ -53,7 +53,9 @@
     dqv:hasQualityMeasurement :myBneMeasurementInterpretabilityLabels ;
     dqv:hasQualityMeasurement :myBneMeasurementVersatilitySerialisation ;
     dqv:hasQualityMeasurement :myBneMeasurementVersatilityMultilingual ;
-    dqv:hasQualityMeasurement :myBneMeasurementRelevancy
+    dqv:hasQualityMeasurement :myBneMeasurementRelevancy ;
+    dqv:hasQualityMeasurement :myBneMeasurementConsistency ;
+    dqv:hasQualityMeasurement :myBneMeasurementSemanticAccuracy
     .
    
 :myBne_autoridades a void:Dataset;
@@ -455,6 +457,39 @@
     schema:query "PREFIX wikibase: <http://wikiba.se/ontology#> SELECT * WHERE {{ ?s wikibase:rank ?o }} LIMIT {0}" ;
     schema:description "It checks whether the repository supports a ranking of statements in order to express the relative relevance of statements"
     .       
+    
+:myBneMeasurementConsistency
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBneDataset ;
+    dqv:isMeasurementOf :consistencyMetric ;
+    dqv:value "1"^^xsd:decimal 
+    .
+
+:consistencyMetric
+    a dqv:Metric ;
+    skos:prefLabel "Consistency" ;
+    skos:definition "It checks the consistency of statements with respect to class constraints"@en ;
+    dqv:inDimension ldqd:consistency ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?s ?class1 ?class2 WHERE {{ ?s a ?class1 . ?s a ?class2 . ?class1 owl:disjointWith ?class2 }} LIMIT {0}" ;
+    schema:description "It checks the consistency of statements with respect to class constraints"
+    .         
+    
+:myBneMeasurementSemanticAccuracy
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBneDataset ;
+    dqv:isMeasurementOf :semanticAccuracyMetric ;
+    dqv:value "1"^^xsd:decimal 
+    .
+
+:semanticAccuracyMetric
+    a dqv:Metric ;
+    skos:prefLabel "Semantic Accuracy" ;
+    skos:definition "It checks the extent to which data are correct, reliable, and certified free of error"@en ;
+    dqv:inDimension ldqd:accuracy ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:description "It checks the extent to which data are correct, reliable, and certified free of error"
+    .           
 
 ###############################
 

@@ -15,12 +15,15 @@ class Dataset():
         self.performance = "Performance"
         self.syntactic = "Syntactic validity"
         self.conciseness = "Conciseness"
+        self.consistency = "Consistency"
+        self.accuracy = "Accuracy"
         self.understandability_labels = "Understandability-Labels"
         self.RC_URIs_length = "Representational-Conciseness-URIs-Length"
         self.RC_Containers = "Representational-Conciseness-Containers"
         self.interpretability_viaf = "Interpretability-VIAF"
         self.interpretability_isni = "Interpretability-Isni"
-        self.negatives = [self.conciseness, self.understandability_labels, self.RC_URIs_length, self.RC_Containers, self.interpretability_viaf, self.interpretability_isni]
+        self.negatives = [self.conciseness, self.understandability_labels, self.RC_URIs_length, self.RC_Containers, self.interpretability_viaf, self.interpretability_isni,self.consistency]
+        self.manual = [self.accuracy]
         self.performancelimit = 100
         self.syntacticlimit = 100
 
@@ -53,7 +56,8 @@ class Dataset():
             ?s void:sparqlEndpoint <{0}> .
             ?s dqv:hasQualityMeasurement ?qualityMeasurement .
             ?qualityMeasurement dqv:isMeasurementOf ?metric .
-            ?metric skos:prefLabel ?criterionLabel 
+            ?metric skos:prefLabel ?criterionLabel .
+            ?metric schema:query ?query 
         }}""".format(self.getEndpoint())
 
         qres = self.graph.query(query)
