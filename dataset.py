@@ -59,6 +59,8 @@ class Dataset():
             ?metric skos:prefLabel ?criterionLabel .
             ?metric schema:query ?query 
         }}""".format(self.getEndpoint())
+        
+        #print(query)
 
         qres = self.graph.query(query)
 
@@ -169,10 +171,11 @@ class Dataset():
 if __name__ == '__main__' :
     file = "data/zeri-data-quality.ttl"
     #file = "data/bne-data-quality.ttl"
-    file = "data/saam-data-quality.ttl"
+    
     d = Dataset(file)
     endpoint = d.getEndpoint()
     print(endpoint)
     print(d.getCriteria())
     #d.runCriterion('Performance')
-    d.runCriterion('Interpretability-Isni')
+    #d.runCriterion('Interpretability-Isni')
+    d.runCriterion('Completeness-Work')
