@@ -98,7 +98,7 @@
     a dqv:QualityMeasurement ;
     dqv:computedOn :myBnfDataset ;
     dqv:isMeasurementOf :licensingMetric ;
-    dqv:value "1"^^xsd:decimal 
+    dqv:value "0"^^xsd:decimal 
     .
     
 :myBnfMeasurementInterlinking 
