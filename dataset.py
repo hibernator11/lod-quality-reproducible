@@ -73,6 +73,37 @@ class Dataset():
 
         return criteria
     
+    def getAssessmentResults(self):
+        
+        query = """
+        prefix dcterms: <http://purl.org/dc/terms/> 
+        prefix skos: <http://www.w3.org/2004/02/skos/core#> 
+        prefix schema: <https://schema.org/> 
+        prefix dqv: <http://www.w3.org/ns/dqv#> 
+        
+        SELECT DISTINCT ?dimensionLabel ?criterionLabel ?value
+        WHERE {{
+            ?s void:sparqlEndpoint <{0}> .
+            ?s dqv:hasQualityMeasurement ?qualityMeasurement .
+            ?qualityMeasurement dqv:isMeasurementOf ?metric .
+            ?qualityMeasurement dqv:value ?value .
+            ?metric skos:prefLabel ?criterionLabel .
+            ?metric dqv:inDimension ?dimension .
+            ?dimension skos:prefLabel ?dimensionLabel 
+        }}""".format(self.getEndpoint())
+        
+        #print(query)
+
+        qres = self.graph.query(query)
+
+        assessment = []
+        for row in qres:    
+            #print(str(row.dimensionLabel))
+            assessment.append({"dimension": str(row.dimensionLabel),
+                               "criterion": str(row.criterionLabel), 
+                               "value": str(row.value)})
+        return assessment
+    
     def runCriterion(self, criterion):
         jsonResult = []
         
@@ -183,4 +214,5 @@ if __name__ == '__main__' :
     print(d.getCriteria())
     #d.runCriterion('Performance')
     #d.runCriterion('Interpretability-Isni')
-    d.runCriterion('Completeness-Population')
+    #d.runCriterion('Completeness-Population')
+    print(d.getAssessmentResults())
