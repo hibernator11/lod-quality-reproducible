@@ -16,6 +16,8 @@ class Dataset():
         self.syntactic = "Syntactic validity"
         self.conciseness = "Conciseness"
         self.consistency = "Consistency"
+        self.completeness_population = "Completeness-Population"
+        self.completeness_population_check = "10"
         self.accuracy = "Accuracy"
         self.understandability_labels = "Understandability-Labels"
         self.RC_URIs_length = "Representational-Conciseness-URIs-Length"
@@ -127,6 +129,9 @@ class Dataset():
                     if criterion in self.negatives :
                         sparqlResult = 'error'
                         break
+                    elif criterion == self.completeness_population :
+                        if r['total']['value'] == self.completeness_population_check:
+                            sparqlResult = 'ok'
                     else: 
                         sparqlResult = 'ok'
                 
@@ -178,4 +183,4 @@ if __name__ == '__main__' :
     print(d.getCriteria())
     #d.runCriterion('Performance')
     #d.runCriterion('Interpretability-Isni')
-    d.runCriterion('Completeness-Work')
+    d.runCriterion('Completeness-Population')

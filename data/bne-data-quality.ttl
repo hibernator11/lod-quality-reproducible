@@ -58,7 +58,8 @@
     dqv:hasQualityMeasurement :myBneMeasurementSemanticAccuracy ;
     dqv:hasQualityMeasurement :myBneMeasurementCompletenessPerson ;
     dqv:hasQualityMeasurement :myBneMeasurementCompletenessWork ;
-    dqv:hasQualityMeasurement :myBneMeasurementCompletenessPlace
+    dqv:hasQualityMeasurement :myBneMeasurementCompletenessPlace ;
+    dqv:hasQualityMeasurement :myBneMeasurementCompletenessPopulation
     .
    
 :myBne_autoridades a void:Dataset;
@@ -544,6 +545,24 @@
     schema:query "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/> SELECT * WHERE {{ ?place a cidoc:E53_Place . ?place skos:prefLabel ?name }} LIMIT {0}" ;
     schema:description "It checks the degree to which all required information is present in a particular dataset"
     .            
+
+
+:myBneMeasurementCompletenessPopulation
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBneDataset ;
+    dqv:isMeasurementOf :completenessPopulationMetric ;
+    dqv:value "1"^^xsd:decimal 
+    .
+
+:completenessPopulationMetric
+    a dqv:Metric ;
+    skos:prefLabel "Completeness-Population" ;
+    skos:definition "It checks the degree to which all required information is present in a particular dataset"@en ;
+    dqv:inDimension ldqd:completeness ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX viaf: <http://viaf.org/viaf/> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT (count(*) AS ?total) WHERE {{ VALUES ?artist {{ viaf:95207986 viaf:9847974 viaf:36925746 viaf:89773778 viaf:60351476 viaf:17220427 viaf:64055977 viaf:96994048 viaf:24604287 viaf:24585191 }}. ?s owl:sameAs ?artist }}" ;
+    schema:description "It checks the degree to which all required information is present in a particular dataset"
+    .    
 
 
 
