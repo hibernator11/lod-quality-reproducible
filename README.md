@@ -1,7 +1,7 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hibernator11/lod-quality-reproducible/HEAD)
 
 # lod-quality-reproducible
-This project provides a tool based on Jupyter Notebooks to assess the quality of Linked Open Data repositories made available by the GLAM (Galleries, Libraries, Archives and Museums). This work was inspired by the [International GLAM Labs Community](https://glamlabs.io), DARIAH-EU, Collections as Data, the GLAM Workbench and the IMPACT Centre of Competence in Digitisation.
+This project provides a tool based on Jupyter Notebooks to assess the quality of Linked Open Data repositories made available by the GLAM (Galleries, Libraries, Archives and Museums). 
 
 ### Installation guide
 The code can be run on cloud services such as [Binder](https://mybinder.org/) without the need to install additional software and using only the web browser by clicking on the link provided at the beginning of this documentation.
@@ -22,3 +22,5 @@ Please, note that the datasets used in this project have separate licences.
 - Gustavo Candela: An automatic data quality approach to assess semantic data from cultural heritage institutions. J. Assoc. Inf. Sci. Technol. 74(7): 866-878 (2023). https://doi.org/10.1002/asi.24761
 - Gustavo Candela, Sally Chambers, Tim Sherratt: An approach to assess the quality of Jupyter projects published by GLAM institutions. J. Assoc. Inf. Sci. Technol. 74(13): 1550-1564 (2023). https://doi.org/10.1002/asi.24835
 - Candela, G. (2023). Towards a semantic approach in GLAM Labs: The case of the Data Foundry at the National Library of Scotland. Journal of Information Science, 0(0). https://doi.org/10.1177/01655515231174386
+- Mahendra Mahey, Aisha Al-Abdulla, Sarah Ames, Paula Bray, Gustavo Candela, Caleb Derven, Milena Dobreva-McPherson, Katrine Gasser, Sally Chambers, Stefan Karner, Kristy Kokegei, Ditte Laursen, Abigail Potter, Armin Straube, Sophie-Carolin Wagner, and Lotte Wilms. 2019. Open a GLAM lab. International GLAM Labs Community, Book Sprint, Doha, Qatar. 164 pages. https://doi.org/10.21428/16ac48ec.f54af6ae
+- Gustavo Candela, Nele Gabriëls, Sally Chambers, Milena Dobreva, Sarah Ames, Meghan Ferriter, Neil Fitzgerald, Victor Harbo, Katrine Hofmann, Olga Holownia, Alba Irollo, Mahendra Mahey, Eileen Manchester, Thuy-An Pham, Abigail Potter, and Ellen Van Keer. 2023. A checklist to publish collections as data in GLAM institutions. Global Knowledge, Memory and Communication (Nov. 2023). https://doi.org/10.1108/gkmc-06-2023-0195
