@@ -1,7 +1,7 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hibernator11/lod-quality-reproducible/HEAD)
 
 # lod-quality-reproducible
-lod-quality-reproducible
+This project provides a tool based on Jupyter Notebooks to assess the quality of Linked Open Data repositories made available by the GLAM (Galleries, Libraries, Archives and Museums). This work was inspired by the [International GLAM Labs Community](https://glamlabs.io), DARIAH-EU, Collections as Data, the GLAM Workbench and the IMPACT Centre of Competence in Digitisation.
 
 ### Installation guide
 The code can be run on cloud services such as [Binder](https://mybinder.org/) without the need to install additional software and using only the web browser by clicking on the link provided at the beginning of this documentation.
