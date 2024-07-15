@@ -98,10 +98,14 @@ class Dataset():
 
         assessment = []
         for row in qres:    
-            #print(str(row.dimensionLabel))
+            value = str(row.value)
+            if value =="1":
+                value = "correct"
+            else:
+                value = "not satisfied"
             assessment.append({"dimension": str(row.dimensionLabel),
                                "criterion": str(row.criterionLabel), 
-                               "value": str(row.value)})
+                               "value": value})
         return assessment
     
     def runCriterion(self, criterion):
