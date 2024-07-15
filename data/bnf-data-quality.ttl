@@ -18,7 +18,7 @@
 
 :myBnfDataset a void:Dataset;
     dcterms:title "National Library of France";
-    dcterms:description "National Library of France";
+    dcterms:description "Reference information about authors, works and topics.";
     dcterms:creator :org_Bnf;
     dcterms:issued "2016-04-01"^^xsd:date;
     dcterms:license <http://creativecommons.org/licenses/by/4.0/>;

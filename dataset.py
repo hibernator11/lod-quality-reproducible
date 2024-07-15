@@ -44,6 +44,39 @@ class Dataset():
 
         return endpoints[0]
     
+    def getTitle(self):
+        query = """
+        PREFIX dcterms: <http://purl.org/dc/terms/> 
+        SELECT DISTINCT ?title
+        WHERE {
+            ?s dcterms:title ?title
+        }"""
+
+        qres = self.graph.query(query)
+
+        title = []
+        for row in qres:
+            title.append(str(row.title))
+
+        return title[0]
+    
+    
+    def getDescription(self):
+        query = """
+        PREFIX dcterms: <http://purl.org/dc/terms/> 
+        SELECT DISTINCT ?description
+        WHERE {
+            ?s dcterms:description ?description
+        }"""
+
+        qres = self.graph.query(query)
+
+        description = []
+        for row in qres:
+            description.append(str(row.description))
+
+        return description[0]
+    
     def getCriteria(self):
         
         query = """
