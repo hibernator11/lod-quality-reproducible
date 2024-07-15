@@ -18,7 +18,7 @@
 
 :myLdfiDataset a void:Dataset;
     dcterms:title "LetterSampo: correspSearch";
-    dcterms:description "Knowledge Graph includes separated in different subgraphs representing actors, letters, places, and other aspects and documentation of epistolary data. The data covers approx. 130 000 letters by 17 500 senders and receivers.";
+    dcterms:description "This dataset includes actors, letters, places, and other aspects and documentation of epistolary data. The data covers approx. 130 000 letters by 17 500 senders and receivers.";
     dcterms:creator :org_Ldfi;
     dcterms:issued "2021-04-01"^^xsd:date;
     dcterms:license <https://creativecommons.org/licenses/by-nc/4.0/deed.en>;
