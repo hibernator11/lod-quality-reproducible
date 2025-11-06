@@ -3,6 +3,15 @@
 # lod-quality-reproducible
 This project provides a tool based on Jupyter Notebooks to assess the quality of Linked Open Data repositories made available by the GLAM (Galleries, Libraries, Archives and Museums). 
 
+In order to provide a wider scope in terms of location and language, the following LOD repositories were assessed:
+
+- Bibliothèque Nationale de France - https://data.bnf.fr/
+- Biblioteca Nacional del Congreso Nacional de Chile - https://datos.bcn.cl/es/endpoint-sparql
+- Database of Chinese Rare Books - https://lod-cloud.net/dataset/ASCDC-CRB
+- Getty Research Institute - Provenance Index - https://data.getty.edu/provenance
+- LetterSampo Correspondence - http://ldf.fi/corresp/sparql
+ 
+
 ### Installation guide
 The code can be run on cloud services such as [Binder](https://mybinder.org/) without the need to install additional software and using only the web browser by clicking on the link provided at the beginning of this documentation.
 
