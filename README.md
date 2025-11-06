@@ -3,7 +3,7 @@
 # lod-quality-reproducible
 This project provides a tool based on Jupyter Notebooks to assess the quality of Linked Open Data repositories made available by the GLAM (Galleries, Libraries, Archives and Museums). 
 
-In order to provide a wider scope in terms of location and language, the following LOD repositories were assessed:
+In order to assess a wide diversity of repositories in terms of location and language, the following LOD repositories were assessed:
 
 - Bibliothèque Nationale de France - https://data.bnf.fr/
 - Biblioteca Nacional del Congreso Nacional de Chile - https://datos.bcn.cl/es/endpoint-sparql
