@@ -94,7 +94,7 @@
     a dqv:QualityMeasurement ;
     dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :licensingMetric ;
-    dqv:value "1"^^xsd:decimal 
+    dqv:value "0"^^xsd:decimal 
     .
     
 :myCRBMeasurementInterlinking 
@@ -134,7 +134,7 @@
     a dqv:QualityMeasurement ;
     dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :securityMetric ;
-    dqv:value "1"^^xsd:decimal 
+    dqv:value "0"^^xsd:decimal 
     .
 
 :securityMetric
@@ -151,7 +151,7 @@
     a dqv:QualityMeasurement ;
     dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :performanceMetric ;
-    dqv:value "1"^^xsd:decimal 
+    dqv:value "0"^^xsd:decimal 
     .
 
 :performanceMetric
@@ -505,7 +505,7 @@
     a dqv:QualityMeasurement ;
     dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :completenessPersonMetric ;
-    dqv:value "1"^^xsd:decimal 
+    dqv:value "0"^^xsd:decimal 
     .
 
 :completenessPersonMetric

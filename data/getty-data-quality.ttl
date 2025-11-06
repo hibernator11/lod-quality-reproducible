@@ -96,7 +96,7 @@
     a dqv:QualityMeasurement ;
     dqv:computedOn :myGettyDataset ;
     dqv:isMeasurementOf :licensingMetric ;
-    dqv:value "1"^^xsd:decimal 
+    dqv:value "0"^^xsd:decimal 
     .
     
 :myGettyMeasurementInterlinking 
@@ -112,7 +112,7 @@
     skos:definition "It checks the extent to which resources in a repository are linked to external datasets"@en ;
     dqv:inDimension ldqd:interlinking ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX skos: <http://www.w3.org/2004/02/skos/core#exactMatch> SELECT * WHERE {{?s skos:exactMatch ?o}} LIMIT {0}" ;
+    schema:query "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> SELECT * WHERE {{?s skos:exactMatch ?o}} LIMIT {0}" ;
     schema:description "It checks the extent to which resources in a repository are linked to external datasets" 
     .    
     
@@ -362,7 +362,7 @@
     skos:definition "It checks the use of existing vocabularies to describe the metadata"@en ;
     dqv:inDimension ldqd:interoperability ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT ?p WHERE{{{{ SELECT distinct ?p WHERE {{{{ ?s a foaf:Person.  ?s ?p ?o }}}} LIMIT 100 }} FILTER (strstarts(str(?p), 'http://www.europeana.eu/schemas/edm/') || strstarts(str(?p), 'http://purl.org/dc/terms/') || strstarts(str(?p), 'http://xmlns.com/foaf/0.1/') || strstarts(str(?p), 'https://datos.bne.es/def/')) }} LIMIT {0} " ;
+    schema:query "SELECT ?p WHERE{{{{ SELECT distinct ?p WHERE {{{{?s ?p ?o }}}} LIMIT 100 }} FILTER (strstarts(str(?p), 'http://www.cidoc-crm.org/cidoc-crm/')) }} LIMIT {0} " ;
     schema:description "It checks the use of existing vocabularies to describe the metadata"
     .       
     
@@ -514,7 +514,7 @@
     skos:definition "It checks the degree to which all required information is present in a particular dataset"@en ;
     dqv:inDimension ldqd:completeness ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/> PREFIX bne: <https://datos.bne.es/def/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> SELECT * WHERE {{ {{ ?author a foaf:Person . ?author foaf:givenName ?name}} UNION {{ ?author a cidoc:E21_Person . ?author skos:prefLabel ?name}} UNION {{ ?author a bne:C1005 . ?author rdfs:label ?name}}}} LIMIT {0}" ;
+    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/> SELECT * WHERE {{ ?author a cidoc:E21_Person . ?author rdfs:label ?name}} LIMIT {0}" ;
     schema:description "It checks the degree to which all required information is present in a particular dataset"
     .
     
@@ -531,7 +531,7 @@
     skos:definition "It checks the degree to which all required information is present in a particular dataset"@en ;
     dqv:inDimension ldqd:completeness ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/> PREFIX bne: <https://datos.bne.es/def/>  PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX frbr-rda: <http://rdvocab.info/uri/schema/FRBRentitiesRDA/> prefix lssc: <http://ldf.fi/schema/lssc/> SELECT * WHERE {{ {{ ?work a lssc:Letter . ?work skos:prefLabel ?name}} UNION {{ ?work a frbr-rda:Work . ?work rdfs:label ?name}} UNION {{ ?work a bne:C1001 . ?work rdfs:label ?name}} UNION {{ ?work a cidoc:E73_Information_Object . ?work rdfs:label ?name}} }} LIMIT {0}" ;
+    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/> SELECT * WHERE {{ ?work a cidoc:E8_Acquisition . ?work rdfs:label ?name}} LIMIT {0}" ;
     schema:description "It checks the degree to which all required information is present in a particular dataset"
     .
     
@@ -539,7 +539,7 @@
     a dqv:QualityMeasurement ;
     dqv:computedOn :myGettyDataset ;
     dqv:isMeasurementOf :completenessPlaceMetric ;
-    dqv:value "0"^^xsd:decimal 
+    dqv:value "1"^^xsd:decimal 
     .
 
 :completenessPlaceMetric
@@ -548,7 +548,7 @@
     skos:definition "It checks the degree to which all required information is present in a particular dataset"@en ;
     dqv:inDimension ldqd:completeness ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/> SELECT * WHERE {{ ?place a cidoc:E53_Place . ?place skos:prefLabel ?name }} LIMIT {0}" ;
+    schema:query "PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/> SELECT * WHERE {{ ?place a cidoc:E53_Place . ?place rdfs:label ?name }} LIMIT {0}" ;
     schema:description "It checks the degree to which all required information is present in a particular dataset"
     .  
     
