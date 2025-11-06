@@ -242,14 +242,14 @@ class Dataset():
  
  
 if __name__ == '__main__' :
-    file = "data/zeri-data-quality.ttl"
+    file = "data/crb-data-quality.ttl"
     #file = "data/bne-data-quality.ttl"
     
     d = Dataset(file)
     endpoint = d.getEndpoint()
     print(endpoint)
-    print(d.getCriteria())
-    #d.runCriterion('Performance')
+    #print(d.getCriteria())
+    d.runCriterion('Conciseness')
     #d.runCriterion('Interpretability-Isni')
     #d.runCriterion('Completeness-Population')
     print(d.getAssessmentResults())

@@ -16,55 +16,51 @@
 @prefix lssc: <http://ldf.fi/schema/lssc/> .
 @prefix : <http://www.example.org/#> .
 
-:myLdfiDataset a void:Dataset;
-    dcterms:title "LetterSampo: correspSearch";
-    dcterms:description "This dataset includes actors, letters, places, and other aspects and documentation of epistolary data. The data covers approx. 130 000 letters by 17 500 senders and receivers.";
-    dcterms:creator :org_Ldfi;
+:myCRBDataset a void:Dataset;
+    dcterms:title "Chinese Rare Books";
+    dcterms:description "Provision of data of Chinese rare books from Fu Ssu-nien Library, Institute of History and Philology, Academia Sinica; the Asian Division of the Library of Congress; Harvard-Yenching Library, Harvard University, and East Asian Library, Princeton University.";
+    dcterms:creator :org_Crb;
     dcterms:issued "2021-04-01"^^xsd:date;
-    dcterms:license <https://creativecommons.org/licenses/by-nc/4.0/deed.en>;
+    dcterms:license <http://www.opendefinition.org/licenses/cc-zero>;
     void:feature <http://www.w3.org/ns/formats/RDF_XML>;
-    void:sparqlEndpoint <http://ldf.fi/corresp/sparql>;
-    wdt:P5305 <http://ldf.fi/corresp/sparql>;
-    void:dataDump <https://pef.bnf.fr/link/539d6d59-c2e3-4e17-b24c-d8a83ca11944#>;
-    void:vocabulary <http://www.cidoc-crm.org/cidoc-crm/>;
-    void:exampleResource <http://ldf.fi/corresp/actors/p1000206911801916508>;
-    void:exampleResource <http://ldf.fi/corresp/actors/p1000784812835657352>;
-    void:exampleResource <http://ldf.fi/corresp/actors/p1001412071197852459>;
-    dqv:hasQualityMeasurement :myLdfiMeasurementAvailability ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementLicensing ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementInterlinking ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementInterlinkingWikidata ;  
-    dqv:hasQualityMeasurement :myLdfiMeasurementSecurity ; 
-    dqv:hasQualityMeasurement :myLdfiMeasurementPerformance ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementSyntactic ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementConciseness ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementTrustworthiness ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementUnderstandabilityLabels ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementUnderstandabilityVocabularies ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementUnderstandabilityURIPatterns ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementUnderstandabilityExamples ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementUnderstandabilityDatasheets ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementTimeliness ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementRepresentationalConcisenessURIsLength ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementRepresentationalConcisenessContainers ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementInteroperability ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementInterpretabilityViaf ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementInterpretabilityIsni ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementInterpretabilityLabels ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementVersatilitySerialisation ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementVersatilityMultilingual ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementRelevancy ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementConsistency ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementSemanticAccuracy ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementCompletenessPerson ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementCompletenessWork ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementCompletenessPlace ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementCompletenessPopulation
+    void:sparqlEndpoint <https://data.ascdc.tw/sparql>;
+    wdt:P5305 <https://data.ascdc.tw/sparql>;
+    void:vocabulary <http://id.loc.gov/ontologies/bibframe/>;
+    dqv:hasQualityMeasurement :myCRBMeasurementAvailability ;
+    dqv:hasQualityMeasurement :myCRBMeasurementLicensing ;
+    dqv:hasQualityMeasurement :myCRBMeasurementInterlinking ;
+    dqv:hasQualityMeasurement :myCRBMeasurementInterlinkingWikidata ;  
+    dqv:hasQualityMeasurement :myCRBMeasurementSecurity ; 
+    dqv:hasQualityMeasurement :myCRBMeasurementPerformance ;
+    dqv:hasQualityMeasurement :myCRBMeasurementSyntactic ;
+    dqv:hasQualityMeasurement :myCRBMeasurementConciseness ;
+    dqv:hasQualityMeasurement :myCRBMeasurementTrustworthiness ;
+    dqv:hasQualityMeasurement :myCRBMeasurementUnderstandabilityLabels ;
+    dqv:hasQualityMeasurement :myCRBMeasurementUnderstandabilityVocabularies ;
+    dqv:hasQualityMeasurement :myCRBMeasurementUnderstandabilityURIPatterns ;
+    dqv:hasQualityMeasurement :myCRBMeasurementUnderstandabilityExamples ;
+    dqv:hasQualityMeasurement :myCRBMeasurementUnderstandabilityDatasheets ;
+    dqv:hasQualityMeasurement :myCRBMeasurementTimeliness ;
+    dqv:hasQualityMeasurement :myCRBMeasurementRepresentationalConcisenessURIsLength ;
+    dqv:hasQualityMeasurement :myCRBMeasurementRepresentationalConcisenessContainers ;
+    dqv:hasQualityMeasurement :myCRBMeasurementInteroperability ;
+    dqv:hasQualityMeasurement :myCRBMeasurementInterpretabilityViaf ;
+    dqv:hasQualityMeasurement :myCRBMeasurementInterpretabilityIsni ;
+    dqv:hasQualityMeasurement :myCRBMeasurementInterpretabilityLabels ;
+    dqv:hasQualityMeasurement :myCRBMeasurementVersatilitySerialisation ;
+    dqv:hasQualityMeasurement :myCRBMeasurementVersatilityMultilingual ;
+    dqv:hasQualityMeasurement :myCRBMeasurementRelevancy ;
+    dqv:hasQualityMeasurement :myCRBMeasurementConsistency ;
+    dqv:hasQualityMeasurement :myCRBMeasurementSemanticAccuracy ;
+    dqv:hasQualityMeasurement :myCRBMeasurementCompletenessPerson ;
+    dqv:hasQualityMeasurement :myCRBMeasurementCompletenessWork ;
+    dqv:hasQualityMeasurement :myCRBMeasurementCompletenessPlace ;
+    dqv:hasQualityMeasurement :myCRBMeasurementCompletenessPopulation
     .
     
-:org_Ldfi a foaf:Organization;
-    rdfs:label "Linked Data Finland" ;
-    foaf:homepage <http://ldf.fi/corresp/> ;
+:org_Crb a foaf:Organization;
+    rdfs:label "Fu Ssu-nien Library of the Institute of History and Philology, Academia Sinica" ;
+    foaf:homepage <http://rarebookdl.ihp.sinica.edu.tw/rarebook/Search/index.jsp> ;
     .
 
 :availabilityMetric
@@ -73,13 +69,13 @@
     skos:definition "It checks that the SPARQL endpoint is available"@en ;
     dqv:inDimension ldqd:availability ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "SELECT * WHERE {{?s ?p ?o}} LIMIT {0}" ;
+    schema:query "SELECT * FROM <http://data.ascdc.tw/Book/crb/> WHERE {{?s ?p ?o}} LIMIT {0}" ;
     schema:description "It checks that the SPARQL endpoint is available" 
     .
 
-:myLdfiMeasurementAvailability 
+:myCRBMeasurementAvailability 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :availabilityMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -90,20 +86,20 @@
     skos:definition "It checks the inclusion of machine-readable metadata concerning the licence"@en ;
     dqv:inDimension ldqd:licensing ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX dcterms: <http://purl.org/dc/terms/> PREFIX schema: <https://schema.org/> SELECT * WHERE {{{{?s dcterms:license ?o}} UNION {{?s schema:licence ?o}}}} LIMIT {0}" ;
+    schema:query "PREFIX dcterms: <http://purl.org/dc/terms/> PREFIX schema: <https://schema.org/> SELECT * FROM <http://data.ascdc.tw/Book/crb/> WHERE {{{{?s dcterms:license ?o}} UNION {{?s schema:licence ?o}}}} LIMIT {0}" ;
     schema:description "It checks the inclusion of machine-readable metadata concerning the licence" 
     .
 
-:myLdfiMeasurementLicensing 
+:myCRBMeasurementLicensing 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :licensingMetric ;
     dqv:value "1"^^xsd:decimal 
     .
     
-:myLdfiMeasurementInterlinking 
+:myCRBMeasurementInterlinking 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :interlinkingMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -114,15 +110,15 @@
     skos:definition "It checks the extent to which resources in a repository are linked to external datasets"@en ;
     dqv:inDimension ldqd:interlinking ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT * WHERE {{?s owl:sameAs ?o}} LIMIT {0}" ;
+    schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT * FROM <http://data.ascdc.tw/Book/crb/> WHERE {{?s owl:sameAs ?o}} LIMIT {0}" ;
     schema:description "It checks the extent to which resources in a repository are linked to external datasets" 
     .    
 
-:myLdfiMeasurementInterlinkingWikidata 
+:myCRBMeasurementInterlinkingWikidata 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :interlinkingWikidataMetric ;
-    dqv:value "1"^^xsd:decimal 
+    dqv:value "0"^^xsd:decimal 
     .
 
 :interlinkingWikidataMetric
@@ -134,9 +130,9 @@
     schema:description "It checks the existence of a dedicated Wikidata property" 
     .        
 
-:myLdfiMeasurementSecurity 
+:myCRBMeasurementSecurity 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :securityMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -147,13 +143,13 @@
     skos:definition "It checks the extent to which data is protected against alteration and misuse"@en ;
     dqv:inDimension ldqd:security ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX prov: <http://www.w3.org/ns/prov#> SELECT * WHERE {{{{?s prov:wasGeneratedBy ?o}} UNION {{?s a prov:Agent}}}} LIMIT {0}" ;
+    schema:query "PREFIX prov: <http://www.w3.org/ns/prov#> SELECT * FROM <http://data.ascdc.tw/Book/crb/> WHERE {{{{?s prov:wasGeneratedBy ?o}} UNION {{?s a prov:Agent}}}} LIMIT {0}" ;
     schema:description "It checks the extent to which data is protected against alteration and misuse" 
     .        
     
-:myLdfiMeasurementPerformance 
+:myCRBMeasurementPerformance 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :performanceMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -164,13 +160,13 @@
     skos:definition "It checks whether the time to answer ten requests divided by ten is not longer than the time it takes to answer one request"@en ;
     dqv:inDimension ldqd:performance ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "SELECT * WHERE {{?s ?p ?o}} LIMIT {0}" ;
+    schema:query "SELECT * FROM <http://data.ascdc.tw/Book/crb/> WHERE {{?s ?p ?o}} LIMIT {0}" ;
     schema:description "It checks whether the time to answer ten requests divided by ten is not longer than the time it takes to answer one request" 
     .            
 
-:myLdfiMeasurementSyntactic 
+:myCRBMeasurementSyntactic 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :syntacticMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -184,11 +180,11 @@
     schema:description "It checks the degree to which an RDF document conforms to the specification of the serialisation format" 
     .            
 
-:myLdfiMeasurementConciseness 
+:myCRBMeasurementConciseness 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :concisenessMetric ;
-    dqv:value "0"^^xsd:decimal 
+    dqv:value "1"^^xsd:decimal 
     .
 
 :concisenessMetric
@@ -197,13 +193,13 @@
     skos:definition "It refers to the minimisation of redundancy of entities at the schema"@en ;
     dqv:inDimension ldqd:conciseness ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?o ?type (COUNT(?s) AS ?total) WHERE {{?s a ?type . ?s owl:sameAs ?o }} GROUP BY ?o ?type HAVING(COUNT(?s)>1) LIMIT {0}" ;
+    schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?o ?type (COUNT(?s) AS ?total) FROM <http://data.ascdc.tw/Book/crb/> WHERE {{?s a ?type . ?s owl:sameAs ?o }} GROUP BY ?o ?type HAVING(COUNT(?s)>1) LIMIT {0}" ;
     schema:description "It refers to the minimisation of redundancy of entities at the schema"
     .        
     
-:myLdfiMeasurementTrustworthiness
+:myCRBMeasurementTrustworthiness
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :trustworthinessMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -214,13 +210,13 @@
     skos:prefLabel "Trustworthiness" ;
     dqv:inDimension ldqd:trustworthiness ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT * WHERE {{?s rdfs:label ?o . FILTER (?o = 'Unknown' || ?o = 'Anonymous' || ?o = 'Unknown value')}} LIMIT {0}" ;
+    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT * FROM <http://data.ascdc.tw/Book/crb/> WHERE {{?s rdfs:label ?o . FILTER (?o = 'Unknown' || ?o = 'Anonymous' || ?o = 'Unknown value')}} LIMIT {0}" ;
     schema:description "It refers to the degree to which the information is accepted to be correct, true, real and credible"
     .         
     
-:myLdfiMeasurementUnderstandabilityLabels
+:myCRBMeasurementUnderstandabilityLabels
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :understandabilityLabelsMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -231,13 +227,13 @@
     skos:definition "It detects the use of human-readable labelling of entities"@en ;
     dqv:inDimension ldqd:understandability ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT * WHERE {{ ?s ?p ?o .  FILTER (!strstarts(str(?s), 'http://www.openlinksw.com/')) . FILTER NOT EXISTS {{?s rdfs:label ?label}}}} LIMIT {0}" ;
+    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT * FROM <http://data.ascdc.tw/Book/crb/> WHERE {{ ?s ?p ?o .  FILTER (!strstarts(str(?s), 'http://www.openlinksw.com/')) . FILTER NOT EXISTS {{?s rdfs:label ?label}}}} LIMIT {0}" ;
     schema:description "It detects the use of human-readable labelling of entities"
     .          
     
-:myLdfiMeasurementUnderstandabilityVocabularies
+:myCRBMeasurementUnderstandabilityVocabularies
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :understandabilityVocabulariesMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -248,13 +244,13 @@
     skos:definition "It detects the provision of information of the vocabularies used in the repository"@en ;
     dqv:inDimension ldqd:understandability ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX void: <http://rdfs.org/ns/void#> SELECT * WHERE {{ ?s void:vocabulary ?o }} LIMIT {0}" ;
+    schema:query "PREFIX void: <http://rdfs.org/ns/void#> SELECT * FROM <http://data.ascdc.tw/Book/crb/> WHERE {{ ?s void:vocabulary ?o }} LIMIT {0}" ;
     schema:description "It detects the provision of information of the vocabularies used in the repository"
     .                    
 
-:myLdfiMeasurementUnderstandabilityURIPatterns
+:myCRBMeasurementUnderstandabilityURIPatterns
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :understandabilityURIPatternsMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -265,13 +261,13 @@
     skos:definition "It checks the provision of information concerning the URL patterns used"@en ;
     dqv:inDimension ldqd:understandability ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX void: <http://rdfs.org/ns/void#> SELECT * WHERE {{{{?s void:uriRegexPattern ?o}} UNION {{?s a void:uriSpace}}}} LIMIT {0}" ;
+    schema:query "PREFIX void: <http://rdfs.org/ns/void#> SELECT * FROM <http://data.ascdc.tw/Book/crb/> WHERE {{{{?s void:uriRegexPattern ?o}} UNION {{?s a void:uriSpace}}}} LIMIT {0}" ;
     schema:description "It checks the provision of information concerning the URL patterns used"
     .                    
 
-:myLdfiMeasurementUnderstandabilityExamples
+:myCRBMeasurementUnderstandabilityExamples
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :understandabilityExamplesMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -282,13 +278,13 @@
     skos:definition "It checks the provision of examples of SPARQL queries"@en ;
     dqv:inDimension ldqd:understandability ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX schema: <https://schema.org/> SELECT * WHERE {{?s schema:query ?o}} LIMIT {0}" ;
+    schema:query "PREFIX schema: <https://schema.org/> SELECT * FROM <http://data.ascdc.tw/Book/crb/> WHERE {{?s schema:query ?o}} LIMIT {0}" ;
     schema:description "It checks the provision of examples of SPARQL queries"
     .   
     
-:myLdfiMeasurementUnderstandabilityDatasheets
+:myCRBMeasurementUnderstandabilityDatasheets
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :understandabilityDatasheetsMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -302,9 +298,9 @@
     schema:description "It detects the use of datasheets as additional documentation"
     .         
 
-:myLdfiMeasurementTimeliness
+:myCRBMeasurementTimeliness
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :timelinessMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -315,13 +311,13 @@
     skos:definition "It checks the provision of metadata describing the date of publication"@en ;
     dqv:inDimension ldqd:understandability ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX dcterms: <http://purl.org/dc/terms/> PREFIX dcat: <http://www.w3.org/ns/dcat#> PREFIX schema: <https://schema.org/> SELECT * WHERE {{{{?s a dcat:Dataset . ?s dcterms:modified ?o}} UNION {{?s a schema:Dataset . ?s dcterms:modified ?o}}}} LIMIT {0}" ;
+    schema:query "PREFIX dcterms: <http://purl.org/dc/terms/> PREFIX dcat: <http://www.w3.org/ns/dcat#> PREFIX schema: <https://schema.org/> SELECT * FROM <http://data.ascdc.tw/Book/crb/> WHERE {{{{?s a dcat:Dataset . ?s dcterms:modified ?o}} UNION {{?s a schema:Dataset . ?s dcterms:modified ?o}}}} LIMIT {0}" ;
     schema:description "It checks the provision of metadata describing the date of publication"
     .   
 
-:myLdfiMeasurementRepresentationalConcisenessURIsLength
+:myCRBMeasurementRepresentationalConcisenessURIsLength
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :representationalConcisenessURIsLengthMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -332,13 +328,13 @@
     skos:definition "It checks the length of the URIs"@en ;
     dqv:inDimension ldqd:representationalConciseness ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "SELECT * WHERE {{ ?s ?p ?o . FILTER (!strstarts(str(?s), 'http://localhost')). FILTER (!strstarts(str(?s), 'http://www.openlinksw.com/')). FILTER (strlen(str(?s))>60)}} LIMIT {0}" ;
+    schema:query "SELECT * FROM <http://data.ascdc.tw/Book/crb/> WHERE {{ ?s ?p ?o . FILTER (!strstarts(str(?s), 'http://localhost')). FILTER (!strstarts(str(?s), 'http://www.openlinksw.com/')). FILTER (strlen(str(?s))>60)}} LIMIT {0}" ;
     schema:description "It checks the length of the URIs"
     .   
 
-:myLdfiMeasurementRepresentationalConcisenessContainers
+:myCRBMeasurementRepresentationalConcisenessContainers
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :representationalConcisenessContainersMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -349,13 +345,13 @@
     skos:definition "It checks the use of RDF containers"@en ;
     dqv:inDimension ldqd:representationalConciseness ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT * WHERE {{{{?s a rdf:Bag}} UNION {{?s a rdf:Seq}}}} LIMIT {0}" ;
+    schema:query "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT * FROM <http://data.ascdc.tw/Book/crb/> WHERE {{{{?s a rdf:Bag}} UNION {{?s a rdf:Seq}}}} LIMIT {0}" ;
     schema:description "It checks the use of RDF containers"
     .   
 
-:myLdfiMeasurementInteroperability
+:myCRBMeasurementInteroperability
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :interoperabilityMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -366,13 +362,13 @@
     skos:definition "It checks the use of existing vocabularies to describe the metadata"@en ;
     dqv:inDimension ldqd:interoperability ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT ?p WHERE{{{{ SELECT distinct ?p WHERE {{{{ ?s a foaf:Person.  ?s ?p ?o }}}} LIMIT 100 }} FILTER (strstarts(str(?p), 'http://www.europeana.eu/schemas/edm/') || strstarts(str(?p), 'http://purl.org/dc/terms/') || strstarts(str(?p), 'http://xmlns.com/foaf/0.1/') || strstarts(str(?p), 'https://datos.bne.es/def/')) }} LIMIT {0} " ;
+    schema:query "PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT ?p WHERE{{{{ SELECT distinct ?p FROM <http://data.ascdc.tw/Book/crb/> WHERE {{{{ ?s ?p ?o }}}} LIMIT 100 }} FILTER (strstarts(str(?p), 'http://www.europeana.eu/schemas/edm/') || strstarts(str(?p), 'http://purl.org/dc/terms/') || strstarts(str(?p), 'http://xmlns.com/foaf/0.1/') || strstarts(str(?p), 'https://schema.org')) }} LIMIT {0} " ;
     schema:description "It checks the use of existing vocabularies to describe the metadata"
     .       
     
-:myLdfiMeasurementInterpretabilityViaf
+:myCRBMeasurementInterpretabilityViaf
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :interpretabilityViafMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -383,13 +379,13 @@
     skos:definition "It checks the use of correct uris for the viaf resources"@en ;
     dqv:inDimension ldqd:interpretability ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT ?o WHERE {{{{ SELECT ?o WHERE {{ ?s a foaf:Person . ?s owl:sameAs ?o . FILTER (strstarts(str(?o), 'http://viaf.org/viaf/')) }} LIMIT 100 }} FILTER(!regex(str(?o),'^http://viaf.org/viaf/[0-9]+')) }} LIMIT {0}" ;
+    schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT ?o FROM <http://data.ascdc.tw/Book/crb/> WHERE {{{{ SELECT ?o WHERE {{ ?s a foaf:Person . ?s owl:sameAs ?o . FILTER (strstarts(str(?o), 'http://viaf.org/viaf/')) }} LIMIT 100 }} FILTER(!regex(str(?o),'^http://viaf.org/viaf/[0-9]+')) }} LIMIT {0}" ;
     schema:description "It checks the use of correct uris for the viaf resources"
     .      
     
- :myLdfiMeasurementInterpretabilityIsni
+ :myCRBMeasurementInterpretabilityIsni
      a dqv:QualityMeasurement ;
-     dqv:computedOn :myLdfiDataset ;
+     dqv:computedOn :myCRBDataset ;
      dqv:isMeasurementOf :interpretabilityIsniMetric ;
      dqv:value "1"^^xsd:decimal 
      .
@@ -400,13 +396,13 @@
      skos:definition "It checks the use of correct uris for the Isni resources"@en ;
      dqv:inDimension ldqd:interpretability ;
      dqv:expectedDataType xsd:decimal ;
-     schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT ?o WHERE {{{{ SELECT ?o WHERE {{ ?s a foaf:Person . ?s owl:sameAs ?o . FILTER (strstarts(str(?o), 'https://isni.org/isni/')) }} LIMIT 100 }} FILTER(!regex(str(?o),'^https://isni.org/isni/[0-9]{{16}}')) }} LIMIT {0}" ;
+     schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT ?o FROM <http://data.ascdc.tw/Book/crb/> WHERE {{{{ SELECT ?o WHERE {{ ?s a foaf:Person . ?s owl:sameAs ?o . FILTER (strstarts(str(?o), 'https://isni.org/isni/')) }} LIMIT 100 }} FILTER(!regex(str(?o),'^https://isni.org/isni/[0-9]{{16}}')) }} LIMIT {0}" ;
      schema:description "It checks the use of correct uris for the Isni resources"
      .        
      
-:myLdfiMeasurementInterpretabilityLabels
+:myCRBMeasurementInterpretabilityLabels
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :interpretabilityLabelsMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -417,13 +413,13 @@
     skos:definition "It checks the use of languages for labels"@en ;
     dqv:inDimension ldqd:interpretability ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT ?s ?label WHERE {{ ?s a foaf:Person . ?s rdfs:label ?label . FILTER (LANG(?label) = 'es')}} LIMIT {0}" ;
+    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT ?s ?label FROM <http://data.ascdc.tw/Book/crb/> WHERE {{ ?s a foaf:Person . ?s rdfs:label ?label . FILTER (LANG(?label) = 'es')}} LIMIT {0}" ;
     schema:description "It checks the use of languages for labels"
     .         
     
-:myLdfiMeasurementVersatilitySerialisation
+:myCRBMeasurementVersatilitySerialisation
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :versatilitySerialisationMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -434,13 +430,13 @@
     skos:definition "It checks the provision of metadata describing the serialisation formats available"@en ;
     dqv:inDimension ldqd:interpretability ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX void: <http://rdfs.org/ns/void#> SELECT * WHERE {{ ?s void:feature <http://www.w3.org/ns/formats/RDF_XML> . ?s void:feature <http://www.w3.org/ns/formats/JSON-LD>}} LIMIT {0}" ;
+    schema:query "PREFIX void: <http://rdfs.org/ns/void#> SELECT * FROM <http://data.ascdc.tw/Book/crb/> WHERE {{ ?s void:feature <http://www.w3.org/ns/formats/RDF_XML> . ?s void:feature <http://www.w3.org/ns/formats/JSON-LD>}} LIMIT {0}" ;
     schema:description "It checks the provision of metadata describing the serialisation formats available"
     .   
 
-:myLdfiMeasurementVersatilityMultilingual
+:myCRBMeasurementVersatilityMultilingual
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :versatilityMultilingualMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -451,13 +447,13 @@
     skos:definition "It checks the provision of multilingual labels"@en ;
     dqv:inDimension ldqd:interpretability ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT ?s ?label WHERE {{ ?s a foaf:Person . ?s rdfs:label ?label . FILTER (LANG(?label) = 'es' && LANG(?label) = 'en' && LANG(?label) = 'fr')}} LIMIT {0}" ;
+    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT ?s ?label FROM <http://data.ascdc.tw/Book/crb/> WHERE {{ ?s a foaf:Person . ?s rdfs:label ?label . FILTER (LANG(?label) = 'es' && LANG(?label) = 'en' && LANG(?label) = 'fr')}} LIMIT {0}" ;
     schema:description "It checks the provision of multilingual labels"
     .   
     
-:myLdfiMeasurementRelevancy
+:myCRBMeasurementRelevancy
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :relevancyMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -468,13 +464,13 @@
     skos:definition "It checks whether the repository supports a ranking of statements in order to express the relative relevance of statements"@en ;
     dqv:inDimension ldqd:relevancy ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX wikibase: <http://wikiba.se/ontology#> SELECT * WHERE {{ ?s wikibase:rank ?o }} LIMIT {0}" ;
+    schema:query "PREFIX wikibase: <http://wikiba.se/ontology#> SELECT * FROM <http://data.ascdc.tw/Book/crb/> WHERE {{ ?s wikibase:rank ?o }} LIMIT {0}" ;
     schema:description "It checks whether the repository supports a ranking of statements in order to express the relative relevance of statements"
     .       
     
-:myLdfiMeasurementConsistency
+:myCRBMeasurementConsistency
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :consistencyMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -485,13 +481,13 @@
     skos:definition "It checks the consistency of statements with respect to class constraints"@en ;
     dqv:inDimension ldqd:consistency ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?s ?class1 ?class2 WHERE {{ ?s a ?class1 . ?s a ?class2 . ?class1 owl:disjointWith ?class2 }} LIMIT {0}" ;
+    schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?s ?class1 ?class2 FROM <http://data.ascdc.tw/Book/crb/> WHERE {{ ?s a ?class1 . ?s a ?class2 . ?class1 owl:disjointWith ?class2 }} LIMIT {0}" ;
     schema:description "It checks the consistency of statements with respect to class constraints"
     .  
     
-:myLdfiMeasurementSemanticAccuracy
+:myCRBMeasurementSemanticAccuracy
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :semanticAccuracyMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -505,9 +501,9 @@
     schema:description "It checks the extent to which data are correct, reliable, and certified free of error"
     .         
     
-:myLdfiMeasurementCompletenessPerson
+:myCRBMeasurementCompletenessPerson
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :completenessPersonMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -518,13 +514,13 @@
     skos:definition "It checks the degree to which all required information is present in a particular dataset"@en ;
     dqv:inDimension ldqd:completeness ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/> PREFIX bne: <https://datos.bne.es/def/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> SELECT * WHERE {{ {{ ?author a foaf:Person . ?author foaf:givenName ?name}} UNION {{ ?author a cidoc:E21_Person . ?author skos:prefLabel ?name}} UNION {{ ?author a bne:C1005 . ?author rdfs:label ?name}}}} LIMIT {0}" ;
+    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> SELECT * FROM <http://data.ascdc.tw/Book/crb/> WHERE {{ {{ ?author a foaf:Person . ?author foaf:givenName ?name}} UNION {{ ?author a cidoc:E21_Person . ?author skos:prefLabel ?name}} }} LIMIT {0}" ;
     schema:description "It checks the degree to which all required information is present in a particular dataset"
     .
     
-:myLdfiMeasurementCompletenessWork
+:myCRBMeasurementCompletenessWork
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :completenessWorkMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -535,13 +531,13 @@
     skos:definition "It checks the degree to which all required information is present in a particular dataset"@en ;
     dqv:inDimension ldqd:completeness ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/> PREFIX bne: <https://datos.bne.es/def/>  PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX frbr-rda: <http://rdvocab.info/uri/schema/FRBRentitiesRDA/> prefix lssc: <http://ldf.fi/schema/lssc/> SELECT * WHERE {{ {{ ?work a lssc:Letter . ?work skos:prefLabel ?name}} UNION {{ ?work a frbr-rda:Work . ?work rdfs:label ?name}} UNION {{ ?work a bne:C1001 . ?work rdfs:label ?name}} UNION {{ ?work a cidoc:E73_Information_Object . ?work rdfs:label ?name}} }} LIMIT {0}" ;
+    schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX bibframe: <http://id.loc.gov/ontologies/bibframe/> SELECT * WHERE {{ ?work bibframe:title ?title }} LIMIT {0}" ;
     schema:description "It checks the degree to which all required information is present in a particular dataset"
     .
     
-:myLdfiMeasurementCompletenessPlace
+:myCRBMeasurementCompletenessPlace
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :completenessPlaceMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -552,15 +548,15 @@
     skos:definition "It checks the degree to which all required information is present in a particular dataset"@en ;
     dqv:inDimension ldqd:completeness ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/> SELECT * WHERE {{ ?place a cidoc:E53_Place . ?place skos:prefLabel ?name }} LIMIT {0}" ;
+    schema:query "PREFIX bibframe: <http://id.loc.gov/ontologies/bibframe/> SELECT * FROM <http://data.ascdc.tw/Book/crb/> WHERE {{ ?place a bibframe:Place . ?place rdfs:label ?label }} LIMIT {0}" ;
     schema:description "It checks the degree to which all required information is present in a particular dataset"
     .                   
     
-:myLdfiMeasurementCompletenessPopulation
+:myCRBMeasurementCompletenessPopulation
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :completenessPopulationMetric ;
-    dqv:value "1"^^xsd:decimal 
+    dqv:value "0"^^xsd:decimal 
     .
 
 :completenessPopulationMetric
@@ -569,7 +565,7 @@
     skos:definition "It checks the degree to which all required information is present in a particular dataset"@en ;
     dqv:inDimension ldqd:completeness ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX viaf: <http://viaf.org/viaf/> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT (count(*) AS ?total) WHERE {{ VALUES ?artist {{ viaf:95207986 viaf:9847974 viaf:36925746 viaf:89773778 viaf:60351476 viaf:17220427 viaf:64055977 viaf:96994048 viaf:24604287 viaf:24585191 }}. ?s owl:sameAs ?artist }}" ;
+    schema:query "PREFIX viaf: <http://viaf.org/viaf/> PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT (count(*) AS ?total) FROM <http://data.ascdc.tw/Book/crb/> WHERE {{ VALUES ?artist {{ viaf:95207986 viaf:9847974 viaf:36925746 viaf:89773778 viaf:60351476 viaf:17220427 viaf:64055977 viaf:96994048 viaf:24604287 viaf:24585191 }}. ?s owl:sameAs ?artist }}" ;
     schema:description "It checks the degree to which all required information is present in a particular dataset"
     .    
     

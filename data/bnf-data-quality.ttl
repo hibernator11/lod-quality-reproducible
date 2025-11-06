@@ -35,6 +35,7 @@
     dqv:hasQualityMeasurement :myBnfMeasurementAvailability ;
     dqv:hasQualityMeasurement :myBnfMeasurementLicensing ;
     dqv:hasQualityMeasurement :myBnfMeasurementInterlinking ;
+    dqv:hasQualityMeasurement :myBnfMeasurementInterlinkingWikidata ;    
     dqv:hasQualityMeasurement :myBnfMeasurementSecurity ; 
     dqv:hasQualityMeasurement :myBnfMeasurementPerformance ;
     dqv:hasQualityMeasurement :myBnfMeasurementSyntactic ;
@@ -44,6 +45,7 @@
     dqv:hasQualityMeasurement :myBnfMeasurementUnderstandabilityVocabularies ;
     dqv:hasQualityMeasurement :myBnfMeasurementUnderstandabilityURIPatterns ;
     dqv:hasQualityMeasurement :myBnfMeasurementUnderstandabilityExamples ;
+    dqv:hasQualityMeasurement :myBnfMeasurementUnderstandabilityDatasheets ;
     dqv:hasQualityMeasurement :myBnfMeasurementTimeliness ;
     dqv:hasQualityMeasurement :myBnfMeasurementRepresentationalConcisenessURIsLength ;
     dqv:hasQualityMeasurement :myBnfMeasurementRepresentationalConcisenessContainers ;
@@ -118,6 +120,22 @@
     schema:description "It checks the extent to which resources in a repository are linked to external datasets" 
     .    
     
+:myBnfMeasurementInterlinkingWikidata 
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBnfDataset ;
+    dqv:isMeasurementOf :interlinkingWikidataMetric ;
+    dqv:value "1"^^xsd:decimal 
+    .
+
+:interlinkingWikidataMetric
+    a dqv:Metric ;
+    skos:prefLabel "Interlinking-Wikidata" ;
+    skos:definition "It checks the extent to which resources in a repository are linked to external datasets"@en ;
+    dqv:inDimension ldqd:interlinking ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:description "It checks the existence of a dedicated Wikidata property" 
+    .        
+    
 :myBnfMeasurementSecurity 
     a dqv:QualityMeasurement ;
     dqv:computedOn :myBnfDataset ;
@@ -165,7 +183,6 @@
     skos:definition "It checks the degree to which an RDF document conforms to the specification of the serialisation format"@en ;
     dqv:inDimension ldqd:syntacticValidity ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/> SELECT ?subject WHERE {{?subject rdf:type cidoc:E21_Person}} LIMIT {0}" ;
     schema:description "It checks the degree to which an RDF document conforms to the specification of the serialisation format" 
     .            
 
@@ -270,6 +287,22 @@
     schema:query "PREFIX schema: <https://schema.org/> SELECT * WHERE {{?s schema:query ?o}} LIMIT {0}" ;
     schema:description "It checks the provision of examples of SPARQL queries"
     .   
+    
+:myBnfMeasurementUnderstandabilityDatasheets
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBnfDataset ;
+    dqv:isMeasurementOf :understandabilityDatasheetsMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:understandabilityDatasheetsMetric
+    a dqv:Metric ;
+    skos:prefLabel "Understandability-Datasheets" ;
+    skos:definition "It detects the use of datasheets as additional documentation"@en ;
+    dqv:inDimension ldqd:understandability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:description "It detects the use of datasheets as additional documentation"
+    .         
 
 :myBnfMeasurementTimeliness
     a dqv:QualityMeasurement ;

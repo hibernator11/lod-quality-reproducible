@@ -16,55 +16,51 @@
 @prefix lssc: <http://ldf.fi/schema/lssc/> .
 @prefix : <http://www.example.org/#> .
 
-:myLdfiDataset a void:Dataset;
-    dcterms:title "LetterSampo: correspSearch";
-    dcterms:description "This dataset includes actors, letters, places, and other aspects and documentation of epistolary data. The data covers approx. 130 000 letters by 17 500 senders and receivers.";
-    dcterms:creator :org_Ldfi;
+:myBCNDataset a void:Dataset;
+    dcterms:title "Biblioteca del Congreso Nacional de Chile";
+    dcterms:description "La Biblioteca del Congreso Nacional de Chile, en su interés permanente de mejorar sus procesos y servicios al Congreso y a los ciudadanos, inició su proyecto de Web Semántica con el fin de incorporar innovación en su acervo y poner nuevas herramientas a disposición de la comunidad.";
+    dcterms:creator :org_Bcn;
     dcterms:issued "2021-04-01"^^xsd:date;
     dcterms:license <https://creativecommons.org/licenses/by-nc/4.0/deed.en>;
     void:feature <http://www.w3.org/ns/formats/RDF_XML>;
-    void:sparqlEndpoint <http://ldf.fi/corresp/sparql>;
-    wdt:P5305 <http://ldf.fi/corresp/sparql>;
-    void:dataDump <https://pef.bnf.fr/link/539d6d59-c2e3-4e17-b24c-d8a83ca11944#>;
-    void:vocabulary <http://www.cidoc-crm.org/cidoc-crm/>;
-    void:exampleResource <http://ldf.fi/corresp/actors/p1000206911801916508>;
-    void:exampleResource <http://ldf.fi/corresp/actors/p1000784812835657352>;
-    void:exampleResource <http://ldf.fi/corresp/actors/p1001412071197852459>;
-    dqv:hasQualityMeasurement :myLdfiMeasurementAvailability ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementLicensing ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementInterlinking ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementInterlinkingWikidata ;  
-    dqv:hasQualityMeasurement :myLdfiMeasurementSecurity ; 
-    dqv:hasQualityMeasurement :myLdfiMeasurementPerformance ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementSyntactic ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementConciseness ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementTrustworthiness ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementUnderstandabilityLabels ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementUnderstandabilityVocabularies ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementUnderstandabilityURIPatterns ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementUnderstandabilityExamples ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementUnderstandabilityDatasheets ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementTimeliness ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementRepresentationalConcisenessURIsLength ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementRepresentationalConcisenessContainers ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementInteroperability ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementInterpretabilityViaf ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementInterpretabilityIsni ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementInterpretabilityLabels ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementVersatilitySerialisation ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementVersatilityMultilingual ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementRelevancy ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementConsistency ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementSemanticAccuracy ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementCompletenessPerson ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementCompletenessWork ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementCompletenessPlace ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementCompletenessPopulation
+    void:sparqlEndpoint <https://datos.bcn.cl/sparql>;
+    wdt:P5305 <https://datos.bcn.cl/sparql>;
+    void:vocabulary <http://purl.org/dc/elements/1.1/>;
+    dqv:hasQualityMeasurement :myBCNMeasurementAvailability ;
+    dqv:hasQualityMeasurement :myBCNMeasurementLicensing ;
+    dqv:hasQualityMeasurement :myBCNMeasurementInterlinking ;
+    dqv:hasQualityMeasurement :myBCNMeasurementInterlinkingWikidata ;  
+    dqv:hasQualityMeasurement :myBCNMeasurementSecurity ; 
+    dqv:hasQualityMeasurement :myBCNMeasurementPerformance ;
+    dqv:hasQualityMeasurement :myBCNMeasurementSyntactic ;
+    dqv:hasQualityMeasurement :myBCNMeasurementConciseness ;
+    dqv:hasQualityMeasurement :myBCNMeasurementTrustworthiness ;
+    dqv:hasQualityMeasurement :myBCNMeasurementUnderstandabilityLabels ;
+    dqv:hasQualityMeasurement :myBCNMeasurementUnderstandabilityVocabularies ;
+    dqv:hasQualityMeasurement :myBCNMeasurementUnderstandabilityURIPatterns ;
+    dqv:hasQualityMeasurement :myBCNMeasurementUnderstandabilityExamples ;
+    dqv:hasQualityMeasurement :myBCNMeasurementUnderstandabilityDatasheets ;
+    dqv:hasQualityMeasurement :myBCNMeasurementTimeliness ;
+    dqv:hasQualityMeasurement :myBCNMeasurementRepresentationalConcisenessURIsLength ;
+    dqv:hasQualityMeasurement :myBCNMeasurementRepresentationalConcisenessContainers ;
+    dqv:hasQualityMeasurement :myBCNMeasurementInteroperability ;
+    dqv:hasQualityMeasurement :myBCNMeasurementInterpretabilityViaf ;
+    dqv:hasQualityMeasurement :myBCNMeasurementInterpretabilityIsni ;
+    dqv:hasQualityMeasurement :myBCNMeasurementInterpretabilityLabels ;
+    dqv:hasQualityMeasurement :myBCNMeasurementVersatilitySerialisation ;
+    dqv:hasQualityMeasurement :myBCNMeasurementVersatilityMultilingual ;
+    dqv:hasQualityMeasurement :myBCNMeasurementRelevancy ;
+    dqv:hasQualityMeasurement :myBCNMeasurementConsistency ;
+    dqv:hasQualityMeasurement :myBCNMeasurementSemanticAccuracy ;
+    dqv:hasQualityMeasurement :myBCNMeasurementCompletenessPerson ;
+    dqv:hasQualityMeasurement :myBCNMeasurementCompletenessWork ;
+    dqv:hasQualityMeasurement :myBCNMeasurementCompletenessPlace ;
+    dqv:hasQualityMeasurement :myBCNMeasurementCompletenessPopulation
     .
     
-:org_Ldfi a foaf:Organization;
-    rdfs:label "Linked Data Finland" ;
-    foaf:homepage <http://ldf.fi/corresp/> ;
+:org_Bcn a foaf:Organization;
+    rdfs:label "Biblioteca del Congreso Nacional de Chile" ;
+    foaf:homepage <https://datos.bcn.cl> ;
     .
 
 :availabilityMetric
@@ -77,9 +73,9 @@
     schema:description "It checks that the SPARQL endpoint is available" 
     .
 
-:myLdfiMeasurementAvailability 
+:myBCNMeasurementAvailability 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :availabilityMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -94,16 +90,16 @@
     schema:description "It checks the inclusion of machine-readable metadata concerning the licence" 
     .
 
-:myLdfiMeasurementLicensing 
+:myBCNMeasurementLicensing 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :licensingMetric ;
     dqv:value "1"^^xsd:decimal 
     .
     
-:myLdfiMeasurementInterlinking 
+:myBCNMeasurementInterlinking 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :interlinkingMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -118,9 +114,9 @@
     schema:description "It checks the extent to which resources in a repository are linked to external datasets" 
     .    
 
-:myLdfiMeasurementInterlinkingWikidata 
+:myBCNMeasurementInterlinkingWikidata 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :interlinkingWikidataMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -134,9 +130,9 @@
     schema:description "It checks the existence of a dedicated Wikidata property" 
     .        
 
-:myLdfiMeasurementSecurity 
+:myBCNMeasurementSecurity 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :securityMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -151,9 +147,9 @@
     schema:description "It checks the extent to which data is protected against alteration and misuse" 
     .        
     
-:myLdfiMeasurementPerformance 
+:myBCNMeasurementPerformance 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :performanceMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -168,9 +164,9 @@
     schema:description "It checks whether the time to answer ten requests divided by ten is not longer than the time it takes to answer one request" 
     .            
 
-:myLdfiMeasurementSyntactic 
+:myBCNMeasurementSyntactic 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :syntacticMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -184,9 +180,9 @@
     schema:description "It checks the degree to which an RDF document conforms to the specification of the serialisation format" 
     .            
 
-:myLdfiMeasurementConciseness 
+:myBCNMeasurementConciseness 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :concisenessMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -201,9 +197,9 @@
     schema:description "It refers to the minimisation of redundancy of entities at the schema"
     .        
     
-:myLdfiMeasurementTrustworthiness
+:myBCNMeasurementTrustworthiness
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :trustworthinessMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -218,9 +214,9 @@
     schema:description "It refers to the degree to which the information is accepted to be correct, true, real and credible"
     .         
     
-:myLdfiMeasurementUnderstandabilityLabels
+:myBCNMeasurementUnderstandabilityLabels
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :understandabilityLabelsMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -235,9 +231,9 @@
     schema:description "It detects the use of human-readable labelling of entities"
     .          
     
-:myLdfiMeasurementUnderstandabilityVocabularies
+:myBCNMeasurementUnderstandabilityVocabularies
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :understandabilityVocabulariesMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -252,9 +248,9 @@
     schema:description "It detects the provision of information of the vocabularies used in the repository"
     .                    
 
-:myLdfiMeasurementUnderstandabilityURIPatterns
+:myBCNMeasurementUnderstandabilityURIPatterns
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :understandabilityURIPatternsMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -269,9 +265,9 @@
     schema:description "It checks the provision of information concerning the URL patterns used"
     .                    
 
-:myLdfiMeasurementUnderstandabilityExamples
+:myBCNMeasurementUnderstandabilityExamples
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :understandabilityExamplesMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -286,9 +282,9 @@
     schema:description "It checks the provision of examples of SPARQL queries"
     .   
     
-:myLdfiMeasurementUnderstandabilityDatasheets
+:myBCNMeasurementUnderstandabilityDatasheets
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :understandabilityDatasheetsMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -302,9 +298,9 @@
     schema:description "It detects the use of datasheets as additional documentation"
     .         
 
-:myLdfiMeasurementTimeliness
+:myBCNMeasurementTimeliness
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :timelinessMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -319,9 +315,9 @@
     schema:description "It checks the provision of metadata describing the date of publication"
     .   
 
-:myLdfiMeasurementRepresentationalConcisenessURIsLength
+:myBCNMeasurementRepresentationalConcisenessURIsLength
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :representationalConcisenessURIsLengthMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -336,9 +332,9 @@
     schema:description "It checks the length of the URIs"
     .   
 
-:myLdfiMeasurementRepresentationalConcisenessContainers
+:myBCNMeasurementRepresentationalConcisenessContainers
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :representationalConcisenessContainersMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -353,9 +349,9 @@
     schema:description "It checks the use of RDF containers"
     .   
 
-:myLdfiMeasurementInteroperability
+:myBCNMeasurementInteroperability
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :interoperabilityMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -370,9 +366,9 @@
     schema:description "It checks the use of existing vocabularies to describe the metadata"
     .       
     
-:myLdfiMeasurementInterpretabilityViaf
+:myBCNMeasurementInterpretabilityViaf
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :interpretabilityViafMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -387,9 +383,9 @@
     schema:description "It checks the use of correct uris for the viaf resources"
     .      
     
- :myLdfiMeasurementInterpretabilityIsni
+ :myBCNMeasurementInterpretabilityIsni
      a dqv:QualityMeasurement ;
-     dqv:computedOn :myLdfiDataset ;
+     dqv:computedOn :myBCNDataset ;
      dqv:isMeasurementOf :interpretabilityIsniMetric ;
      dqv:value "1"^^xsd:decimal 
      .
@@ -404,9 +400,9 @@
      schema:description "It checks the use of correct uris for the Isni resources"
      .        
      
-:myLdfiMeasurementInterpretabilityLabels
+:myBCNMeasurementInterpretabilityLabels
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :interpretabilityLabelsMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -421,9 +417,9 @@
     schema:description "It checks the use of languages for labels"
     .         
     
-:myLdfiMeasurementVersatilitySerialisation
+:myBCNMeasurementVersatilitySerialisation
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :versatilitySerialisationMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -438,9 +434,9 @@
     schema:description "It checks the provision of metadata describing the serialisation formats available"
     .   
 
-:myLdfiMeasurementVersatilityMultilingual
+:myBCNMeasurementVersatilityMultilingual
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :versatilityMultilingualMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -455,9 +451,9 @@
     schema:description "It checks the provision of multilingual labels"
     .   
     
-:myLdfiMeasurementRelevancy
+:myBCNMeasurementRelevancy
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :relevancyMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -472,9 +468,9 @@
     schema:description "It checks whether the repository supports a ranking of statements in order to express the relative relevance of statements"
     .       
     
-:myLdfiMeasurementConsistency
+:myBCNMeasurementConsistency
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :consistencyMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -489,9 +485,9 @@
     schema:description "It checks the consistency of statements with respect to class constraints"
     .  
     
-:myLdfiMeasurementSemanticAccuracy
+:myBCNMeasurementSemanticAccuracy
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :semanticAccuracyMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -505,9 +501,9 @@
     schema:description "It checks the extent to which data are correct, reliable, and certified free of error"
     .         
     
-:myLdfiMeasurementCompletenessPerson
+:myBCNMeasurementCompletenessPerson
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :completenessPersonMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -522,9 +518,9 @@
     schema:description "It checks the degree to which all required information is present in a particular dataset"
     .
     
-:myLdfiMeasurementCompletenessWork
+:myBCNMeasurementCompletenessWork
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :completenessWorkMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -539,9 +535,9 @@
     schema:description "It checks the degree to which all required information is present in a particular dataset"
     .
     
-:myLdfiMeasurementCompletenessPlace
+:myBCNMeasurementCompletenessPlace
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :completenessPlaceMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -556,9 +552,9 @@
     schema:description "It checks the degree to which all required information is present in a particular dataset"
     .                   
     
-:myLdfiMeasurementCompletenessPopulation
+:myBCNMeasurementCompletenessPopulation
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myLdfiDataset ;
+    dqv:computedOn :myBCNDataset ;
     dqv:isMeasurementOf :completenessPopulationMetric ;
     dqv:value "1"^^xsd:decimal 
     .
