@@ -120,7 +120,7 @@
     a dqv:QualityMeasurement ;
     dqv:computedOn :myGettyDataset ;
     dqv:isMeasurementOf :interlinkingWikidataMetric ;
-    dqv:value "1"^^xsd:decimal 
+    dqv:value "0"^^xsd:decimal 
     .
 
 :interlinkingWikidataMetric
