@@ -1,0 +1,36 @@
+:myGettyDataset a void:Dataset;
+    dcterms:title "Getty Provenance Index";
+    dcterms:description "The Getty Provenance Index provides open access to millions of resources from dealer stock books, 
+                         sales catalogs, and archival inventories, revealing information on the ownership and market histories of artworks.";
+    dcterms:creator :org_GETTY;
+    dcterms:issued "2016-04-01"^^xsd:date;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/>;
+    void:feature <http://www.w3.org/ns/formats/RDF_XML>;
+    void:sparqlEndpoint <https://data.getty.edu/provenance/sparql>;
+    wdt:P5305 <https://data.getty.edu/provenance/sparql>;
+    void:dataDump <https://github.com/thegetty/provenance-index-csv>;
+    void:vocabulary <http://www.cidoc-crm.org/cidoc-crm/>;
+    void:classes 39;
+    void:properties 74;
+    void:exampleResource <https://w3id.org/zericatalog/person/1017/barisini-tommaso>;
+    void:exampleResource <https://w3id.org/zericatalog/person/10174/valentin-de-boulogne>;
+    dqv:hasQualityMeasurement :myGettyMeasurementAvailability ;
+
+:org_GETTY a foaf:Organization;
+    rdfs:label "Getty" ;
+    foaf:homepage <https://www.getty.edu/> ;
+    .
+:availabilityMetric
+    a dqv:Metric ;
+    skos:prefLabel "Availability" ;
+    skos:definition "It checks that the SPARQL endpoint is available"@en ;
+    dqv:inDimension ldqd:availability ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "SELECT * WHERE {{?s ?p ?o}} LIMIT {0}" ;
+    schema:description "It checks that the SPARQL endpoint is available" 
+    .
+:myGettyMeasurementAvailability 
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myGettyDataset ;
+    dqv:isMeasurementOf :availabilityMetric ;
+    dqv:value "1"^^xsd:decimal 
