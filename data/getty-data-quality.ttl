@@ -191,6 +191,7 @@
 
 :concisenessMetric
     a dqv:Metric ;
+    skos:prefLabel "Conciseness" ;
     skos:definition "It refers to the minimisation of redundancy of entities at the schema"@en ;
     dqv:inDimension ldqd:conciseness ;
     dqv:expectedDataType xsd:decimal ;
@@ -207,6 +208,7 @@
 
 :trustworthinessMetric
     a dqv:Metric ;
+    skos:prefLabel "Trustworthiness" ;
     skos:definition "It refers to the degree to which the information is accepted to be correct, true, real and credible"@en ;
     dqv:inDimension ldqd:trustworthiness ;
     dqv:expectedDataType xsd:decimal ;
