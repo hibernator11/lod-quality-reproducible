@@ -1,5 +1,7 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hibernator11/lod-quality-reproducible/HEAD)
 
+[![DOI](https://zenodo.org/badge/826875445.svg)](https://doi.org/10.5281/zenodo.17609251)
+
 # lod-quality-reproducible
 This project provides a tool based on Jupyter Notebooks to assess the quality of Linked Open Data repositories made available by the GLAM (Galleries, Libraries, Archives and Museums). 
 
