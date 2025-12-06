@@ -3,11 +3,12 @@
 [![DOI](https://zenodo.org/badge/826875445.svg)](https://doi.org/10.5281/zenodo.17609251)
 
 # lod-quality-reproducible
-This project provides a tool based on Jupyter Notebooks to assess the quality of Linked Open Data repositories made available by the GLAM (Galleries, Libraries, Archives and Museums). 
+This project provides a tool based on Jupyter Notebooks to assess the quality of Linked Open Data datasets made available by the GLAM (Galleries, Libraries, Archives and Museums). 
 
-In order to assess a wide diversity of repositories in terms of location and language, the following LOD repositories were assessed:
+In order to assess a wide diversity of datasets in terms of location and language, the following LOD datasets were assessed:
 
-- Bibliothèque Nationale de France - https://data.bnf.fr/
+- Biblioteca Nacional de España - https://datos.bne.es
+- Bibliothèque Nationale de France - https://data.bnf.fr
 - Biblioteca Nacional del Congreso Nacional de Chile - https://datos.bcn.cl/es/endpoint-sparql
 - Database of Chinese Rare Books - https://lod-cloud.net/dataset/ASCDC-CRB
 - Getty Research Institute - Provenance Index - https://data.getty.edu/provenance
