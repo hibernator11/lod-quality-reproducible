@@ -12,6 +12,10 @@ In order to assess a wide diversity of repositories in terms of location and lan
 - Database of Chinese Rare Books - https://lod-cloud.net/dataset/ASCDC-CRB
 - Getty Research Institute - Provenance Index - https://data.getty.edu/provenance
 - LetterSampo Correspondence - http://ldf.fi/corresp/sparql
+
+### How to cite
+
+Gustavo Candela, Dişli, M., Dobreva, M., & Chambers, S. (2025). hibernator11/lod-quality-reproducible: V1 (Versión V1). Zenodo. https://doi.org/10.5281/zenodo.17609252
  
 
 ### Installation guide
