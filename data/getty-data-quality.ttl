@@ -26,8 +26,6 @@
     void:vocabulary <http://www.cidoc-crm.org/cidoc-crm/>;
     void:classes 39;
     void:properties 74;
-    void:exampleResource <https://w3id.org/zericatalog/person/1017/barisini-tommaso>;
-    void:exampleResource <https://w3id.org/zericatalog/person/10174/valentin-de-boulogne>;
     dqv:hasQualityMeasurement :myGettyMeasurementAvailability ;
     dqv:hasQualityMeasurement :myGettyMeasurementLicensing ;
     dqv:hasQualityMeasurement :myGettyMeasurementInterlinking ;
