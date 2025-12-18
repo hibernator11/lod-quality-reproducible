@@ -34,7 +34,7 @@
     void:exampleResource <https://datos.bne.es/resource/XX971832>;
     dqv:hasQualityMeasurement :myBneMeasurementAvailability ;
     dqv:hasQualityMeasurement :myBneMeasurementLicensing ;
-    dqv:hasQualityMeasurement :myBneMeasurementInterlinking ;
+    dqv:hasQualityMeasurement :myBneMeasurementInterlinkingPerson ;
     dqv:hasQualityMeasurement :myBneMeasurementInterlinkingWikidata ;
     dqv:hasQualityMeasurement :myBneMeasurementSecurity ; 
     dqv:hasQualityMeasurement :myBneMeasurementPerformance ;
@@ -124,11 +124,11 @@
     dqv:value "1"^^xsd:decimal 
     .
     
-:myBneMeasurementInterlinking 
+:myBneMeasurementInterlinkingPerson 
     a dqv:QualityMeasurement ;
     dqv:computedOn :myBneDataset ;
     dqv:isMeasurementOf :interlinkingMetric ;
-    dqv:value "1"^^xsd:decimal 
+    dqv:value "0.25"^^xsd:decimal 
     .
 
 :interlinkingMetric
