@@ -32,7 +32,7 @@
     void:exampleResource <http://ldf.fi/corresp/actors/p1001412071197852459>;
     dqv:hasQualityMeasurement :myLdfiMeasurementAvailability ;
     dqv:hasQualityMeasurement :myLdfiMeasurementLicensing ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementInterlinking ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementInterlinkingPerson ;
     dqv:hasQualityMeasurement :myLdfiMeasurementInterlinkingWikidata ;  
     dqv:hasQualityMeasurement :myLdfiMeasurementSecurity ; 
     dqv:hasQualityMeasurement :myLdfiMeasurementPerformance ;
@@ -101,16 +101,16 @@
     dqv:value "1"^^xsd:decimal 
     .
     
-:myLdfiMeasurementInterlinking 
+:myLdfiMeasurementInterlinkingPerson 
     a dqv:QualityMeasurement ;
     dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :interlinkingMetric ;
-    dqv:value "1"^^xsd:decimal 
+    dqv:value "0.67"^^xsd:decimal 
     .
 
 :interlinkingMetric
     a dqv:Metric ;
-    skos:prefLabel "Interlinking" ;
+    skos:prefLabel "Interlinking-Person" ;
     skos:definition "It checks the extent to which resources in a repository are linked to external datasets"@en ;
     dqv:inDimension ldqd:interlinking ;
     dqv:expectedDataType xsd:decimal ;
