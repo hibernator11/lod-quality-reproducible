@@ -30,6 +30,7 @@
     void:vocabulary <http://xmlns.com/foaf/0.1/>;
     void:vocabulary <http://www.geonames.org/ontology#>;
     void:vocabulary <https://data.bnf.fr/ontology>;
+    voi:properties 895;
     void:exampleResource <https://data.bnf.fr/11894985/albert_camus/>;
     void:exampleResource <https://data.bnf.fr/11928669/voltaire/>;
     dqv:hasQualityMeasurement :myBnfMeasurementAvailability ;
