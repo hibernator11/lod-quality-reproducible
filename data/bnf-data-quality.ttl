@@ -35,7 +35,7 @@
     void:exampleResource <https://data.bnf.fr/11928669/voltaire/>;
     dqv:hasQualityMeasurement :myBnfMeasurementAvailability ;
     dqv:hasQualityMeasurement :myBnfMeasurementLicensing ;
-    dqv:hasQualityMeasurement :myBnfMeasurementInterlinking ;
+    dqv:hasQualityMeasurement :myBnfMeasurementInterlinkingPerson ;
     dqv:hasQualityMeasurement :myBnfMeasurementInterlinkingWikidata ;    
     dqv:hasQualityMeasurement :myBnfMeasurementSecurity ; 
     dqv:hasQualityMeasurement :myBnfMeasurementPerformance ;
@@ -104,16 +104,16 @@
     dqv:value "0.5"^^xsd:decimal 
     .
     
-:myBnfMeasurementInterlinking 
+:myBnfMeasurementInterlinkingPerson 
     a dqv:QualityMeasurement ;
     dqv:computedOn :myBnfDataset ;
     dqv:isMeasurementOf :interlinkingMetric ;
-    dqv:value "1"^^xsd:decimal 
+    dqv:value "0.44"^^xsd:decimal 
     .
 
 :interlinkingMetric
     a dqv:Metric ;
-    skos:prefLabel "Interlinking" ;
+    skos:prefLabel "Interlinking-Person" ;
     skos:definition "It checks the extent to which resources in a repository are linked to external datasets"@en ;
     dqv:inDimension ldqd:interlinking ;
     dqv:expectedDataType xsd:decimal ;
