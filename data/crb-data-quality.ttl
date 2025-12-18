@@ -94,7 +94,7 @@
     a dqv:QualityMeasurement ;
     dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :licensingMetric ;
-    dqv:value "0"^^xsd:decimal 
+    dqv:value "0.5"^^xsd:decimal 
     .
     
 :myCRBMeasurementInterlinking 
