@@ -16,51 +16,51 @@
 @prefix lssc: <http://ldf.fi/schema/lssc/> .
 @prefix : <http://www.example.org/#> .
 
-:myBCNDataset a void:Dataset;
+:myBNCDataset a void:Dataset;
     dcterms:title "Biblioteca del Congreso Nacional de Chile";
     dcterms:description "La Biblioteca del Congreso Nacional de Chile, en su interés permanente de mejorar sus procesos y servicios al Congreso y a los ciudadanos, inició su proyecto de Web Semántica con el fin de incorporar innovación en su acervo y poner nuevas herramientas a disposición de la comunidad.";
-    dcterms:creator :org_Bcn;
+    dcterms:creator :org_BNC;
     dcterms:issued "2021-04-01"^^xsd:date;
     dcterms:license <https://creativecommons.org/licenses/by-nc/4.0/deed.en>;
     void:feature <http://www.w3.org/ns/formats/RDF_XML>;
-    void:sparqlEndpoint <https://datos.bcn.cl/sparql>;
-    wdt:P5305 <https://datos.bcn.cl/sparql>;
+    void:sparqlEndpoint <https://datos.BNC.cl/sparql>;
+    wdt:P5305 <https://datos.BNC.cl/sparql>;
     void:vocabulary <http://purl.org/dc/elements/1.1/>;
-    dqv:hasQualityMeasurement :myBCNMeasurementAvailability ;
-    dqv:hasQualityMeasurement :myBCNMeasurementLicensing ;
-    dqv:hasQualityMeasurement :myBCNMeasurementInterlinking ;
-    dqv:hasQualityMeasurement :myBCNMeasurementInterlinkingWikidata ;  
-    dqv:hasQualityMeasurement :myBCNMeasurementSecurity ; 
-    dqv:hasQualityMeasurement :myBCNMeasurementPerformance ;
-    dqv:hasQualityMeasurement :myBCNMeasurementSyntactic ;
-    dqv:hasQualityMeasurement :myBCNMeasurementConciseness ;
-    dqv:hasQualityMeasurement :myBCNMeasurementTrustworthiness ;
-    dqv:hasQualityMeasurement :myBCNMeasurementUnderstandabilityLabels ;
-    dqv:hasQualityMeasurement :myBCNMeasurementUnderstandabilityVocabularies ;
-    dqv:hasQualityMeasurement :myBCNMeasurementUnderstandabilityURIPatterns ;
-    dqv:hasQualityMeasurement :myBCNMeasurementUnderstandabilityExamples ;
-    dqv:hasQualityMeasurement :myBCNMeasurementUnderstandabilityDatasheets ;
-    dqv:hasQualityMeasurement :myBCNMeasurementTimeliness ;
-    dqv:hasQualityMeasurement :myBCNMeasurementRepresentationalConcisenessURIsLength ;
-    dqv:hasQualityMeasurement :myBCNMeasurementRepresentationalConcisenessContainers ;
-    dqv:hasQualityMeasurement :myBCNMeasurementInteroperability ;
-    dqv:hasQualityMeasurement :myBCNMeasurementInterpretabilityViaf ;
-    dqv:hasQualityMeasurement :myBCNMeasurementInterpretabilityIsni ;
-    dqv:hasQualityMeasurement :myBCNMeasurementInterpretabilityLabels ;
-    dqv:hasQualityMeasurement :myBCNMeasurementVersatilitySerialisation ;
-    dqv:hasQualityMeasurement :myBCNMeasurementVersatilityMultilingual ;
-    dqv:hasQualityMeasurement :myBCNMeasurementRelevancy ;
-    dqv:hasQualityMeasurement :myBCNMeasurementConsistency ;
-    dqv:hasQualityMeasurement :myBCNMeasurementSemanticAccuracy ;
-    dqv:hasQualityMeasurement :myBCNMeasurementCompletenessPerson ;
-    dqv:hasQualityMeasurement :myBCNMeasurementCompletenessWork ;
-    dqv:hasQualityMeasurement :myBCNMeasurementCompletenessPlace ;
-    dqv:hasQualityMeasurement :myBCNMeasurementCompletenessPopulation
+    dqv:hasQualityMeasurement :myBNCMeasurementAvailability ;
+    dqv:hasQualityMeasurement :myBNCMeasurementLicensing ;
+    dqv:hasQualityMeasurement :myBNCMeasurementInterlinkingPerson ;
+    dqv:hasQualityMeasurement :myBNCMeasurementInterlinkingWikidata ;  
+    dqv:hasQualityMeasurement :myBNCMeasurementSecurity ; 
+    dqv:hasQualityMeasurement :myBNCMeasurementPerformance ;
+    dqv:hasQualityMeasurement :myBNCMeasurementSyntactic ;
+    dqv:hasQualityMeasurement :myBNCMeasurementConciseness ;
+    dqv:hasQualityMeasurement :myBNCMeasurementTrustworthiness ;
+    dqv:hasQualityMeasurement :myBNCMeasurementUnderstandabilityLabels ;
+    dqv:hasQualityMeasurement :myBNCMeasurementUnderstandabilityVocabularies ;
+    dqv:hasQualityMeasurement :myBNCMeasurementUnderstandabilityURIPatterns ;
+    dqv:hasQualityMeasurement :myBNCMeasurementUnderstandabilityExamples ;
+    dqv:hasQualityMeasurement :myBNCMeasurementUnderstandabilityDatasheets ;
+    dqv:hasQualityMeasurement :myBNCMeasurementTimeliness ;
+    dqv:hasQualityMeasurement :myBNCMeasurementRepresentationalConcisenessURIsLength ;
+    dqv:hasQualityMeasurement :myBNCMeasurementRepresentationalConcisenessContainers ;
+    dqv:hasQualityMeasurement :myBNCMeasurementInteroperability ;
+    dqv:hasQualityMeasurement :myBNCMeasurementInterpretabilityViaf ;
+    dqv:hasQualityMeasurement :myBNCMeasurementInterpretabilityIsni ;
+    dqv:hasQualityMeasurement :myBNCMeasurementInterpretabilityLabels ;
+    dqv:hasQualityMeasurement :myBNCMeasurementVersatilitySerialisation ;
+    dqv:hasQualityMeasurement :myBNCMeasurementVersatilityMultilingual ;
+    dqv:hasQualityMeasurement :myBNCMeasurementRelevancy ;
+    dqv:hasQualityMeasurement :myBNCMeasurementConsistency ;
+    dqv:hasQualityMeasurement :myBNCMeasurementSemanticAccuracy ;
+    dqv:hasQualityMeasurement :myBNCMeasurementCompletenessPerson ;
+    dqv:hasQualityMeasurement :myBNCMeasurementCompletenessWork ;
+    dqv:hasQualityMeasurement :myBNCMeasurementCompletenessPlace ;
+    dqv:hasQualityMeasurement :myBNCMeasurementCompletenessPopulation
     .
     
-:org_Bcn a foaf:Organization;
+:org_BNC a foaf:Organization;
     rdfs:label "Biblioteca del Congreso Nacional de Chile" ;
-    foaf:homepage <https://datos.bcn.cl> ;
+    foaf:homepage <https://datos.BNC.cl> ;
     .
 
 :availabilityMetric
@@ -73,9 +73,9 @@
     schema:description "It checks that the SPARQL endpoint is available" 
     .
 
-:myBCNMeasurementAvailability 
+:myBNCMeasurementAvailability 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :availabilityMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -90,18 +90,18 @@
     schema:description "It checks the inclusion of machine-readable metadata concerning the licence" 
     .
 
-:myBCNMeasurementLicensing 
+:myBNCMeasurementLicensing 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :licensingMetric ;
     dqv:value "0.5"^^xsd:decimal 
     .
     
-:myBCNMeasurementInterlinking 
+:myBNCMeasurementInterlinkingPerson
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :interlinkingMetric ;
-    dqv:value "1"^^xsd:decimal 
+    dqv:value "0"^^xsd:decimal 
     .
 
 :interlinkingMetric
@@ -114,9 +114,9 @@
     schema:description "It checks the extent to which resources in a repository are linked to external datasets" 
     .    
 
-:myBCNMeasurementInterlinkingWikidata 
+:myBNCMeasurementInterlinkingWikidata 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :interlinkingWikidataMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -130,9 +130,9 @@
     schema:description "It checks the existence of a dedicated Wikidata property" 
     .        
 
-:myBCNMeasurementSecurity 
+:myBNCMeasurementSecurity 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :securityMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -147,9 +147,9 @@
     schema:description "It checks the extent to which data is protected against alteration and misuse" 
     .        
     
-:myBCNMeasurementPerformance 
+:myBNCMeasurementPerformance 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :performanceMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -164,9 +164,9 @@
     schema:description "It checks whether the time to answer ten requests divided by ten is not longer than the time it takes to answer one request" 
     .            
 
-:myBCNMeasurementSyntactic 
+:myBNCMeasurementSyntactic 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :syntacticMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -180,9 +180,9 @@
     schema:description "It checks the degree to which an RDF document conforms to the specification of the serialisation format" 
     .            
 
-:myBCNMeasurementConciseness 
+:myBNCMeasurementConciseness 
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :concisenessMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -197,9 +197,9 @@
     schema:description "It refers to the minimisation of redundancy of entities at the schema"
     .        
     
-:myBCNMeasurementTrustworthiness
+:myBNCMeasurementTrustworthiness
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :trustworthinessMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -214,9 +214,9 @@
     schema:description "It refers to the degree to which the information is accepted to be correct, true, real and credible"
     .         
     
-:myBCNMeasurementUnderstandabilityLabels
+:myBNCMeasurementUnderstandabilityLabels
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :understandabilityLabelsMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -231,9 +231,9 @@
     schema:description "It detects the use of human-readable labelling of entities"
     .          
     
-:myBCNMeasurementUnderstandabilityVocabularies
+:myBNCMeasurementUnderstandabilityVocabularies
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :understandabilityVocabulariesMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -248,9 +248,9 @@
     schema:description "It detects the provision of information of the vocabularies used in the repository"
     .                    
 
-:myBCNMeasurementUnderstandabilityURIPatterns
+:myBNCMeasurementUnderstandabilityURIPatterns
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :understandabilityURIPatternsMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -265,9 +265,9 @@
     schema:description "It checks the provision of information concerning the URL patterns used"
     .                    
 
-:myBCNMeasurementUnderstandabilityExamples
+:myBNCMeasurementUnderstandabilityExamples
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :understandabilityExamplesMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -282,9 +282,9 @@
     schema:description "It checks the provision of examples of SPARQL queries"
     .   
     
-:myBCNMeasurementUnderstandabilityDatasheets
+:myBNCMeasurementUnderstandabilityDatasheets
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :understandabilityDatasheetsMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -298,9 +298,9 @@
     schema:description "It detects the use of datasheets as additional documentation"
     .         
 
-:myBCNMeasurementTimeliness
+:myBNCMeasurementTimeliness
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :timelinessMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -315,9 +315,9 @@
     schema:description "It checks the provision of metadata describing the date of publication"
     .   
 
-:myBCNMeasurementRepresentationalConcisenessURIsLength
+:myBNCMeasurementRepresentationalConcisenessURIsLength
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :representationalConcisenessURIsLengthMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -332,9 +332,9 @@
     schema:description "It checks the length of the URIs"
     .   
 
-:myBCNMeasurementRepresentationalConcisenessContainers
+:myBNCMeasurementRepresentationalConcisenessContainers
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :representationalConcisenessContainersMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -349,9 +349,9 @@
     schema:description "It checks the use of RDF containers"
     .   
 
-:myBCNMeasurementInteroperability
+:myBNCMeasurementInteroperability
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :interoperabilityMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -366,9 +366,9 @@
     schema:description "It checks the use of existing vocabularies to describe the metadata"
     .       
     
-:myBCNMeasurementInterpretabilityViaf
+:myBNCMeasurementInterpretabilityViaf
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :interpretabilityViafMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -383,9 +383,9 @@
     schema:description "It checks the use of correct uris for the viaf resources"
     .      
     
- :myBCNMeasurementInterpretabilityIsni
+ :myBNCMeasurementInterpretabilityIsni
      a dqv:QualityMeasurement ;
-     dqv:computedOn :myBCNDataset ;
+     dqv:computedOn :myBNCDataset ;
      dqv:isMeasurementOf :interpretabilityIsniMetric ;
      dqv:value "1"^^xsd:decimal 
      .
@@ -400,9 +400,9 @@
      schema:description "It checks the use of correct uris for the Isni resources"
      .        
      
-:myBCNMeasurementInterpretabilityLabels
+:myBNCMeasurementInterpretabilityLabels
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :interpretabilityLabelsMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -417,9 +417,9 @@
     schema:description "It checks the use of languages for labels"
     .         
     
-:myBCNMeasurementVersatilitySerialisation
+:myBNCMeasurementVersatilitySerialisation
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :versatilitySerialisationMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -434,9 +434,9 @@
     schema:description "It checks the provision of metadata describing the serialisation formats available"
     .   
 
-:myBCNMeasurementVersatilityMultilingual
+:myBNCMeasurementVersatilityMultilingual
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :versatilityMultilingualMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -451,9 +451,9 @@
     schema:description "It checks the provision of multilingual labels"
     .   
     
-:myBCNMeasurementRelevancy
+:myBNCMeasurementRelevancy
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :relevancyMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -468,9 +468,9 @@
     schema:description "It checks whether the repository supports a ranking of statements in order to express the relative relevance of statements"
     .       
     
-:myBCNMeasurementConsistency
+:myBNCMeasurementConsistency
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :consistencyMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -485,9 +485,9 @@
     schema:description "It checks the consistency of statements with respect to class constraints"
     .  
     
-:myBCNMeasurementSemanticAccuracy
+:myBNCMeasurementSemanticAccuracy
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :semanticAccuracyMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -501,9 +501,9 @@
     schema:description "It checks the extent to which data are correct, reliable, and certified free of error"
     .         
     
-:myBCNMeasurementCompletenessPerson
+:myBNCMeasurementCompletenessPerson
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :completenessPersonMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -518,9 +518,9 @@
     schema:description "It checks the degree to which all required information is present in a particular dataset"
     .
     
-:myBCNMeasurementCompletenessWork
+:myBNCMeasurementCompletenessWork
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :completenessWorkMetric ;
     dqv:value "1"^^xsd:decimal 
     .
@@ -535,9 +535,9 @@
     schema:description "It checks the degree to which all required information is present in a particular dataset"
     .
     
-:myBCNMeasurementCompletenessPlace
+:myBNCMeasurementCompletenessPlace
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :completenessPlaceMetric ;
     dqv:value "0"^^xsd:decimal 
     .
@@ -552,9 +552,9 @@
     schema:description "It checks the degree to which all required information is present in a particular dataset"
     .                   
     
-:myBCNMeasurementCompletenessPopulation
+:myBNCMeasurementCompletenessPopulation
     a dqv:QualityMeasurement ;
-    dqv:computedOn :myBCNDataset ;
+    dqv:computedOn :myBNCDataset ;
     dqv:isMeasurementOf :completenessPopulationMetric ;
     dqv:value "0"^^xsd:decimal 
     .
