@@ -107,18 +107,18 @@
 :myBnfMeasurementInterlinkingPerson 
     a dqv:QualityMeasurement ;
     dqv:computedOn :myBnfDataset ;
-    dqv:isMeasurementOf :interlinkingMetric ;
+    dqv:isMeasurementOf :interlinkingPersonMetric ;
     dqv:value "0.44"^^xsd:decimal 
     .
 
-:interlinkingMetric
+:interlinkingPersonMetric
     a dqv:Metric ;
     skos:prefLabel "Interlinking-Person" ;
     skos:definition "It checks the extent to which resources in a repository are linked to external datasets"@en ;
     dqv:inDimension ldqd:interlinking ;
     dqv:expectedDataType xsd:decimal ;
     schema:query "PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX owl: <http://www.w3.org/2002/07/owl#>  SELECT (?cnt2/?cnt1 AS ?result) WHERE {{ {{ SELECT (count(DISTINCT ?s) as ?cnt1) WHERE {{ ?s rdf:type foaf:Person  }}  }} {{ SELECT (count(DISTINCT ?s) as ?cnt2) WHERE {{ ?s rdf:type foaf:Person . ?s owl:sameAs ?o . FILTER (!strstarts(str(?o), 'http://data.bnf')) }}  }} }}" ;
-    schema:description "It checks the extent to which resources in a repository are linked to external datasets" 
+    schema:description "It checks the extent to which resources describing authors in a repository are linked to external datasets" 
     .    
     
 :myBnfMeasurementInterlinkingWikidata 
