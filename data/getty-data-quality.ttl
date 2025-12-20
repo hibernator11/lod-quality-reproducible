@@ -29,6 +29,7 @@
     dqv:hasQualityMeasurement :myGettyMeasurementAvailability ;
     dqv:hasQualityMeasurement :myGettyMeasurementLicensing ;
     dqv:hasQualityMeasurement :myGettyMeasurementInterlinkingPerson ;
+    dqv:hasQualityMeasurement :myGettyMeasurementInterlinkingWork ;
     dqv:hasQualityMeasurement :myGettyMeasurementInterlinkingWikidata ;
     dqv:hasQualityMeasurement :myGettyMeasurementSecurity ; 
     dqv:hasQualityMeasurement :myGettyMeasurementPerformance ;
@@ -111,6 +112,22 @@
     dqv:inDimension ldqd:interlinking ;
     dqv:expectedDataType xsd:decimal ;
     schema:query "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX cidoc-crm: <http://www.cidoc-crm.org/cidoc-crm/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> SELECT (xsd:float(xsd:float(?totalLink)/xsd:float(?total)) AS ?result) WHERE {{ {{ SELECT (count(DISTINCT ?s) as ?total) WHERE {{ ?s rdf:type cidoc-crm:E21_Person }}  }} {{ SELECT (count(DISTINCT ?s) as ?totalLink) WHERE {{ ?s rdf:type cidoc-crm:E21_Person . ?s skos:exactMatch ?o }}  }} }}" ;
+    schema:description "It checks the extent to which resources in a repository are linked to external datasets" 
+    .    
+
+:myGettyMeasurementInterlinkingWork
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myGettyDataset ;
+    dqv:isMeasurementOf :interlinkingWorkMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:interlinkingWorkMetric
+    a dqv:Metric ;
+    skos:prefLabel "Interlinking-Work" ;
+    skos:definition "It checks the extent to which resources in a repository are linked to external datasets"@en ;
+    dqv:inDimension ldqd:interlinking ;
+    dqv:expectedDataType xsd:decimal ;
     schema:description "It checks the extent to which resources in a repository are linked to external datasets" 
     .    
     
