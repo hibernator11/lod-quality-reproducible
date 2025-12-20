@@ -150,7 +150,6 @@
     skos:definition "It checks the extent to which data is protected against alteration and misuse"@en ;
     dqv:inDimension ldqd:security ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX prov: <http://www.w3.org/ns/prov#> SELECT * WHERE {{{{?s prov:wasGeneratedBy ?o}} UNION {{?s a prov:Agent}}}} LIMIT {0}" ;
     schema:description "It checks the extent to which data is protected against alteration and misuse" 
     .        
     
