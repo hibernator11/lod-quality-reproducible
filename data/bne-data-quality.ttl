@@ -35,6 +35,7 @@
     dqv:hasQualityMeasurement :myBneMeasurementAvailability ;
     dqv:hasQualityMeasurement :myBneMeasurementLicensing ;
     dqv:hasQualityMeasurement :myBneMeasurementInterlinkingPerson ;
+    dqv:hasQualityMeasurement :myBneMeasurementInterlinkingWork ;
     dqv:hasQualityMeasurement :myBneMeasurementInterlinkingWikidata ;
     dqv:hasQualityMeasurement :myBneMeasurementSecurity ; 
     dqv:hasQualityMeasurement :myBneMeasurementPerformance ;
@@ -133,13 +134,30 @@
 
 :interlinkingPersonMetric
     a dqv:Metric ;
-    skos:prefLabel "Interlinking" ;
+    skos:prefLabel "Interlinking-Person" ;
     skos:definition "It checks the extent to which resources in a repository are linked to external datasets"@en ;
     dqv:inDimension ldqd:interlinking ;
     dqv:expectedDataType xsd:decimal ;
     schema:query "PREFIX def: <https://datos.bne.es/def/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> SELECT (xsd:float(xsd:float(?totalLink)/xsd:float(?total)) AS ?result) WHERE {{ {{ SELECT (count(DISTINCT ?s) as ?total) WHERE {{ ?s rdf:type def:C1005 }}  }} {{ SELECT (count(DISTINCT ?s) as ?totalLink) WHERE {{ ?s rdf:type def:C1005 . ?s owl:sameAs ?o . }}  }} }}" ;    
     schema:description "It checks the extent to which resources in a repository are linked to external datasets" 
     .    
+
+:myBneMeasurementInterlinkingWork
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBneDataset ;
+    dqv:isMeasurementOf :interlinkingWorkMetric ;
+    dqv:value "0.02"^^xsd:decimal 
+    .
+
+:interlinkingWorkMetric
+    a dqv:Metric ;
+    skos:prefLabel "Interlinking-Work" ;
+    skos:definition "It checks the extent to which resources in a repository are linked to external datasets"@en ;
+    dqv:inDimension ldqd:interlinking ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX def: <https://datos.bne.es/def/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> SELECT (xsd:float(xsd:float(?totalLink)/xsd:float(?total)) AS ?result) WHERE {{ {{ SELECT (count(DISTINCT ?s) as ?total) WHERE {{ ?s rdf:type def:C1001 }}  }} {{ SELECT (count(DISTINCT ?s) as ?totalLink) WHERE {{ ?s rdf:type def:C1001 . ?s owl:sameAs ?o . }}  }} }}" ;    
+    schema:description "It checks the extent to which resources in a repository are linked to external datasets" 
+    .  
     
 :myBneMeasurementInterlinkingWikidata 
     a dqv:QualityMeasurement ;
