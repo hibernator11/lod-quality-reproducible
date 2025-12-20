@@ -39,7 +39,8 @@
     dqv:hasQualityMeasurement :myLdfiMeasurementPerformance ;
     dqv:hasQualityMeasurement :myLdfiMeasurementSyntactic ;
     dqv:hasQualityMeasurement :myLdfiMeasurementConciseness ;
-    dqv:hasQualityMeasurement :myLdfiMeasurementTrustworthiness ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementTrustworthinessDataset ;
+    dqv:hasQualityMeasurement :myLdfiMeasurementTrustworthinessUnknown ;
     dqv:hasQualityMeasurement :myLdfiMeasurementUnderstandabilityLabels ;
     dqv:hasQualityMeasurement :myLdfiMeasurementUnderstandabilityVocabularies ;
     dqv:hasQualityMeasurement :myLdfiMeasurementUnderstandabilityURIPatterns ;
@@ -218,22 +219,38 @@
     schema:description "It refers to the minimisation of redundancy of entities at the schema"
     .        
     
-:myLdfiMeasurementTrustworthiness
+:myLdfiMeasurementTrustworthinessDataset
     a dqv:QualityMeasurement ;
     dqv:computedOn :myLdfiDataset ;
-    dqv:isMeasurementOf :trustworthinessMetric ;
+    dqv:isMeasurementOf :trustworthinessDatasetMetric ;
+    dqv:value "0.5"^^xsd:decimal 
+    .
+
+:trustworthinessDatasetMetric
+    a dqv:Metric ;
+    skos:definition "It refers to the degree to which the information is accepted to be correct, true, real and credible"@en ;
+    skos:prefLabel "Trustworthiness-Dataset" ;
+    dqv:inDimension ldqd:trustworthiness ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:description "It refers to the degree to which the information is accepted to be correct, true, real and credible"
+    .
+
+:myLdfiMeasurementTrustworthinessUnknown
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myLdfiDataset ;
+    dqv:isMeasurementOf :trustworthinessUnknownMetric ;
     dqv:value "0"^^xsd:decimal 
     .
 
-:trustworthinessMetric
+:trustworthinessUnknownMetric
     a dqv:Metric ;
     skos:definition "It refers to the degree to which the information is accepted to be correct, true, real and credible"@en ;
-    skos:prefLabel "Trustworthiness" ;
+    skos:prefLabel "Trustworthiness-Unknown" ;
     dqv:inDimension ldqd:trustworthiness ;
     dqv:expectedDataType xsd:decimal ;
     schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT * WHERE {{?s rdfs:label ?o . FILTER (?o = 'Unknown' || ?o = 'Anonymous' || ?o = 'Unknown value')}} LIMIT {0}" ;
     schema:description "It refers to the degree to which the information is accepted to be correct, true, real and credible"
-    .         
+    .
     
 :myLdfiMeasurementUnderstandabilityLabels
     a dqv:QualityMeasurement ;
