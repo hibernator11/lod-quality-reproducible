@@ -25,6 +25,8 @@
     void:feature <http://www.w3.org/ns/formats/RDF_XML>;
     void:sparqlEndpoint <https://datos.bne.es/sparql>;
     wdt:P5305 <https://datos.bne.es/sparql>;
+    void:classes 16;
+    void:properties 238;
     void:subset :myBne_autoridades;
     void:subset :myBne_materias;
     void:subset :myBne_bibliograficos;
@@ -41,6 +43,7 @@
     dqv:hasQualityMeasurement :myBneMeasurementPerformance ;
     dqv:hasQualityMeasurement :myBneMeasurementSyntactic ;
     dqv:hasQualityMeasurement :myBneMeasurementConciseness ;
+    dqv:hasQualityMeasurement :myBneMeasurementConcisenessWikidata ;
     dqv:hasQualityMeasurement :myBneMeasurementTrustworthiness ;
     dqv:hasQualityMeasurement :myBneMeasurementUnderstandabilityLabels ;
     dqv:hasQualityMeasurement :myBneMeasurementUnderstandabilityVocabularies ;
@@ -238,6 +241,22 @@
     dqv:inDimension ldqd:conciseness ;
     dqv:expectedDataType xsd:decimal ;
     schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?o ?type (COUNT(?s) AS ?total) WHERE {{?s a ?type . ?s owl:sameAs ?o }} GROUP BY ?o ?type HAVING(COUNT(?s)>1) LIMIT {0}" ;
+    schema:description "It refers to the minimisation of redundancy of entities at the schema"
+    .        
+
+:myBneMeasurementConcisenessWikidata 
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBneDataset ;
+    dqv:isMeasurementOf :concisenessWikidataMetric ;
+    dqv:value "0.99"^^xsd:decimal 
+    .
+
+:concisenessWikidataMetric
+    a dqv:Metric ;
+    skos:prefLabel "Conciseness-Wikidata" ;
+    skos:definition "It refers to the minimisation of redundancy of entities at the schema"@en ;
+    dqv:inDimension ldqd:conciseness ;
+    dqv:expectedDataType xsd:decimal ;
     schema:description "It refers to the minimisation of redundancy of entities at the schema"
     .        
     
