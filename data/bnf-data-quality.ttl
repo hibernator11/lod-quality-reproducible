@@ -36,6 +36,7 @@
     dqv:hasQualityMeasurement :myBnfMeasurementAvailability ;
     dqv:hasQualityMeasurement :myBnfMeasurementLicensing ;
     dqv:hasQualityMeasurement :myBnfMeasurementInterlinkingPerson ;
+    dqv:hasQualityMeasurement :myBnfMeasurementInterlinkingWork ; 
     dqv:hasQualityMeasurement :myBnfMeasurementInterlinkingWikidata ;    
     dqv:hasQualityMeasurement :myBnfMeasurementSecurity ; 
     dqv:hasQualityMeasurement :myBnfMeasurementPerformance ;
@@ -120,6 +121,23 @@
     schema:query "PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> SELECT (xsd:float(xsd:float(?totalLink)/xsd:float(?total)) AS ?result) WHERE {{ {{ SELECT (count(DISTINCT ?s) as ?total) WHERE {{ ?s rdf:type foaf:Person  }}  }} {{ SELECT (count(DISTINCT ?s) as ?totalLink) WHERE {{ ?s rdf:type foaf:Person . ?s owl:sameAs ?o . FILTER (!strstarts(str(?o), 'http://data.bnf')) }}  }} }}" ;
     schema:description "It checks the extent to which resources describing authors in a repository are linked to external datasets" 
     .    
+
+:myBnfMeasurementInterlinkingWork 
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBnfDataset ;
+    dqv:isMeasurementOf :interlinkingWorkMetric ;
+    dqv:value "0."^^xsd:decimal 
+    .
+
+:interlinkingWorkMetric
+    a dqv:Metric ;
+    skos:prefLabel "Interlinking-Work" ;
+    skos:definition "It checks the extent to which resources in a repository are linked to external datasets"@en ;
+    dqv:inDimension ldqd:interlinking ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> SELECT (xsd:float(xsd:float(?totalLink)/xsd:float(?total)) AS ?result) WHERE {{ {{ SELECT (count(DISTINCT ?s) as ?total) WHERE {{ ?s rdf:type <http://rdvocab.info/uri/schema/FRBRentitiesRDA/Work>  }}  }} {{ SELECT (count(DISTINCT ?s) as ?totalLink) WHERE {{ ?s rdf:type <http://rdvocab.info/uri/schema/FRBRentitiesRDA/Work> . ?s owl:sameAs ?o . FILTER (!strstarts(str(?o), 'http://data.bnf')) }}  }} }}" ;
+    schema:description "It checks the extent to which resources describing authors in a repository are linked to external datasets" 
+    . 
     
 :myBnfMeasurementInterlinkingWikidata 
     a dqv:QualityMeasurement ;
