@@ -29,6 +29,7 @@
     dqv:hasQualityMeasurement :myCRBMeasurementAvailability ;
     dqv:hasQualityMeasurement :myCRBMeasurementLicensing ;
     dqv:hasQualityMeasurement :myCRBMeasurementInterlinkingPerson ;
+    dqv:hasQualityMeasurement :myCRBMeasurementInterlinkingWork ;
     dqv:hasQualityMeasurement :myCRBMeasurementInterlinkingWikidata ;  
     dqv:hasQualityMeasurement :myCRBMeasurementSecurity ; 
     dqv:hasQualityMeasurement :myCRBMeasurementPerformance ;
@@ -106,10 +107,27 @@
 
 :interlinkingPersonMetric
     a dqv:Metric ;
-    skos:prefLabel "Interlinking" ;
+    skos:prefLabel "Interlinking-Person" ;
     skos:definition "It checks the extent to which resources in a repository are linked to external datasets"@en ;
     dqv:inDimension ldqd:interlinking ;
     dqv:expectedDataType xsd:decimal ;
+    schema:description "It checks the extent to which resources in a repository are linked to external datasets" 
+    .    
+
+:myCRBMeasurementInterlinkingWork
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myCRBDataset ;
+    dqv:isMeasurementOf :interlinkingWorkMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:interlinkingWorkMetric
+    a dqv:Metric ;
+    skos:prefLabel "Interlinking-Work" ;
+    skos:definition "It checks the extent to which resources in a repository are linked to external datasets"@en ;
+    dqv:inDimension ldqd:interlinking ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:query "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX bf: <http://id.loc.gov/ontologies/bibframe/> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> SELECT (xsd:float(xsd:float(?totalLink)/xsd:float(?total)) AS ?result) FROM <http://data.ascdc.tw/Book/crb/> WHERE {{ {{ SELECT (count(DISTINCT ?s) as ?total) WHERE {{ ?s bf:hasInstance ?Instance }}  }} {{ SELECT (count(DISTINCT ?s) as ?totalLink) WHERE {{ ?s bf:hasInstance ?Instance . ?s owl:sameAs ?link }}  }} }}" ;
     schema:description "It checks the extent to which resources in a repository are linked to external datasets" 
     .    
 
