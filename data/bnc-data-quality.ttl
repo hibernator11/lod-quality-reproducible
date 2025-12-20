@@ -23,12 +23,13 @@
     dcterms:issued "2021-04-01"^^xsd:date;
     dcterms:license <https://creativecommons.org/licenses/by-nc/4.0/deed.en>;
     void:feature <http://www.w3.org/ns/formats/RDF_XML>;
-    void:sparqlEndpoint <https://datos.BNC.cl/sparql>;
-    wdt:P5305 <https://datos.BNC.cl/sparql>;
+    void:sparqlEndpoint <https://datos.bcn.cl/sparql>;
+    wdt:P5305 <https://datos.bcn.cl/sparql>;
     void:vocabulary <http://purl.org/dc/elements/1.1/>;
     dqv:hasQualityMeasurement :myBNCMeasurementAvailability ;
     dqv:hasQualityMeasurement :myBNCMeasurementLicensing ;
     dqv:hasQualityMeasurement :myBNCMeasurementInterlinkingPerson ;
+    dqv:hasQualityMeasurement :myBNCMeasurementInterlinkingWork ;
     dqv:hasQualityMeasurement :myBNCMeasurementInterlinkingWikidata ;  
     dqv:hasQualityMeasurement :myBNCMeasurementSecurity ; 
     dqv:hasQualityMeasurement :myBNCMeasurementPerformance ;
@@ -100,13 +101,29 @@
 :myBNCMeasurementInterlinkingPerson
     a dqv:QualityMeasurement ;
     dqv:computedOn :myBNCDataset ;
-    dqv:isMeasurementOf :interlinkingMetric ;
+    dqv:isMeasurementOf :interlinkingPersonMetric ;
     dqv:value "0"^^xsd:decimal 
     .
 
 :interlinkingPersonMetric
     a dqv:Metric ;
-    skos:prefLabel "Interlinking" ;
+    skos:prefLabel "Interlinking-Person" ;
+    skos:definition "It checks the extent to which resources in a repository are linked to external datasets"@en ;
+    dqv:inDimension ldqd:interlinking ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:description "It checks the extent to which resources in a repository are linked to external datasets" 
+    .    
+
+:myBNCMeasurementInterlinkingWork
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBNCDataset ;
+    dqv:isMeasurementOf :interlinkingWorkMetric ;
+    dqv:value "0"^^xsd:decimal 
+    .
+
+:interlinkingWorkMetric
+    a dqv:Metric ;
+    skos:prefLabel "Interlinking-Work" ;
     skos:definition "It checks the extent to which resources in a repository are linked to external datasets"@en ;
     dqv:inDimension ldqd:interlinking ;
     dqv:expectedDataType xsd:decimal ;
