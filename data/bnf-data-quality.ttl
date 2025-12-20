@@ -126,7 +126,7 @@
     a dqv:QualityMeasurement ;
     dqv:computedOn :myBnfDataset ;
     dqv:isMeasurementOf :interlinkingWorkMetric ;
-    dqv:value "0."^^xsd:decimal 
+    dqv:value "0.02"^^xsd:decimal 
     .
 
 :interlinkingWorkMetric
