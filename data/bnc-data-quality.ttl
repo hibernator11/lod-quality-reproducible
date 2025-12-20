@@ -35,6 +35,7 @@
     dqv:hasQualityMeasurement :myBNCMeasurementPerformance ;
     dqv:hasQualityMeasurement :myBNCMeasurementSyntactic ;
     dqv:hasQualityMeasurement :myBNCMeasurementConciseness ;
+    dqv:hasQualityMeasurement :myBNCMeasurementConcisenessWikidata ;
     dqv:hasQualityMeasurement :myBNCMeasurementTrustworthiness ;
     dqv:hasQualityMeasurement :myBNCMeasurementUnderstandabilityLabels ;
     dqv:hasQualityMeasurement :myBNCMeasurementUnderstandabilityVocabularies ;
@@ -210,7 +211,23 @@
     dqv:expectedDataType xsd:decimal ;
     schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT ?o ?type (COUNT(?s) AS ?total) WHERE {{?s a ?type . ?s owl:sameAs ?o }} GROUP BY ?o ?type HAVING(COUNT(?s)>1) LIMIT {0}" ;
     schema:description "It refers to the minimisation of redundancy of entities at the schema"
-    .        
+    .     
+
+:myBNCMeasurementConcisenessWikidata 
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBNCDataset ;
+    dqv:isMeasurementOf :concisenessWikidataMetric ;
+    dqv:value "0.93"^^xsd:decimal 
+    .
+
+:concisenessWikidataMetric
+    a dqv:Metric ;
+    skos:prefLabel "Conciseness-Wikidata" ;
+    skos:definition "It refers to the minimisation of redundancy of entities at the schema"@en ;
+    dqv:inDimension ldqd:conciseness ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:description "It refers to the minimisation of redundancy of entities at the schema"
+    .     
     
 :myBNCMeasurementTrustworthiness
     a dqv:QualityMeasurement ;
