@@ -104,17 +104,17 @@
 :myLdfiMeasurementInterlinkingPerson 
     a dqv:QualityMeasurement ;
     dqv:computedOn :myLdfiDataset ;
-    dqv:isMeasurementOf :interlinkingMetric ;
+    dqv:isMeasurementOf :interlinkingPersonMetric ;
     dqv:value "0.67"^^xsd:decimal 
     .
 
-:interlinkingMetric
+:interlinkingPersonMetric
     a dqv:Metric ;
     skos:prefLabel "Interlinking-Person" ;
     skos:definition "It checks the extent to which resources in a repository are linked to external datasets"@en ;
     dqv:inDimension ldqd:interlinking ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT * WHERE {{?s owl:sameAs ?o}} LIMIT {0}" ;
+    schema:query "PREFIX cidoc-crm: <http://www.cidoc-crm.org/cidoc-crm/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> SELECT (xsd:float(xsd:float(?totalLink)/xsd:float(?total)) AS ?result) WHERE {{ {{ SELECT (count(DISTINCT ?s) as ?total) WHERE {{ ?s rdf:type cidoc-crm:E21_Person }}  }} {{ SELECT (count(DISTINCT ?s) as ?totalLink) WHERE {{ ?s rdf:type cidoc-crm:E21_Person . ?s <http://ldf.fi/schema/lssc/is_related_to> ?o }}  }} }}" ;
     schema:description "It checks the extent to which resources in a repository are linked to external datasets" 
     .    
 
@@ -147,7 +147,6 @@
     skos:definition "It checks the extent to which data is protected against alteration and misuse"@en ;
     dqv:inDimension ldqd:security ;
     dqv:expectedDataType xsd:decimal ;
-    schema:query "PREFIX prov: <http://www.w3.org/ns/prov#> SELECT * WHERE {{{{?s prov:wasGeneratedBy ?o}} UNION {{?s a prov:Agent}}}} LIMIT {0}" ;
     schema:description "It checks the extent to which data is protected against alteration and misuse" 
     .        
     
