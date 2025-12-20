@@ -28,7 +28,7 @@
     void:vocabulary <http://id.loc.gov/ontologies/bibframe/>;
     dqv:hasQualityMeasurement :myCRBMeasurementAvailability ;
     dqv:hasQualityMeasurement :myCRBMeasurementLicensing ;
-    dqv:hasQualityMeasurement :myCRBMeasurementInterlinking ;
+    dqv:hasQualityMeasurement :myCRBMeasurementInterlinkingPerson ;
     dqv:hasQualityMeasurement :myCRBMeasurementInterlinkingWikidata ;  
     dqv:hasQualityMeasurement :myCRBMeasurementSecurity ; 
     dqv:hasQualityMeasurement :myCRBMeasurementPerformance ;
