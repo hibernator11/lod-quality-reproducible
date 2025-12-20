@@ -151,7 +151,7 @@
     a dqv:QualityMeasurement ;
     dqv:computedOn :myCRBDataset ;
     dqv:isMeasurementOf :securityMetric ;
-    dqv:value "0"^^xsd:decimal 
+    dqv:value "1"^^xsd:decimal 
     .
 
 :securityMetric
