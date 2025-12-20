@@ -36,7 +36,8 @@
     dqv:hasQualityMeasurement :myBNCMeasurementSyntactic ;
     dqv:hasQualityMeasurement :myBNCMeasurementConciseness ;
     dqv:hasQualityMeasurement :myBNCMeasurementConcisenessWikidata ;
-    dqv:hasQualityMeasurement :myBNCMeasurementTrustworthiness ;
+    dqv:hasQualityMeasurement :myBNCMeasurementTrustworthinessDataset ;
+    dqv:hasQualityMeasurement :myBNCMeasurementTrustworthinessUnknown ;
     dqv:hasQualityMeasurement :myBNCMeasurementUnderstandabilityLabels ;
     dqv:hasQualityMeasurement :myBNCMeasurementUnderstandabilityVocabularies ;
     dqv:hasQualityMeasurement :myBNCMeasurementUnderstandabilityURIPatterns ;
@@ -229,17 +230,33 @@
     schema:description "It refers to the minimisation of redundancy of entities at the schema"
     .     
     
-:myBNCMeasurementTrustworthiness
+:myBNCMeasurementTrustworthinessDataset
     a dqv:QualityMeasurement ;
     dqv:computedOn :myBNCDataset ;
-    dqv:isMeasurementOf :trustworthinessMetric ;
+    dqv:isMeasurementOf :trustworthinessDatasetMetric ;
+    dqv:value "1"^^xsd:decimal 
+    .
+
+:trustworthinessDatasetMetric
+    a dqv:Metric ;
+    skos:definition "It refers to the degree to which the information is accepted to be correct, true, real and credible"@en ;
+    skos:prefLabel "Trustworthiness-Dataset" ;
+    dqv:inDimension ldqd:trustworthiness ;
+    dqv:expectedDataType xsd:decimal ;
+    schema:description "It refers to the degree to which the information is accepted to be correct, true, real and credible"
+    .         
+
+:myBNCMeasurementTrustworthinessUnknown
+    a dqv:QualityMeasurement ;
+    dqv:computedOn :myBNCDataset ;
+    dqv:isMeasurementOf :trustworthinessUnknownMetric ;
     dqv:value "0"^^xsd:decimal 
     .
 
-:trustworthinessMetric
+:trustworthinessUnknownMetric
     a dqv:Metric ;
     skos:definition "It refers to the degree to which the information is accepted to be correct, true, real and credible"@en ;
-    skos:prefLabel "Trustworthiness" ;
+    skos:prefLabel "Trustworthiness-Unknown" ;
     dqv:inDimension ldqd:trustworthiness ;
     dqv:expectedDataType xsd:decimal ;
     schema:query "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT * WHERE {{?s rdfs:label ?o . FILTER (?o = 'Unknown' || ?o = 'Anonymous' || ?o = 'Unknown value')}} LIMIT {0}" ;
