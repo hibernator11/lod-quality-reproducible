@@ -323,7 +323,7 @@
     a dqv:QualityMeasurement ;
     dqv:computedOn :myLdfiDataset ;
     dqv:isMeasurementOf :timelinessMetric ;
-    dqv:value "0"^^xsd:decimal 
+    dqv:value "0.5"^^xsd:decimal 
     .
 
 :timelinessMetric
