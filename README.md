@@ -14,6 +14,8 @@ In order to assess a wide diversity of datasets in terms of location and languag
 - Getty Research Institute - Provenance Index - https://data.getty.edu/provenance
 - LetterSampo Correspondence - http://ldf.fi/corresp/sparql
 
+<img src="interface.png">
+
 ### How to cite
 
 Gustavo Candela, Dişli, M., Dobreva, M., & Chambers, S. (2025). hibernator11/lod-quality-reproducible: V1 (Versión V1). Zenodo. https://doi.org/10.5281/zenodo.17609252
