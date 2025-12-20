@@ -365,7 +365,7 @@
     a dqv:QualityMeasurement ;
     dqv:computedOn :myBneDataset ;
     dqv:isMeasurementOf :timelinessMetric ;
-    dqv:value "0"^^xsd:decimal 
+    dqv:value "0.5"^^xsd:decimal 
     .
 
 :timelinessMetric
