@@ -29,7 +29,7 @@ The code can be also installed in a computer by following these steps:
 - open Jupyter (or Anaconda)
 - open the notebook provided: lod-quality-glam-reproducible.ipynb
 
-In order to assess new datasets is required to create a new configuration file following as example the ones provided in the folder [data](/data). Then, all the SPARQL queries can be reviewed in order to check their suitability for the dataset. In a similar way, the data quality criteria provided can be extended by enhancing the configuration file and including the new criteria. There is an additional notebook to illustrate how the code works. 
+In order to assess new datasets is required to create a new configuration file following as example the ones provided in the folder [data](/data). Then, all the SPARQL queries can be reviewed in order to check their suitability for the dataset. In a similar way, the data quality criteria provided can be extended by enhancing the configuration file and including the new criteria. There is an additional notebook to illustrate how the code works demonstrating how to generate and reuse the results for different purposes. The following picutre illustrates the process.
 
 <img src="fwk.png">
 
